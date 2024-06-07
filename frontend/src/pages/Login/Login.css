@@ -1,3 +1,23 @@
+.page-container {
+  display: flex;
+}
+
+.image-container {
+  flex: 1;
+  padding: 20px;
+  margin-top: 45px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.login-container {
+  flex: 1;
+  padding: 0px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -43,6 +63,7 @@
   height: 80px;
   background: #eaeaea;
   border-radius: 6px;
+  align-items: center;
 }
 
 .input input {
@@ -53,6 +74,8 @@
   outline: none;
   color: #797979;
   font-size: 19px;
+  text-align: center; /* Centering the placeholder text */
+  padding: 0 16px;
 }
 
 .forget-password {
