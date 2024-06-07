@@ -1,14 +1,48 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import auth from "../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithGoogle,
+  useCreateUserWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import GoogleButton from "react-google-button";
 import { Link, useNavigate } from "react-router-dom";
+
 const Signup = () => {
   const navigate = useNavigate();
-  const [signInWithGoogle, googleuser, googleloading, googleerror] =
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const [createUserWithEmailAndPassword, user, loading, createUserError] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await createUserWithEmailAndPassword(email, password);
+      const newUser = { name, email };
+      const response = await fetch(`http://localhost:5000/register`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(newUser),
+      });
+      const data = await response.json();
+      if (data.acknowledged) {
+        console.log(data);
+        navigate("/");
+      } else {
+        setError("Failed to register user.");
+      }
+    } catch (err) {
+      setError(err.message);
+      window.alert(err.message);
+    }
+  };
+
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
@@ -22,35 +56,39 @@ const Signup = () => {
         createdAt: new Date(),
         updatedAt: new Date(),
       };
-
-      fetch(`http://localhost:5000/register`, {
+      const response = await fetch(`http://localhost:5000/register`, {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
+        headers: { "content-type": "application/json" },
         body: JSON.stringify(user),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            console.log(data);
-            navigate("/home");
-          }
-        });
-    } catch (error) {
-      console.log(error.message);
-      console.log(error);
+      });
+      const data = await response.json();
+      if (data.acknowledged) {
+        console.log(data);
+        navigate("/");
+      } else {
+        setError("Failed to register user.");
+      }
+    } catch (err) {
+      setError(err.message);
+      window.alert(err.message);
     }
   };
 
-  if (googleerror) {
-    console.log(googleerror.message);
+  if (createUserError) {
+    console.log(createUserError.message);
   }
-  if (googleloading) {
+  if (loading) {
+    console.log("loading...");
+  }
+  if (googleError) {
+    console.log(googleError.message);
+  }
+  if (googleLoading) {
     console.log("loading...");
   }
 
   const [action, setAction] = useState("Sign Up");
+
   return (
     <div className="page-container">
       <div className="image-container">
@@ -62,56 +100,50 @@ const Signup = () => {
             <div className="text">{action}</div>
             <div className="underline"></div>
           </div>
-
-          <div className="inputs">
-            {action === "Login" ? (
-              <div></div>
-            ) : (
+          <form onSubmit={handleSubmit}>
+            <div className="inputs">
               <div className="input">
-                <input placeholder="Your Name" type="text" />
+                <input
+                  placeholder="Your Name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
-            )}
-
-            <div className="input">
-              <input type="email" placeholder="Your Email"></input>
+              <div className="input">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="input">
+                <input
+                  type="password"
+                  placeholder="Your Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
             </div>
 
-            <div className="input">
-              <input type="password" placeholder="Your Password"></input>
+            <div className="submit-container">
+              <button
+                type="submit"
+                className={action === "Login" ? "submit gray" : "submit"}
+              >
+                Sign Up
+              </button>
+              <button
+                type="button"
+                className={action === "Sign Up" ? "submit gray" : "submit"}
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
             </div>
-          </div>
-          {action === "Sign Up" ? (
-            <div></div>
-          ) : (
-            <div className="forget-password">
-              Forgot Password?
-              <span>Click Here</span>
-            </div>
-          )}
-
-          <div className="submit-container">
-            <div
-              className={action === "Login" ? "submit gray" : "submit"}
-              onClick={() => {
-                setAction("SignUp");
-              }}
-            >
-              Sign Up
-            </div>
-            <div
-              className={action === "Sign Up" ? "submit gray" : "submit"}
-              onClick={() => {
-                setAction("Login");
-              }}
-            >
-              Login
-            </div>
-          </div>
-        </div>
-
-        <div className="form-container">
-          <div className="">
-            <hr />
+            <h3>OR</h3>
             <div className="google-button">
               <GoogleButton
                 className="g-btn"
@@ -119,21 +151,7 @@ const Signup = () => {
                 onClick={handleGoogleSignIn}
               />
             </div>
-            <div>
-              Already have an account?
-              <Link
-                to="/login"
-                style={{
-                  textDecoration: "none",
-                  color: "var(--twitter-color)",
-                  fontWeight: "600",
-                  marginLeft: "5px",
-                }}
-              >
-                Log In
-              </Link>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
