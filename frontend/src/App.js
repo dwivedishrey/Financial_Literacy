@@ -19,12 +19,12 @@ function App() {
     <div className="App">
     <BrowserRouter>
     <Routes>
-    <Route path='/' element={<Main />}/>
+    <Route path='/main' element={<Main />}/>
     <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute> }>
        
       </Route>
     
-      <Route path='/' element={<Main />}/>
+     
       <Route path='/login' element={<Login />}/>
       <Route path='/signup' element={<Signup />}/>
       <Route path='/page-loading' element={<PageLoading />}/>
