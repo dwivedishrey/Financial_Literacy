@@ -39,6 +39,8 @@ const Login = () => {
     console.log('Setting user globally:', userId);
     setUserGlobally({ user_id: userId });
     navigate("/dashboard");
+    navigate("/home");
+    console.log(googleuser);
   }
   const [action, setAction] = useState("LogIn");
 
