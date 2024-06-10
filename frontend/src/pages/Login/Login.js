@@ -7,11 +7,13 @@ import GoogleButton from "react-google-button";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import "./Login.css";
+import { useGlobalContext } from "../Context/globalContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUserGlobally  } = useGlobalContext(); 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleuser, googleloading, googleerror] =
@@ -21,17 +23,23 @@ const Login = () => {
     signInWithGoogle();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(email, password);
-    signInWithEmailAndPassword(email, password);
+    try {
+      await signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
   };
-
+  
   if (user || googleuser) {
-    navigate("/");
-    console.log(googleuser);
+    console.log(user)
+    const userId = user ? user.user_id : googleuser.uid;
+    console.log('Setting user globally:', userId);
+    setUserGlobally({ user_id: userId });
+    navigate("/dashboard");
   }
-
   const [action, setAction] = useState("LogIn");
 
   return (

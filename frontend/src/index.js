@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { GlobalProvider } from './pages/Context/globalContext';
 
+import { GlobalStyle } from './pages/styles/GlobalStyle';
 const theme = createTheme();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,8 +15,12 @@ root.render(
   <ThemeProvider theme={theme}>
     
       <React.StrictMode>
+      <GlobalStyle/>
+      <GlobalProvider>
         <App />
+        </GlobalProvider>
       </React.StrictMode>
+    
     
   </ThemeProvider>
 );
