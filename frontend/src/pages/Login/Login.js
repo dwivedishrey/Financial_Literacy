@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   if (user || googleuser) {
-    navigate("/");
+    navigate("/home");
     console.log(googleuser);
   }
 
