@@ -10,26 +10,40 @@ export const GlobalProvider = ({ children }) => {
     const [incomes, setIncomes] = useState([]);
     const [expenses, setExpenses] = useState([]);
     const [error, setError] = useState(null);
-    const [user, setUser] = useState(null); // Store user information
+    const [users, setUser] = useState(null); 
+    const [message,setMessage]=useState(null);
     
     const setUserGlobally = (userData) => {
         if (userData) {
             setUser(userData);
+            localStorage.setItem('user', JSON.stringify(userData));
             console.log("User set globally:", userData);
         } else {
             console.error("Trying to set user globally with null or undefined value");
         }
     };
-    // Ensure user ID is present in the request
-    console.log(user)
-    const getUserPayload = () => {
-        return user ? { user_id: user} : {};
-    };
+    
    
+    const getUserPayload = () => {
+        return users ? { user_id: users.user_id} : {};
+    };
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
 
-    // Add Income
+    useEffect(() => {
+        console.log("Current user:", users);
+    }, [users]);
+    const logout = () => {
+        setUser(null);
+        localStorage.removeItem('user');
+    };
+
     const addIncome = async (income) => {
-        if (user==null) {
+        if (users==null) {
             setError("User not then authenticated");
             return;
         }
@@ -37,15 +51,16 @@ export const GlobalProvider = ({ children }) => {
             const payload = { ...income, ...getUserPayload() };
             const response = await axios.post(`${BASE_URL}add-income`, payload);
             console.log(response.data);
+            setMessage("Income Added")
+            setTimeout(() => setMessage(null), 3000);
             getIncomes();
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
         }
     };
 
-    // Get Incomes
     const getIncomes = async () => {
-        if (!user) {
+        if (!users) {
             setError("User not authenticated");
             return;
         }
@@ -78,9 +93,16 @@ export const GlobalProvider = ({ children }) => {
 
     // Add Expense
     const addExpense = async (expense) => {
+        if (users==null) {
+            setError("User not then authenticated");
+            return;
+        }
         try {
             const payload = { ...expense, ...getUserPayload() };
             const response = await axios.post(`${BASE_URL}add-expense`, payload);
+            console.log(response.data);
+            setMessage("Expense Added")
+            setTimeout(() => setMessage(null), 3000);
             getExpenses();
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
@@ -89,13 +111,18 @@ export const GlobalProvider = ({ children }) => {
 
     // Get Expenses
     const getExpenses = async () => {
+        if (!users) {
+            setError("User not authenticated");
+            return;
+        }
         try {
-            const response = await axios.post(`${BASE_URL}get-expense`, getUserPayload());
+            const payload = getUserPayload();
+            const response = await axios.get(`${BASE_URL}get-expense`, { params: payload });
+            console.log("Fetched Expense: ", response.data);
             setExpenses(response.data);
-            console.log(response.data);
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
-            console.error("Error fetching expenses:", err);
+            console.error("Error fetching incomes:", err);
         }
     };
 
@@ -143,7 +170,10 @@ export const GlobalProvider = ({ children }) => {
             transactionHistory,
             error,
             setError,
-            setUserGlobally 
+            setUserGlobally ,
+            users,
+            logout,
+            message
             
             
         }}>

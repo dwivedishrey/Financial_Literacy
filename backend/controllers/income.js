@@ -1,5 +1,7 @@
 const Income = require("../models/IncomeModel");
 const mongoose = require('mongoose');
+const { users } = require('../db/db');
+
 exports.addIncome = async (req, res) => {
     const { title, amount, category, description, date, user_id} = req.body;
     

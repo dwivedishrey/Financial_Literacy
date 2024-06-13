@@ -11,5 +11,8 @@ const db = async () => {
         throw error; // Throw the error to handle it in the caller function
     }
 };
-
-module.exports = { db };
+async function getUserCollection() {
+    const database = await connectDB();
+    return database.collection('users');
+  }
+module.exports = { db,getUserCollection, };

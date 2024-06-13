@@ -5,12 +5,13 @@ import Form from '../Form/Form';
 import { useGlobalContext } from '../Context/globalContext';
 import IncomeItem from '../IncomeItem/IncomeItem';
 import { InnerLayout } from '../styles/Layout';
+import Message from '../Dashboard/Message/Message';
 
 function Income() {
-  const { incomes, getIncomes, deleteIncome, user } = useGlobalContext();
+  const { incomes, getIncomes, deleteIncome, users } = useGlobalContext();
 
   useEffect(() => {
-    if (user) {
+    if (users) {
       getIncomes(); // Fetch incomes when the component mounts
     }
   }, []);
@@ -20,7 +21,7 @@ function Income() {
       <IncomeStyled>
         <InnerLayout>
           <h1>Incomes</h1>
-         
+         <Message/>
           <div className="income-content">
             <div className="form-container">
               <Form />

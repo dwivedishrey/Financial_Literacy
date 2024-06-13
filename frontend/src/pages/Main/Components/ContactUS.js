@@ -36,30 +36,7 @@ const ContactUS = () => {
         <p>Connect with us through email and give your feedback for services provided by us, let us connect, lets earn together and grow together.
         </p>
         </div>
-        {/* </div> */}
-      {/* <div className='contact-container'>
-        <div className='contactInfo'>
-          <div className='contact-box'>
-    
-            <div className='contact-text'>
-              <h3>Address</h3>
-              <p>4671 Sugar Camp Road, Owatonna, Minnesota55060</p>
-            </div>
-          </div>
-          <div className='contact-box'>
-            <div className='contact-text'>
-              <h3>Phone</h3>
-              <p>467-570-6725</p>
-            </div>
-          </div>
-          <div className='contact-box'>
-            <div className='contact-text'>
-              <h3>Email</h3>
-              <p>ArthaMarga5368@temporary-mail.net</p>
-            </div>
-          </div>
-        </div>
-       */}
+  
       
       <div className='contact-form'>
         <h2>Send Message</h2>
