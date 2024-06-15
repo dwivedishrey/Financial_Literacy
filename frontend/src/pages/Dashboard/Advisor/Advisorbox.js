@@ -16,7 +16,7 @@ const Advisorbox = ({ image,name, ratings,price }) => {
           <Typography
             variant="h4"
             fontWeight="bold"
-            sx={{ color: colors.grey[100] ,marginTop:"10px"}}
+            sx={{ color: colors.grey[700] ,marginTop:"10px"}}
           >
             {name}
           </Typography>
@@ -24,13 +24,13 @@ const Advisorbox = ({ image,name, ratings,price }) => {
         
       </Box>
       <Box display="flex" justifyContent="space-between" >
-        <Typography variant="h5" sx={{ color: colors.greenAccent[100]}}>
+        <Typography variant="h5" sx={{ color: colors.grey[500]}}>
         <img style={{ width:"10px",height:"10px"}} src={star}/> {ratings}
         </Typography>
         <Typography
           variant="h5"
           fontStyle="italic"
-          sx={{ color: colors.greenAccent[100] }}
+          sx={{ color: colors.grey[500] }}
         >
         {price}
         </Typography>

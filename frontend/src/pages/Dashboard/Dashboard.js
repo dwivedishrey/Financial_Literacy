@@ -8,7 +8,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
 import LineChart from "./components/LineChart";
 import GeographyChart from "./components/GeographyChart";
-import BarChart from "./components/BarChart";
+
 import StatBox from "./components/StatBox";
 import ProgressCircle from "./components/ProgressCircle";
 import Header from "./components/Header";
@@ -19,19 +19,46 @@ import "react-pro-sidebar/dist/css/styles.css";
 import FeedIcon from '@mui/icons-material/Feed';
 import { useGlobalContext } from "../Context/globalContext";
 import Chart from "./Chart/Chart";
+import PieChart from "./Chart/Pie";
+import BarChart from "./Chart/Bar";
+import Pieincome from "./Chart/Pieincome";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const { users } = useGlobalContext();
+  const { totalBalance } = useGlobalContext();
 
   return (
-    <Box m="20px">
+    <Box m="20px"  >
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
 
        
+      </Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor={colors.primary[400]}
+        p="20px"
+        borderRadius="10px"
+        mb="20px"
+        sx={{
+          boxShadow: "0px 5px 10px rgba(0,0,0,0.1)",
+        
+        }}
+      >
+        <Typography
+          variant="h4"
+          fontWeight="600"
+          color={colors.grey[500]}
+          
+          
+        >
+          Total Balance: ${totalBalance()}
+        </Typography>
       </Box>
 
       {/* GRID & CHARTS */}
@@ -48,6 +75,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title="Investment"
@@ -63,6 +91,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title="Savings"
@@ -79,6 +108,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title="Budgeting"
@@ -95,6 +125,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title="Stocks"
@@ -110,6 +141,7 @@ const Dashboard = () => {
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          
         >
           <Box
             mt="25px"
@@ -117,19 +149,20 @@ const Dashboard = () => {
             display="flex "
             justifyContent="space-between"
             alignItems="center"
+            borderRadius="10px"
           >
             <Box>
               <Typography
                 variant="h5"
                 fontWeight="600"
-                color={colors.grey[100]}
+                color={colors.grey[700]}
               >
                 Recent News
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
-                color={colors.greenAccent[600]}
+                color={colors.grey[600]}
               >
                 
               </Typography>
@@ -137,7 +170,7 @@ const Dashboard = () => {
             <Box>
               <IconButton>
                 <FeedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[600] }}
+                  sx={{ fontSize: "26px", color: colors.grey[500] }}
                 />
               </IconButton>
             </Box>
@@ -159,11 +192,12 @@ const Dashboard = () => {
             borderBottom={`4px solid ${colors.primary[600]}`}
             colors={colors.grey[100]}
             p="15px"
+            borderRadius="10px"
           >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+            <Typography color={colors.grey[700]} variant="h5" fontWeight="600">
+              Sources of Income
+              <Pieincome />
             </Typography>
-            
           </Box>
          
         </Box>
@@ -176,46 +210,31 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Stock Analysis
+            Month Wise
           </Typography>
           <Box
             display="flex"
             flexDirection="column"
             alignItems="center"
             mt="25px"
+            borderRadius="10px"
           >
             
             <Typography
-              variant="h5"
-              color={colors.greenAccent[600]}
-              sx={{ mt: "15px" }}
-            >
-              Rs48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
-          </Box>
-        </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-        >
-          <Typography
             variant="h5"
             fontWeight="600"
-            sx={{ padding: "30px 30px 0 30px" }}
+            sx={{ marginBottom: "15px" }}
           >
-            Savings
+          
+            <BarChart/>
           </Typography>
-          <Box height="250px" mt="-20px">
-            
+          <Box height="250px" mt="-20px"></Box>
           </Box>
         </Box>
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          padding="30px"
         >
           <Typography
             variant="h5"
@@ -223,7 +242,24 @@ const Dashboard = () => {
             sx={{ marginBottom: "15px" }}
           >
             Expenses
-            <Chart/>
+            <PieChart/>
+          </Typography>
+          
+        </Box>
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+          
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ marginBottom: "15px" }}
+          >
+            Expenses
+           
           </Typography>
           
         </Box>

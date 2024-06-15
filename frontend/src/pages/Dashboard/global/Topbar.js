@@ -37,10 +37,8 @@ const Topbar = () => {
         backgroundColor={colors.primary[400]}
         borderRadius="3px"
       >
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
+
+        
       </Box>
       <button style={{backgroundColor:"#1F2A40",fontSize:"20px",padding:"10px",fontWeight:"600"}} onClick={handleLogout}>Logout</button>
       {/* ICONS */}

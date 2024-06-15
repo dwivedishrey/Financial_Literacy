@@ -26,7 +26,7 @@ const Calculators = () => {
         <Header  title="Calculators" />
         <hr />
 
-        <p style={{marginTop:"15px",fontSize:"15px",color:"#3da58a"}}>Financial calculators are indispensable tools for anyone looking to make informed financial decisions. Whether you are planning to take out a loan, save for a future goal, or manage your daily expenses, financial calculators provide clarity and direction. They transform complex financial concepts into easily understandable numbers, helping users to visualize their financial future and make well-informed decisions.</p>
+        <p style={{marginTop:"15px",fontSize:"15px",color:"#1679AB"}}>Financial calculators are indispensable tools for anyone looking to make informed financial decisions. Whether you are planning to take out a loan, save for a future goal, or manage your daily expenses, financial calculators provide clarity and direction. They transform complex financial concepts into easily understandable numbers, helping users to visualize their financial future and make well-informed decisions.</p>
 
        
       </Box>
@@ -44,6 +44,7 @@ const Calculators = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
+          borderRadius="10px"
         >
           <Calculatorbox
             title="EMI Calculator"
@@ -58,6 +59,7 @@ const Calculators = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
+          borderRadius="10px"
         >
           <Calculatorbox
             title="Mortage Calculator"
@@ -72,6 +74,7 @@ const Calculators = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
+          borderRadius="10px"
         >
           <Calculatorbox
             title="Investment Calculator"

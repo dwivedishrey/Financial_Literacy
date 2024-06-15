@@ -5,7 +5,7 @@ import { textDecoration } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 
-const Calculatorbox = ({ title, subtitle,arrow }) => {
+const Rewardbox = ({ title, price }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -26,21 +26,30 @@ const Calculatorbox = ({ title, subtitle,arrow }) => {
       </Box>
       <Box display="flex" justifyContent="space-between" mt="10px">
         <Typography variant="h5" sx={{ color: colors.grey[500] ,marginTop:"25px"}}>
-          {subtitle}
+          {price}
         </Typography>
-        <Typography
-          variant="h5"
-          fontStyle="italic"
-          sx={{ color: colors.grey[500],marginTop:"150px" }}
+        <Box mt="10px">
+        <a
+          
+          style={{
+            color: 'white',
+            width: '100px',
+            height: '40px',
+            borderRadius: '5px',
+            backgroundColor: '#046789',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textDecoration: 'none',
+          }}
         >
-         <a href={arrow} style={{ textDecoration: "none",
-  color: "inherit"}}>
-        <ArrowRightAltIcon />
-      </a>
-        </Typography>
+          <div style={{ textAlign: 'center' }}>Get</div>
+        </a>
+      </Box>
+      
       </Box>
     </Box>
   );
 };
 
-export default Calculatorbox;
+export default Rewardbox;

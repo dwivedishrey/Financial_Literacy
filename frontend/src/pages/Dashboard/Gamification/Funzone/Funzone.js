@@ -33,9 +33,10 @@ const Funzone = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          backgroundColor="white"
           p="30px"
-          height="250px"
+          height="300px"
+          borderRadius="10px"
         >
           <Funbox
             image={game6}
@@ -48,7 +49,8 @@ const Funzone = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
-          height="250px"
+          height="300px"
+          borderRadius="10px"
         >
           <Funbox
             image={game3}
@@ -64,7 +66,8 @@ const Funzone = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
-          height="250px"
+          height="300px"
+          borderRadius="10px"
         >
           <Funbox
             image={game8}
@@ -77,7 +80,8 @@ const Funzone = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
-          height="250px"
+          height="300px"
+          borderRadius="10px"
         >
           <Funbox
             image={game5}
@@ -90,7 +94,8 @@ const Funzone = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
-          height="250px"
+          height="300px"
+          borderRadius="10px"
         >
           <Funbox
             image={game2}
@@ -103,7 +108,8 @@ const Funzone = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
-          height="250px"
+          height="300px"
+          borderRadius="10px"
         >
           <Funbox
             image={game7}

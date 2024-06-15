@@ -27,7 +27,7 @@ const Signup = () => {
     setError("");
     try {
       await createUserWithEmailAndPassword(email, password);
-      const newUser = { username, email, password ,uid: auth.currentUser.uid };
+      const newUser = { username, email, password,uid:auth.currentUser.uid,  };
       console.log(newUser)
       const response = await fetch(`http://localhost:5000/register`, {
         method: "POST",

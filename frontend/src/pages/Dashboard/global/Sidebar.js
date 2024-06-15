@@ -29,6 +29,7 @@ import HubIcon from '@mui/icons-material/Hub';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import CasinoIcon from '@mui/icons-material/Casino';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -60,7 +61,8 @@ const Sidebar = () => {
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          background: `black !important`,
+          height:"100%"
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -111,9 +113,9 @@ const Sidebar = () => {
                   alt="profile-user"
                   style={{ fontSize: 50 }}
                   
-                  
+      
                 />
-               {users.username}
+             
               </Box>
               <Box textAlign="center">
                 <Typography
@@ -162,6 +164,13 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              title="Add Portfolio"
+              to="/dashboard/portfolio"
+              icon={<PermIdentityIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
               title="Transaction History"
               to="/dashboard/transaction"
               icon={<ReceiptOutlinedIcon />}
@@ -169,6 +178,13 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
+<Item
+              title="Courses"
+              to="/dashboard/courses"
+              icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
       
             <Typography
               variant="h6"
@@ -193,7 +209,7 @@ const Sidebar = () => {
             />
             <Item
               title="Stock Market Tracker"
-              to="/faq"
+              to="/dashboard/stock"
               icon={<ShowChartIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -230,7 +246,7 @@ const Sidebar = () => {
             />
             <Item
               title="Reward Section"s
-              to="/pie"
+              to="/dashboard/reward"
               icon={<GradeIcon />}
               selected={selected}
               setSelected={setSelected}

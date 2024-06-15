@@ -71,7 +71,7 @@ function News() {
             key={index}
             gridColumn="span 4"
             gridRow="span 2"
-            backgroundColor="#1e1e1e"
+            backgroundColor="#1F2A40"
             p="20px"
             borderRadius="10px"
           >

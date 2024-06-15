@@ -1,6 +1,6 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
-
+import backgroundImage from '../../assets/background.jpg';
 // color design tokens export
 export const tokens = (mode) => ({
   ...(mode === "dark"
@@ -10,17 +10,18 @@ export const tokens = (mode) => ({
           200: "#c2c2c2",
           300: "#a3a3a3",
           400: "#858585",
-          500: "#666666",
-          600: "#525252",
+          500: "#1679AB",
+          600: "#1679AB",
           700: "#000000",
           800: "#292929",
           900: "#141414",
+          1000:"#000000"
         },
         primary: {
           100: "#d0d1d5",
           200: "#a1a4ab",
           300: "#727681",
-          400: "#1F2A40",
+          400: "#FFF",
           500: "#404040",
           600: "#101624",
           700: "#0c101b",
@@ -72,7 +73,8 @@ export const tokens = (mode) => ({
           600: "#858585",
           700: "#a3a3a3",
           800: "#c2c2c2",
-          900: "#e0e0e0",
+          900: "#000000",
+
         },
         primary: {
           100: "#040509",
@@ -142,7 +144,7 @@ export const themeSettings = (mode) => {
               light: colors.grey[100],
             },
             background: {
-              default: "#000720",
+              default: '#9AC8CD',
             },
           }
         : {

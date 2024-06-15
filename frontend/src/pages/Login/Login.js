@@ -25,33 +25,51 @@ const Login = () => {
       try {
         await signInWithGoogle();
         if (auth.currentUser) {
-          const googleUser = {
-            user_id:auth.currentUser.user_id,
-            uid: auth.currentUser.uid,
-            username: auth.currentUser.displayName,
-            email: auth.currentUser.email,
-          };
-          setUserGlobally(googleUser);
-          navigate("/dashboard");
+          const uid = auth.currentUser.uid;
+    
+          // Fetch user_id from the backend using the uid
+          const response = await fetch(`http://localhost:5000/getUserIdByUid/${uid}`);
+          const data = await response.json();
+          console.log(data)
+          if (data.user_id) {
+            const googleUser = {
+              user_id: data.user_id,
+              uid: auth.currentUser.uid,
+              username: auth.currentUser.displayName,
+              email: auth.currentUser.email,
+            };
+            setUserGlobally(googleUser);
+            navigate("/dashboard");
+          } else {
+            console.error('User ID not found for the given UID');
+          }
         }
       } catch (err) {
         console.error('Error signing in with Google:', err);
       }
     };
+    
  
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
         await signInWithEmailAndPassword(email, password);
         if (auth.currentUser) {
-          
-          const loggedInUser = {
-            user_id: users.user_id,
-            username: auth.currentUser.displayName || email,
-            email: auth.currentUser.email,
-          };
+          const uid = auth.currentUser.uid;
+          const response = await fetch(`http://localhost:5000/getUserIdByUid/${uid}`);
+          const data = await response.json();
+          if (data.user_id) {
+            const loggedInUser = {
+              user_id: data.user_id,
+              username: auth.currentUser.displayName || email,
+              email: auth.currentUser.email,
+            };
+         
           setUserGlobally(loggedInUser);
           navigate("/dashboard");
+          }else {
+            console.error('User ID not found for the given UID');
+          }
         }
       } catch (err) {
         console.error('Error signing in:', err);

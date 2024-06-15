@@ -10,14 +10,14 @@ const Funbox = ({ image,name,link }) => {
     <Box width="100%" m="0 30px 0 20px">
       <Box  justifyContent="space-between">
       <Box>
-          <img src={image} alt={name} style={{ width: '300px', height: '120px',borderRadius:"5px" }} />
+          <img src={image} alt={name} style={{ width: '150px', height: '150px',borderRadius:"5px" }} />
         </Box>
         <Box>
          
           <Typography
             variant="h4"
             fontWeight="bold"
-            sx={{ color: colors.grey[100] ,marginTop:"10px"}}
+            sx={{ color: colors.grey[700] ,marginTop:"10px"}}
           >
             {name}
           </Typography>

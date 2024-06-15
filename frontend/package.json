@@ -29,6 +29,7 @@
     "react-firebase-hooks": "^5.1.1",
     "react-google-button": "^0.8.0",
     "react-icons": "^5.2.1",
+    "react-plotly.js": "^2.6.0",
     "react-pro-sidebar": "^0.7.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",

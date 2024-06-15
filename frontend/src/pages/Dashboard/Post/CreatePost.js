@@ -2,111 +2,143 @@ import React, { useState, useEffect } from "react";
 import "./CreatePost.css";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import { Box, Button } from "@mui/material";
+import { useGlobalContext } from "../../Context/globalContext";
 
 export default function Createpost() {
   const [body, setBody] = useState("");
-  const [image, setImage] = useState("")
-  const [url, setUrl] = useState("")
-  const navigate = useNavigate()
-
+  const [posts, setPosts] = useState([]); // Ensure initial state is an empty array
+  const [commentInputs, setCommentInputs] = useState({}); // Track comments for each post
+  const navigate = useNavigate();
+  const { users } = useGlobalContext();
   // Toast functions
-  const notifyA = (msg) => toast.error(msg)
-  const notifyB = (msg) => toast.success(msg)
-
+  const notifyA = (msg) => toast.error(msg);
+  const notifyB = (msg) => toast.success(msg);
 
   useEffect(() => {
+    fetch("http://localhost:5000/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setPosts(data);
+        } else {
+          console.error("Fetched data is not an array:", data);
+          setPosts([]); // Set posts to an empty array if data is not an array
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-    // saving post to mongodb
-    if (url) {
-
-      fetch("http://localhost:5000/createPost", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + localStorage.getItem("jwt")
-        },
-        body: JSON.stringify({
-          body,
-          pic: url
-        })
-      }).then(res => res.json())
-        .then(data => {
-          if (data.error) {
-            notifyA(data.error)
-          } else {
-            notifyB("Successfully Posted")
-            navigate("/")
-          }
-        })
-        .catch(err => console.log(err))
-    }
-
-  }, [url])
-
-
-  // posting image to cloudinary
   const postDetails = () => {
-
-    console.log(body, image)
-    const data = new FormData()
-    data.append("file", image)
-    data.append("upload_preset", "insta-clone")
-    data.append("cloud_name", "cantacloud2")
-    fetch("https://api.cloudinary.com/v1_1/cantacloud2/image/upload", {
+    fetch("http://localhost:5000/createpost", {
       method: "post",
-      body: data
-    }).then(res => res.json())
-      .then(data => setUrl(data.url))
-      .catch(err => console.log(err))
-    console.log(url)
-
-  }
-
-
-  const loadfile = (event) => {
-    var output = document.getElementById("output");
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function () {
-      URL.revokeObjectURL(output.src); // free memory
-    };
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body,
+        user_id: users.user_id,
+        username: users.username // Assume userId is stored in localStorage
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          notifyA(data.error);
+        } else {
+          notifyB("Successfully Posted");
+          setPosts([data, ...posts]); // Add new post to the posts state
+          setBody(""); // Clear the input field after submission
+        }
+      })
+      .catch((err) => console.log(err));
   };
+
+  const postComment = (postId, comment) => {
+    fetch("http://localhost:5000/addComment", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        postId,
+        comment,
+        userId: users.user_id,
+        username: users.username // Assume userId is stored in localStorage
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          notifyA(data.error);
+        } else {
+          notifyB("Comment posted successfully");
+          setPosts(posts.map(post => post._id === postId ? data : post)); // Update the post with new comment
+          setCommentInputs({ ...commentInputs, [postId]: "" }); // Clear the comment input for the specific post
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleCommentChange = (e, postId) => {
+    setCommentInputs({ ...commentInputs, [postId]: e.target.value });
+  };
+
+  const handleCommentSubmit = (e, postId) => {
+    e.preventDefault();
+    if (commentInputs[postId] && commentInputs[postId].trim() !== "") {
+      postComment(postId, commentInputs[postId]);
+    } else {
+      notifyA("Please enter a comment");
+    }
+  };
+
   return (
-    <div className="createPost">
-      {/* //header */}
-      <div className="post-header">
-        <h4 style={{ margin: "3px auto" }}>Create New Post</h4>
-        <button id="post-btn" onClick={() => { postDetails() }}>Share</button>
-      </div>
-      {/* image preview */}
-      <div className="main-div">
-        <img
-          id="output"
-          src="hhttps://cloudfront-us-east-2.images.arcpublishing.com/reuters/54CW7RNJR5LQNICWYKJQMTQOB4.jpg"
-        />
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(event) => {
-            loadfile(event);
-            setImage(event.target.files[0])
-          }}
-        />
-      </div>
-      {/* details */}
-      <div className="details">
-        <div className="card-header">
-          <div className="card-pic">
-            <img style={{width:"450px",height:"200px",marginLeft:"20px",marginTop:"20px"}}
-              src="https://cloudfront-us-east-2.images.arcpublishing.com/reuters/54CW7RNJR5LQNICWYKJQMTQOB4.jpg"
-              alt=""
-            />
-          </div>
-          <h5>Ramesh</h5>
+    <Box sx={{ width: "500px", marginLeft: "420px", border: "1px solid black", height: "auto", marginTop: "50px", padding: "20px" }}>
+      <div className="createPost">
+        <div className="post-header">
+          <h4 style={{ margin: "3px auto" }}>Ask Question</h4>
         </div>
-        <textarea value={body} onChange={(e) => {
-          setBody(e.target.value)
-        }} type="text" placeholder="Write a caption...."></textarea>
+        <div className="details">
+          <textarea 
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            type="text"
+            placeholder="Write a caption...."
+            style={{ padding: "10px" }}
+          ></textarea>
+          <Button style={{ backgroundColor: "#4cceac", color: "black", fontWeight: "600" }} id="post-btn" onClick={postDetails}>
+            Send
+          </Button>
+        </div>
       </div>
-    </div>
+
+      {Array.isArray(posts) && posts.map((post) => (
+        <div key={post._id} className="post-preview" style={{ marginTop: "20px" }}>
+          <h5>{post.body}</h5>
+          <p>Posted by: {post.username}</p>
+          <div className="comment-section" style={{ marginTop: "20px" }}>
+            <h4>Comments</h4>
+            {(post.comments || []).map((comment) => (
+              <div key={comment._id} className="comment">
+                <p><strong>{comment.username}:</strong> {comment.comment}</p>
+              </div>
+            ))}
+            <form onSubmit={(e) => handleCommentSubmit(e, post._id)}>
+              <textarea
+                value={commentInputs[post._id] || ""}
+                onChange={(e) => handleCommentChange(e, post._id)}
+                type="text"
+                placeholder="Add a comment..."
+                style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+              />
+              <Button style={{ backgroundColor: "#4cceac", color: "black", fontWeight: "600" }} type="submit">
+                Post Comment
+              </Button>
+            </form>
+          </div>
+        </div>
+      ))}
+    </Box>
   );
 }

@@ -16,3 +16,18 @@ exports.register = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 };
+exports.getUserIdByUid = async (req, res) => {
+    const { uid } = req.params;
+    try {
+      const db = await database.db();
+      const userCollection = db.collection('users');
+      const user = await userCollection.findOne({ uid });
+      if (user) {
+        res.json({ user_id: user._id });
+      } else {
+        res.status(404).json({ message: 'User not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: 'Failed to fetch user ID' });
+    }
+  };

@@ -1,167 +1,118 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { useGlobalContext } from '../../Context/globalContext';
-import Button from '../../Button/Button';
-import { plus } from '../../Utils/icons';
-import { Formik } from 'formik';
-import { Box } from '@mui/material';
-
+import { Box, TextField, MenuItem, FormControl, InputLabel, Select, Typography, Button } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 function Expenseform() {
-    const {addIncome, addExpense,getIncomes, error, setError,users,message} = useGlobalContext()
+    const { addExpense, error, setError, message } = useGlobalContext();
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
         date: '',
         category: '',
         description: '',
-    })
+    });
 
-    const { title, amount, date, category,description } = inputState;
+    const { title, amount, date, category, description } = inputState;
 
     const handleInput = name => e => {
-        setInputState({...inputState, [name]: e.target.value})
-        setError('')
-    }
+        setInputState({ ...inputState, [name]: e.target.value });
+        setError('');
+    };
 
     const handleSubmit = e => {
-        e.preventDefault()
-        addExpense(inputState)
+        e.preventDefault();
+        addExpense(inputState);
         setInputState({
             title: '',
             amount: '',
             date: '',
             category: '',
             description: '',
-        })
-    }
+        });
+    };
 
     return (
-       
         <FormStyled onSubmit={handleSubmit}>
-             <Box m="20px">
-             {message && <p className='error'>{message}</p>}
-            <div className="input-control">
-                <input className='placeholder'
-                    type="text" 
+            <Box m="20px">
+                {message && <Typography color="error">{message}</Typography>}
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Expense Title"
                     value={title}
-                    name={'title'} 
-                    placeholder="Salary Title"
+                    name="title"
                     onChange={handleInput('title')}
                 />
-            </div>
-            <div className="input-control">
-                <input value={amount}  className='placeholder' 
-                    type="text" 
-                    name={'amount'} 
-                    placeholder={'Salary Amount'}
-                    onChange={handleInput('amount')} 
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Expense Amount"
+                    type="number"
+                    value={amount}
+                    name="amount"
+                    onChange={handleInput('amount')}
                 />
-            </div>
-            <div className="input-control">
-                <DatePicker className='placeholder'
-                    id='date'
-                    placeholderText='Enter A Date'
-                    selected={date}
-                    dateFormat="dd/MM/yyyy"
-                    onChange={(date) => {
-                        setInputState({...inputState, date: date})
-                    }}
+                <FormControl fullWidth margin="normal">
+                    <DatePicker
+                        selected={date}
+                        onChange={(date) => setInputState({ ...inputState, date })}
+                        dateFormat="dd/MM/yyyy"
+                        customInput={<TextField label="Enter A Date" fullWidth />}
+                    />
+                </FormControl>
+                <FormControl fullWidth margin="normal">
+                    <InputLabel>Select Option</InputLabel>
+                    <Select
+                        value={category}
+                        onChange={handleInput('category')}
+                        label="Select Option"
+                        name="category"
+                    >
+                        <MenuItem value="" disabled>Select Option</MenuItem>
+                        <MenuItem value="education">Education</MenuItem>
+                        <MenuItem value="groceries">Groceries</MenuItem>
+                        <MenuItem value="health">Health</MenuItem>
+                        <MenuItem value="subscriptions">Subscriptions</MenuItem>
+                        <MenuItem value="takeaways">Takeaways</MenuItem>
+                        <MenuItem value="clothing">Clothing</MenuItem>
+                        <MenuItem value="travelling">Travelling</MenuItem>
+                        <MenuItem value="other">Other</MenuItem>
+                    </Select>
+                </FormControl>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Add A Reference"
+                    multiline
+                    rows={4}
+                    value={description}
+                    name="description"
+                    onChange={handleInput('description')}
                 />
-            </div>
-            <div className="selects input-control">
-                <select className='placeholder' required value={category} name="category" id="category" onChange={handleInput('category')}>
-                <option value="" disabled >Select Option</option>
-                    <option value="education">Education</option>
-                    <option value="groceries">Groceries</option>
-                    <option value="health">Health</option>
-                    <option value="subscriptions">Subscriptions</option>
-                    <option value="takeaways">Takeaways</option>
-                    <option value="clothing">Clothing</option>  
-                    <option value="travelling">Travelling</option>  
-                    <option value="other">Other</option>  
-                </select>
-            </div>
-            <div className="input-control">
-                <textarea className='placeholder' name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
-            </div>
-            <div className="submit-btn">
-                <Button 
-                    name={'Add Expense'}
-                    icon={plus}
-                    bPad={'.8rem 1.6rem'}
-                    bRad={'30px'}
-                    bg={'var(--color-accent'}
-                    color={'#fff'}
-                />
-            </div>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                    startIcon={<AddIcon />}
+                    sx={{ mt: 2 }}
+                >
+                    Add Expense
+                </Button>
             </Box>
-       </FormStyled>
-        
-    )
+        </FormStyled>
+    );
 }
+
 const FormStyled = styled.form`
-    
     display: flex;
     flex-direction: column;
-    width:1250px;
-    gap: 4rem;
-    
-    input, textarea, select{
-        font-family: inherit;
-        font-size: inherit;
-        outline: none;
-        border: none;
-        padding: .5rem 1rem;
-        border: 2px solid black;
-        background: transparent;
-        background-color:#666666;
-        resize: none;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        color: white;
-        &::placeholder{
-            color: white;
-
-        }
-    }
-    .placeholder{
-        color:white;
-    }
-    .input-control{
-        input{
-            width: 100%;
-            color:white;
-        }
-    }
-
-    .selects{
-        display: flex;
-        
-        select{
-            color: white;
-            &:focus, &:active{
-                color: white;
-            }
-        }
-    }
-
-    .submit-btn{
-        background-color:#4cceac;
-        border-radius:5px;
-        width:150px;
-
-        button{
-            box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-            font-size:15px;
-            font-weight:600;
-            &:hover{
-                background: var(--color-green) !important;
-            }
-        }
-    }
+    width: 600px;
+    margin: 0 auto;
+    gap: 1rem;
 `;
+
 export default Expenseform;
-
-

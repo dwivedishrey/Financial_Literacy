@@ -36,6 +36,12 @@ import News from './pages/Dashboard/News/News';
 import InvestmentCalculator from './pages/Dashboard/Calculators/InvestmentCalc/Investmentcalc';
 import Createpost from './pages/Dashboard/Post/CreatePost';
 import PostDetail from './pages/Dashboard/Post/PostDetail';
+import Stock from './pages/Dashboard/Stock_tracker/stock';
+import Rewards from './pages/Dashboard/Rewards/Reward';
+import Courses from './pages/Dashboard/Courses/Courses';
+import PieChart from './pages/Dashboard/Chart/Pie';
+import BarChart from './pages/Dashboard/Chart/Bar';
+import Portfolio from './pages/Dashboard/PortfolioDetails/Portfolio';
 
 
 function App() {
@@ -82,10 +88,15 @@ function DashboardRoutes() {
               <Route path="/transaction" element={<Transaction />} />
               <Route path="/advisor" element={<Advisor />} />
               <Route path="/funzone" element={<Funzone />} />
-              <Route path="/createPost" element={<PostDetail />}></Route>
+              <Route path="/stock" element={<Stock />} />
+              <Route path="/createpost" element={<Createpost />}></Route>
+              <Route path="/reward" element={<Rewards />}></Route>
+              <Route path="/courses" element={<Courses />}></Route>
               <Route path="/news" element={<News />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/bar" element={<BarChart />} />
+              <Route path="/pie" element={<PieChart />} />
+              
               <Route path="/line" element={<Line />} />
               <Route path="/faq" element={<FAQ />} />
            

@@ -28,11 +28,15 @@ export default function PostDetail({ item, toggleDetails }) {
     }
   };
 
+  if (!item || !item.postedBy) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="showComment">
       <div className="container">
         <div className="postPic">
-          <img src={item.photo} alt="" />
+        
         </div>
         <div className="details">
           {/* card header */}
@@ -62,9 +66,9 @@ export default function PostDetail({ item, toggleDetails }) {
             className="comment-section"
             style={{ borderBottom: "1px solid #00000029" }}
           >
-            {item.comments.map((comment) => {
+            {item.comments.map((comment, index) => {
               return (
-                <p className="comm">
+                <p className="comm" key={index}>
                   <span className="commenter" style={{ fontWeight: "bolder" }}>
                     {comment.postedBy.name}{" "}
                   </span>
