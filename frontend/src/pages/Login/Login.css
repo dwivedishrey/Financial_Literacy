@@ -1,143 +1,184 @@
-.page-container {
-  display: flex;
-}
-
-.image-container {
-  flex: 1;
-  padding: 20px;
-  margin-top: 45px;
-}
-
-.image-container img {
-  max-width: 100%;
-  height: auto;
-}
-
 .login-container {
+  display: flex;
   flex: 1;
-  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 100px;
-  background: #fff;
-  padding-bottom: 30px;
+.login-form-container {
+  flex: 1;
+  padding: 50px;
+  margin: 10px;
+  /* margin-left: -50px; */
+  align-content: center;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 9px;
-  width: 100%;
-  margin-top: 30px;
+.login-form-box {
+  justify-content: center;
+  align-items: inherit;
+  grid-row: auto;
 }
 
-.text {
-  color: #0f0f10c5;
-  font-size: 48px;
-  font-weight: 700;
+
+
+.input-form {
+  width: 20px;
+
+}
+h1{
+  font-size: 40px;
+}
+.heading{
+  font-size: 15px
 }
 
-.underline {
-  width: 61px;
-  height: 6px;
-  background: #121212bb;
-  border-radius: 9px;
+.heading1,
+h3 {
+  font-size: 35px;
+  color: black;
+  justify-content: end
 }
 
-.inputs {
-  margin-top: 55px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+
+.login-image-container {
+  flex: 2;
+  height: 100vh;
+  
 }
 
-.input {
-  display: flex;
-  align-items: center;
-  margin: auto;
-  width: 480px;
-  height: 80px;
-  background: #eaeaea;
-  border-radius: 6px;
-  align-items: center;
+.image {
+  max-width: 90%;
+  height: 100vh;
+  
+
 }
 
-.input input {
-  height: 50px;
-  width: 400px;
-  background: transparent;
+input {
+  display: grid;
+  margin-bottom: 1px;
+  padding: 5px;
+  background-color: white;
+  margin-top: 20px;
+
+}
+
+.email,
+.password {
+
+  background-color: #E8F0FE;
+  width: 70%;
+  border-radius: 8px;
+  padding: 14px;
   border: none;
   outline: none;
-  color: #797979;
-  font-size: 19px;
-  text-align: center; /* Centering the placeholder text */
-  padding: 0 16px;
 }
 
-.forget-password {
-  padding-left: 62px;
-  margin-top: 27px;
-  color: #797979;
-  font-size: 18px;
+.display-name {
+
+
+  background-color: #E8F0FE;
+  width: 70%;
+  border-radius: 8px;
+  padding: 14px;
+  border: none;
+  outline: none;
+
 }
 
-.forget-password span {
-  color: #0a0a0bd3;
+
+
+
+.btn-login {
+  padding: 7px;
+}
+
+.login-btn {
+  background-color: black;
+  width: 75%;
+  margin-right: 20px;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
   cursor: pointer;
-}
-
-.submit-container {
-  display: flex;
-  gap: 30px;
-  margin-top: 20px;
-  margin-left: 130px;
-}
-
-.submit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 220px;
-  height: 59px;
-  color: #fff;
-  background: #0c0c0cc4;
-  border-radius: 50px;
-  font-size: 19px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.gray {
-  color: #fff;
-  background: #0c0c0cc4;
-}
-
-.google-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  margin-top: 15px;
+  color: white;
 }
 
 .g-btn {
-  padding: 100px 100px; /* Increase padding as needed */
-  font-size: 16px; /* Increase font size if needed */
-  background-color: #fff; /* Ensure background color is white */
-  border: 1px solid #ddd; /* Add a border */
-  border-radius: 4px; /* Round the corners */
-  cursor: pointer;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
-}
-
-.g-btn:hover {
-  background-color: #f5f5f5; /* Change background color on hover */
+  border: 1px solid;
+  height: 40px !important;
+  line-height: 40px !important;
+  font-size: 15px !important;
+  width: 70% !important;
+  margin: 10px;
+ 
 }
 
 
-.form-container {
-  margin-top: 20px;
+.google-button {
+  margin-top: 10px;
+  margin-left: 50px;
+  
+}
+
+.g-btn>div,
+.g-btn>div>svg {
+  height: 30px !important;
+
+}
+.signup-link{
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.errorMessage {
+  color: red;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.signUpText>Link {
+  text-decoration: none;
+  color: var(--twitter-color) !important;
+
+}
+
+@media screen and (max-width:688px) {
+  .login-container {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+
+  }
+
+  .login-form-container {
+      padding: 10px;
+  }
+
+
+  .login-image-container {
+      width: 100%;
+      vertical-align: text-bottom;
+      display: flex;
+      flex-direction: column-reverse;
+      order: 1;
+      max-width: 100%;
+      width: 100%;
+
+
+  }
+
+
+  .image {
+      order: 2;
+      width: 100%;
+      height: 100%;
+      margin-left: 100px;
+
+  }
 }

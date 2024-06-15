@@ -1,46 +1,23 @@
-const express = require('express');
+const express=require('express')
 const cors=require('cors');
-const app = express()
-const port = process.env.PORT || 5000;
-const { MongoClient, ServerApiVersion } = require('mongodb');
-app.use(cors());
-app.use(express.json());
+const {db} = require('./db/db'); 
+const {readdirSync}=require('fs')
+const app=express()
 
-const uri = "mongodb+srv://dwivedishreya0822:Fs1rZZvPPcYAgewy@cluster0.myuzzzp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+require('dotenv').config()
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-  
-});
-async function run() {
-    try {
+const PORT=process.env.PORT
+
+app.use(express.json())
+app.use(cors())
+
+readdirSync('./routes').map((route)=>app.use('/',require('./routes/'+ route)))
+const server=()=>{
+    db()
+    app.listen(PORT,()=>{
+        console.log("listening")
+
+    })
     
-      await client.connect();
-      const userCollection=client.db('database').collection('users')     
-      app.post('/register',async(req,res)=>{
-          const user=req.body;
-          const result=await userCollection.insertOne(user);
-          res.send(result);
-  
-      })
-    
-
-      
-    } catch(error) {
-      console.log(error);
-    }
-  }
-  run().catch(console.dir);
-  
-  
-  app.get('/', (req, res) => {
-    res.send('Hello World! shreya deivedi')
-  })
-  
-  app.listen(port, () => {
-    console.log(`Twitter app listening `)
-  })
+}
+server()
