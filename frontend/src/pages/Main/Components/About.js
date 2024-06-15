@@ -8,7 +8,7 @@ import "./Navbar.css";
 
 const About = () => {
     const style = {
-        backgroundImage: `url("money4.avif")`,
+        backgroundImage: `url("money.webp")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh', // Adjust as needed

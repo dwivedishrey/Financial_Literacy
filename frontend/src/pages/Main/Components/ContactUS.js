@@ -23,7 +23,7 @@ const ContactUS = () => {
       );
   };
   const style = {
-    backgroundImage: `url("money3.jpg")`,
+    backgroundImage: `url("money2.avif")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
    height:'100px', // Adjust as needed

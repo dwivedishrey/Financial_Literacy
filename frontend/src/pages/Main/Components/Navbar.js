@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
-const pages = ['Login', 'About', 'FAQ', 'Why us?', 'Contact'];
+const pages = ['About','Services', 'FAQ', 'Contact', 'Login'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -25,7 +25,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: 'black' }}>
+    <AppBar position="static" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,1) 25%, rgba(22,121,171,1) 52%, rgba(4,4,18,1) 76%, rgba(5,5,21,1) 87%, rgba(8,8,35,1) 100%)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src='./AM.jpg' height='50px' alt='Logo' />

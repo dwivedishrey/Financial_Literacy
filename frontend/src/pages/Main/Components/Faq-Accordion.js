@@ -30,12 +30,11 @@ export default function AccordionTransition() {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography>Custom transition using Fade</Typography>
+          <Typography>What is Arthamarga?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Arthamarga is a platform dedicated to enhancing financial literacy among people in India. It connects users through community discussions, links them to financial professionals, offers financial news, games, calculators for loans and investments, and tools for tracking expenses and income. We also focus on promoting women in finance by providing free professional guidance.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -45,12 +44,11 @@ export default function AccordionTransition() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography>Default transition using Collapse</Typography>
+          <Typography>Is there a fee to use Arthamarga?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Basic membership is free, which includes access to community discussions, financial news, and basic calculators. Some advanced tools and professional guidance services will require a subscription.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -60,12 +58,11 @@ export default function AccordionTransition() {
           aria-controls="panel3-content"
           id="panel3-header"
         >
-          <Typography>Default transition using Collapse</Typography>
+          <Typography>How do community discussions work on Arthamarga?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          Community discussions allow users to post questions, share insights, and engage with others on various financial topics. Simply go to the "Community" section, choose a discussion thread or start a new one.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -75,12 +72,11 @@ export default function AccordionTransition() {
           aria-controls="panel4-content"
           id="panel4-header"
         >
-          <Typography>Default transition using Collapse</Typography>
+          <Typography>What special services does Arthamarga offer to women in finance?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          We provide free professional guidance to women seeking to enhance their financial literacy or pursue careers in finance. This includes mentorship, webinars, and personalized advice.
           </Typography>
         </AccordionDetails>
       </Accordion>
