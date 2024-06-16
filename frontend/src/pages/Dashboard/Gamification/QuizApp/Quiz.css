@@ -1,54 +1,53 @@
 
   
   .container {
-    width: 640px;
+    width: 500px;
     margin: auto;
-    margin-top: 50px;
-    background: #1F2A40;
+    background: white;
     color: black;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-radius: 10px;
-    padding: 40px 50px;
+    border-radius: 5px;
+    padding: 20px 50px ;
   }
-  
-  .container hr {
-    height: 2px;
-    border: none;
-    background: #fff7f7;
-  }
+
   .container h1 {
-    color: #a3a3a3;
-    font-size: 40px;
+    color: #1679AB;
+    font-size: 30px;
     font-weight: 900;
+    margin: 0;
+    align-self: center;
   }
   .container h2 {
-    font-size: 27px;
+    font-size: 18px;
     font-weight: 500;
+    color: black;
+    align-self: center;
   }
-  
+  .container ul{
+    position: relative;
+    right: 17px;
+  }
   .container ul li {
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 50px;
     padding-left: 15px;
     border: 1px solid black;
     border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
     cursor: pointer;
     color: black;
   }
   
   .container button {
     margin: auto;
-    width: 250px;
-    height: 65px;
-    background: #050012;
+    width: 200px;
+    height: 50px;
+    background: #1679AB;
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     border-radius: 8px;
     cursor: pointer;
@@ -56,7 +55,8 @@
   
   .container .index {
     margin: auto;
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 15px;
   }
   
   .container .correct {

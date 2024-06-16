@@ -57,8 +57,7 @@ const Quiz = () => {
 
   return (
     <div className="container">
-      <h1>Quizz App</h1>
-      <hr />
+      {/* <h1>Quizz App</h1> */}
       {result ? (
         <></>
       ) : (
