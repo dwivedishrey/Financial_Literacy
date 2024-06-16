@@ -30,10 +30,26 @@ function InvestmentPieChart() {
       },
     ],
   };
+  const options = {
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem) {
+            const category = tooltipItem.label;
+            const value = tooltipItem.raw;
+            return `${category}: Rs ${value}`;
+          },
+        },
+      },
+    },
+  };
 
   return (
     <PieChartStyled>
-      <Pie data={data} />
+      <Pie data={data} options={options} />
     </PieChartStyled>
   );
 }
@@ -44,10 +60,10 @@ const PieChartStyled = styled.div`
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
   padding: 1rem;
   border-radius: 20px;
-  width: 300px;
-  height: 250px;
-  margin-left: 20px;
-  margin-top: 10px;
+  width: 200px;
+  height: 200px;
+  
+
 `;
 
 export default InvestmentPieChart;

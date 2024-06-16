@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../Context/globalContext';
 import Expenseform from './Expenseform';
+import SetBudget from '../SetBudget/Budget';
+import Header from '../components/Header';
 
 
 function Expenseadd() {
@@ -14,13 +16,15 @@ function Expenseadd() {
   
   return (
     <div>
-      
-          <h1>Expenses</h1>
+    
          
+      <Header title="Expenses Details" />
+         <hr/>
           <div className="income-content">
             <div className="form-container">
               <Expenseform />
             </div>
+            <SetBudget />
            
           </div>
        

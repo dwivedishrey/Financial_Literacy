@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext';
+import Header from '../components/Header';
 
 function Transaction() {
     const { transactionHistory } = useGlobalContext();
@@ -9,7 +10,8 @@ function Transaction() {
 
     return (
         <HistoryStyled>
-            <h2>Recent History</h2>
+            <Header title="Transaction History" />
+            <hr/>
             {history.map((item) => {
                 const { _id, title, amount, type } = item;
                 return (

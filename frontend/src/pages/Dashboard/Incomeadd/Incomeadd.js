@@ -1,32 +1,29 @@
 import React, { useEffect } from 'react';
-
 import Form from '../../Form/Form';
 import { useGlobalContext } from '../../Context/globalContext';
-import IncomeItem from '../../IncomeItem/IncomeItem';
-
+import Header from '../components/Header';
+import './income.css';
 
 function Incomeadd() {
-  const { incomes, getIncomes, deleteIncome, users ,message} = useGlobalContext();
+  const { getIncomes, users } = useGlobalContext();
 
   useEffect(() => {
     if (users) {
       getIncomes(); // Fetch incomes when the component mounts
     }
   }, []);
-  
+
   return (
-    <div>
-      
-          <h1>Incomes</h1>
-       
-          <div className="income-content">
-            <div className="form-container">
-              <Form />
-            </div>
-           
-          </div>
-       
+    <div className="background-image">
+      <Header title="Income Details" />
+      <hr />
+      <div className="income-content">
+        <div className="form-container">
+          <Form />
+        </div>
+      </div>
     </div>
   );
 }
-export default Incomeadd
+
+export default Incomeadd;

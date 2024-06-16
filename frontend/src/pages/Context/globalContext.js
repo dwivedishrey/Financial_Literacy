@@ -13,8 +13,8 @@ export const GlobalProvider = ({ children }) => {
     const [users, setUser] = useState(null); 
     const [message,setMessage]=useState(null);
     const [investments, setInvestments] = useState([]);
-
-    
+    const [totalBudget, setTotalBudgetState] = useState(0);
+    const [upcomingPayments, setUpcomingPayments] = useState([]);
     const setUserGlobally = (userData) => {
         if (userData) {
             setUser(userData);
@@ -185,6 +185,14 @@ export const GlobalProvider = ({ children }) => {
             const response = await axios.get(`${BASE_URL}get-investment`, { params: payload });
             console.log("Fetched Investments: ", response.data);
             setInvestments(response.data);
+            const today = new Date();
+            const upcoming = response.data.filter(investment => {
+              const paymentDate = new Date(investment.purchaseDate);
+              const timeDiff = paymentDate.getTime() - today.getTime();
+              const daysDiff = timeDiff / (1000 * 3600 * 24);
+              return daysDiff <= 7 && daysDiff >= 0;
+            });
+            setUpcomingPayments(upcoming);
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
             console.error("Error fetching investments:", err);
@@ -206,7 +214,38 @@ export const GlobalProvider = ({ children }) => {
     const totalInvestments = () => {
         return investments.reduce((acc, investment) => acc + investment.currentValue, 0);
     };
-    
+    const setTotalBudget = async (budget) => {
+        if (users == null) {
+            setError("User not authenticated");
+            return;
+        }
+        try {
+            const payload = { totalBudget: budget, ...getUserPayload() };
+            const response = await axios.post(`${BASE_URL}set-total-budget`, payload);
+            console.log(response.data);
+            setMessage("Total Budget Set");
+            setTimeout(() => setMessage(null), 3000);
+            getTotalBudget();
+        } catch (err) {
+            setError(err.response?.data?.message || "An unexpected error occurred");
+        }
+    };
+
+    const getTotalBudget = async () => {
+        if (!users) {
+            setError("User not authenticated");
+            return;
+        }
+        try {
+            const payload = getUserPayload();
+            const response = await axios.get(`${BASE_URL}get-total-budget`, { params: payload });
+            console.log("Fetched Total Budget: ", response.data);
+            setTotalBudgetState(response.data.totalBudget);
+        } catch (err) {
+            setError(err.response?.data?.message || "An unexpected error occurred");
+            console.error("Error fetching total budget:", err);
+        }
+    };
 
     return (
         <GlobalContext.Provider value={{
@@ -232,7 +271,11 @@ export const GlobalProvider = ({ children }) => {
             getInvestments,
             investments,
             deleteInvestment,
-            totalInvestments
+            totalInvestments,
+            upcomingPayments,
+            setTotalBudget,
+            getTotalBudget,
+            totalBudget
             
             
         }}>
