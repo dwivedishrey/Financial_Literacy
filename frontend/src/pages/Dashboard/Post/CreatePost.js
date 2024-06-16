@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./CreatePost.css";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography, TextField } from "@mui/material";
 import { useGlobalContext } from "../../Context/globalContext";
 
 export default function Createpost() {
@@ -94,50 +94,64 @@ export default function Createpost() {
   };
 
   return (
-    <Box sx={{ width: "500px", marginLeft: "420px", border: "1px solid black", height: "auto", marginTop: "50px", padding: "20px" }}>
-      <div className="createPost">
-        <div className="post-header">
-          <h4 style={{ margin: "3px auto" }}>Ask Question</h4>
-        </div>
-        <div className="details">
-          <textarea 
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            type="text"
-            placeholder="Write a caption...."
-            style={{ padding: "10px" }}
-          ></textarea>
-          <Button style={{ backgroundColor: "#4cceac", color: "black", fontWeight: "600" }} id="post-btn" onClick={postDetails}>
-            Send
-          </Button>
-        </div>
-      </div>
+    <Box className="create-post-container">
+      <Box className="create-post-box">
+        <Typography variant="h4" className="create-post-header">
+          Ask Your Question
+        </Typography>
+        <TextField
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          multiline
+          rows={4}
+          placeholder="Ask your question here..."
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          className="create-post-textarea"
+          sx={{border:"1px solid black"}}
+        />
+        <Button
+          variant="contained"
+          onClick={postDetails}
+          className="create-post-button"
+        >
+          Post
+        </Button>
+      </Box>
 
       {Array.isArray(posts) && posts.map((post) => (
-        <div key={post._id} className="post-preview" style={{ marginTop: "20px" }}>
-          <h5>{post.body}</h5>
-          <p>Posted by: {post.username}</p>
-          <div className="comment-section" style={{ marginTop: "20px" }}>
-            <h4>Comments</h4>
+        <Box key={post._id} className="post-preview">
+          <Typography variant="h6">{post.body}</Typography>
+          <Typography variant="subtitle2">Posted by: {post.username}</Typography>
+          <Box className="comment-section">
+            <Typography variant="h6">Comments</Typography>
             {(post.comments || []).map((comment) => (
-              <div key={comment._id} className="comment">
-                <p><strong>{comment.username}:</strong> {comment.comment}</p>
-              </div>
+              <Box key={comment._id} className="comment">
+                <Typography variant="body2"><strong>{comment.username}:</strong> {comment.comment}</Typography>
+              </Box>
             ))}
             <form onSubmit={(e) => handleCommentSubmit(e, post._id)}>
-              <textarea
+              <TextField
                 value={commentInputs[post._id] || ""}
                 onChange={(e) => handleCommentChange(e, post._id)}
-                type="text"
                 placeholder="Add a comment..."
-                style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                className="comment-textarea"
+                sx={{border:"1px solid black"}}
               />
-              <Button style={{ backgroundColor: "#4cceac", color: "black", fontWeight: "600" }} type="submit">
+              <Button
+                variant="contained"
+                type="submit"
+                className="comment-button"
+              >
                 Post Comment
               </Button>
             </form>
-          </div>
-        </div>
+          </Box>
+        </Box>
       ))}
     </Box>
   );

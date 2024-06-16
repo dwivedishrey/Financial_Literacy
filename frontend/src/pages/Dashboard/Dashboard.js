@@ -1,20 +1,12 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "./theme";
-import { mockTransactions } from "./data/mockData";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
-import LineChart from "./components/LineChart";
-import GeographyChart from "./components/GeographyChart";
+
 
 import StatBox from "./components/StatBox";
-import ProgressCircle from "./components/ProgressCircle";
+
 import Header from "./components/Header";
 import "./Dashboard.css";
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+
 import "react-pro-sidebar/dist/css/styles.css";
 import FeedIcon from '@mui/icons-material/Feed';
 import { useGlobalContext } from "../Context/globalContext";
@@ -22,12 +14,13 @@ import Chart from "./Chart/Chart";
 import PieChart from "./Chart/Pie";
 import BarChart from "./Chart/Bar";
 import Pieincome from "./Chart/Pieincome";
+import InvestmentPieChart from "./Chart/investmentchart";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const { users } = useGlobalContext();
-  const { totalBalance } = useGlobalContext();
+  const { totalBalance ,totalInvestments} = useGlobalContext();
 
   return (
     <Box m="20px"  >
@@ -57,9 +50,30 @@ const Dashboard = () => {
           
           
         >
-          Total Balance: ${totalBalance()}
+          Total Balance: Rs {totalBalance()}
         </Typography>
       </Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor={colors.primary[400]}
+        p="20px"
+        borderRadius="10px"
+        mb="20px"
+        sx={{
+          boxShadow: "0px 5px 10px rgba(0,0,0,0.1)",
+        
+        }}
+      >
+          <Typography
+          variant="h4"
+          fontWeight="600"
+          color={colors.grey[500]}
+        >
+          Total Investments: Rs {totalInvestments()}
+        </Typography>
+        </Box>
 
       {/* GRID & CHARTS */}
       <Box
@@ -157,7 +171,8 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[700]}
               >
-                Recent News
+                Investment
+                <InvestmentPieChart />
               </Typography>
               <Typography
                 variant="h3"

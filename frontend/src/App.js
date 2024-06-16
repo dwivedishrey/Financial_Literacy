@@ -7,13 +7,8 @@ import Signup from './pages/Login/Signup';
 import ProtectedRoute from './pages/ProtectedRoute';
 import PageLoading from './pages/PageLoading';
 import Main from './pages/Main/Main';
-import Team from "./pages/Dashboard/team";
-import Invoices from "./pages/Dashboard/invoices";
-import Contacts from "./pages/Dashboard/contacts";
-import Bar from "./pages/Dashboard/bar";
-import Form from "./pages/Dashboard/form";
 import Line from "./pages/Dashboard/line";
-import Pie from "./pages/Dashboard/pie";
+
 import FAQ from "./pages/Dashboard/faq";
 
 import Geography from "./pages/Dashboard/geography";
@@ -42,6 +37,7 @@ import Courses from './pages/Dashboard/Courses/Courses';
 import PieChart from './pages/Dashboard/Chart/Pie';
 import BarChart from './pages/Dashboard/Chart/Bar';
 import Portfolio from './pages/Dashboard/PortfolioDetails/Portfolio';
+import Details from './pages/Dashboard/Details';
 
 
 function App() {
@@ -78,6 +74,7 @@ function DashboardRoutes() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path='/' element={<Dashboard />} />
+              <Route path='/details' element={<Details />} />
               <Route path="incomeadd" element={<Incomeadd />} />
               <Route path="/expenseadd" element={<Expenseadd />} />
               <Route path="/emicalc" element={<Emicalc />} />
