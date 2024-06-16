@@ -12,6 +12,8 @@ export const GlobalProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [users, setUser] = useState(null); 
     const [message,setMessage]=useState(null);
+    const [investments, setInvestments] = useState([]);
+
     
     const setUserGlobally = (userData) => {
         if (userData) {
@@ -153,6 +155,58 @@ export const GlobalProvider = ({ children }) => {
         history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         return history;
     };
+    const addInvestment = async (investment) => {
+        
+        if (users==null) {
+            console.log("ser not authenticated")
+            setError("User not authenticated");
+            return;
+        }
+        try {
+            console.log(investment)
+            const payload = { ...investment, ...getUserPayload() };
+            const response = await axios.post(`${BASE_URL}add-investment`, payload);
+            console.log(response.data);
+            setMessage("Investment Added");
+            setTimeout(() => setMessage(null), 3000);
+            getInvestments();
+        } catch (err) {
+            setError(err.response?.data?.message || "An unexpected error occurred");
+        }
+    };
+    
+    const getInvestments = async () => {
+        if (!users) {
+            setError("User not authenticated");
+            return;
+        }
+        try {
+            const payload = getUserPayload();
+            const response = await axios.get(`${BASE_URL}get-investment`, { params: payload });
+            console.log("Fetched Investments: ", response.data);
+            setInvestments(response.data);
+        } catch (err) {
+            setError(err.response?.data?.message || "An unexpected error occurred");
+            console.error("Error fetching investments:", err);
+        }
+    };
+    
+    // Delete Investment
+    const deleteInvestment = async (id) => {
+        try {
+            const payload = { ...getUserPayload() };
+            await axios.delete(`${BASE_URL}delete-investment/${id}`, { data: payload });
+            getInvestments();
+        } catch (err) {
+            setError(err.response?.data?.message || "An unexpected error occurred");
+        }
+    };
+    
+    // Total Investments
+    const totalInvestments = () => {
+        return investments.reduce((acc, investment) => acc + investment.currentValue, 0);
+    };
+    
 
     return (
         <GlobalContext.Provider value={{
@@ -173,7 +227,12 @@ export const GlobalProvider = ({ children }) => {
             setUserGlobally ,
             users,
             logout,
-            message
+            message,
+            addInvestment,
+            getInvestments,
+            investments,
+            deleteInvestment,
+            totalInvestments
             
             
         }}>
