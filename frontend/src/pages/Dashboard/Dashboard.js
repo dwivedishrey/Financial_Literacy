@@ -153,10 +153,10 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
             borderRadius="10px"
-            display="flex"
+           
       flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
+      
+     
       textAlign="center"
           >
            

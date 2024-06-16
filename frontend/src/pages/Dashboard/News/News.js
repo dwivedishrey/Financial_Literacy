@@ -63,7 +63,7 @@ function News() {
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
+        gridAutoRows="150px"
         gap="20px"
       >
         {articles.length > 0 ? articles.map((article, index) => (
@@ -71,7 +71,7 @@ function News() {
             key={index}
             gridColumn="span 4"
             gridRow="span 2"
-            backgroundColor="#1F2A40"
+            backgroundColor="white"
             p="20px"
             borderRadius="10px"
           >

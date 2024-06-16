@@ -1,16 +1,20 @@
 .create-post-container {
-    width: 100%;
+    width: 70%;
     margin: 50px auto;
     padding: 20px;
-    border: 1px solid black;
+    /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
     border-radius: 8px;
-    background-color: #f5f5f5;
+    background-color: white;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 47%, rgba(112,179,179,1) 100%, rgba(33,33,34,1) 100%, rgba(1,13,15,1) 100%);
     color:black;
   }
-  
+.underline{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  margin-top: 10px;
+}
   .create-post-box {
-    margin-bottom: 30px;
-    
+   margin-bottom: 20px;
+   
   }
   
   .create-post-header {
@@ -19,30 +23,29 @@
   }
   
   .create-post-textarea {
-    background-color: white;
-    border: 1px solid black;
+    /* background: linear-gradient(90deg, rgba(48,53,66,1) 47%, rgba(21,180,214,1) 81%, rgba(243,255,255,1) 100%, rgba(20,20,107,1) 100%, rgba(4,4,18,1) 100%); */
+    background-color: #3b4048;
+    border: 1px solid white;
+   border-radius: 5px;
   }
   
   .create-post-button {
     display: block;
     margin: 10px auto;
-    background-color: #4cceac;
+    background-color: #424b49;
     color: black;
     font-weight: 600;
   }
   
   .post-preview {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid black;
-    border-radius: 8px;
-    background-color: white;
+    
+    padding: 15px;  
   }
   
   .comment-section {
     margin-top: 20px;
-    padding: 15px;
-    border: 1px solid black;
+    padding-left: 55px;
+ 
   }
   
   .comment {
@@ -50,15 +53,17 @@
   }
   
   .comment-textarea {
-    background-color: white;
-    border: 1px solid black;
+    background-color: #3b4048;
+    /* background: linear-gradient(90deg, rgba(75,77,82,1) 31%, rgba(87,178,198,1) 66%, rgba(243,255,255,1) 100%, rgba(20,20,107,1) 100%, rgba(4,4,18,1) 100%); */
+    border: 1px solid white;
+    border-radius: 5px;
   }
   
   .comment-button {
     display: block;
     margin: 10px auto;
     background-color: #4cceac;
-    color: black;
+    color: rgb(76, 106, 203);
     font-weight: 600;
   }
   
