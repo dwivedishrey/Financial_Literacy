@@ -1,0 +1,76 @@
+.set-budget-container {
+    margin: 20px;
+    width: 500px;
+  }
+  .set-budget-container h4{
+    color: black;
+
+  }
+  .set-budget-container > .MuiTypography-root {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .budget-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  .set-budget-button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .set-budget-button:hover {
+    background-color: #1565c0;
+  }
+  .budget-status-container {
+    margin: 20px;
+  }
+  
+  .budget-status-container > h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color:black;
+  }
+  
+  .budget-status-details p {
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  .total-budget {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .current-spending {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .budget-status {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .budget-status.exceeded {
+    color: red;
+  }
+  
+  .budget-status.within {
+    color:darkgreen;
+    font-weight: 900;
+   
+  }
+  

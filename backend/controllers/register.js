@@ -1,6 +1,6 @@
 const database = require('../db/db');
 const { ObjectId, UUID } = require('mongodb'); // Import ObjectId from MongoDB
-const { updateSearchIndex } = require('../models/ExpenseModel');
+
 
 exports.register = async (req, res) => {
     const { username, email, password,uid } = req.body;

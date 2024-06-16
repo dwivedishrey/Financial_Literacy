@@ -7,34 +7,57 @@ import { format } from 'date-fns';
 function BarChart() {
   const { incomes, expenses } = useGlobalContext();
 
-  const incomeByMonth = incomes.reduce((acc, income) => {
-    const month = format(new Date(income.date), 'yyyy-MM');
-    acc[month] = (acc[month] || 0) + income.amount;
-    return acc;
-  }, {});
+  // Sort incomes and expenses by date
+  incomes.sort((a, b) => new Date(a.date) - new Date(b.date));
+  expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  const expenseByMonth = expenses.reduce((acc, expense) => {
-    const month = format(new Date(expense.date), 'yyyy-MM');
-    acc[month] = (acc[month] || 0) + expense.amount;
-    return acc;
-  }, {});
+  // Calculate cumulative income and expenses
+  let cumulativeIncome = 0;
+  const cumulativeIncomeData = incomes.map(income => {
+    cumulativeIncome += income.amount;
+    return cumulativeIncome;
+  });
 
-  const months = Array.from(new Set([...Object.keys(incomeByMonth), ...Object.keys(expenseByMonth)])).sort();
+  let cumulativeExpenses = 0;
+  const cumulativeExpenseData = expenses.map(expense => {
+    cumulativeExpenses += expense.amount;
+    return cumulativeExpenses;
+  });
 
+  // Determine labels based on dates
+  const incomeLabels = incomes.map(income => format(new Date(income.date), 'MMM yyyy'));
+  const expenseLabels = expenses.map(expense => format(new Date(expense.date), 'MMM yyyy'));
+
+  // Combine labels and data for income and expenses
+  const labels = Array.from(new Set([...incomeLabels, ...expenseLabels])).sort();
+  const incomeData = Array(labels.length).fill(0);
+  const expenseData = Array(labels.length).fill(0);
+
+  incomeLabels.forEach((label, index) => {
+    const idx = labels.indexOf(label);
+    incomeData[idx] = cumulativeIncomeData[index];
+  });
+
+  expenseLabels.forEach((label, index) => {
+    const idx = labels.indexOf(label);
+    expenseData[idx] = cumulativeExpenseData[index];
+  });
+
+  // Prepare data for bar chart
   const data = {
-    labels: months,
+    labels: labels,
     datasets: [
       {
-        label: 'Income',
-        data: months.map(month => incomeByMonth[month] || 0),
+        label: 'Cumulative Income',
         backgroundColor: 'green',
+        data: incomeData,
       },
       {
-        label: 'Expenses',
-        data: months.map(month => expenseByMonth[month] || 0),
+        label: 'Cumulative Expenses',
         backgroundColor: 'red',
-      }
-    ]
+        data: expenseData,
+      },
+    ],
   };
 
   return (
