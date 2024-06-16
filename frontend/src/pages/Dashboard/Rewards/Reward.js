@@ -8,7 +8,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
 import StatBox from "../components/StatBox";
 import Header from "../components/Header";
-
+import './reward.css'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import "react-pro-sidebar/dist/css/styles.css";
@@ -29,7 +29,7 @@ const Rewards = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box  alignItems="center" mb="40px">
-        <Header  title="Unlock Exclusive Rewards as You Learn and Play" subtitle="Dive into the ultimate quiz experience-a blend of excitement,learning and triumph"/>
+        <Header  title="You Earned It" />
        {/* <Button style={{backgroundColor:"#4cceac",color:"black",fontWeight:"600"}}>Start to Earn</Button> */}
       </Box>
  
@@ -43,14 +43,16 @@ const Rewards = () => {
         {/* ROW 1 */}
         <Box
           gridColumn="span 4"
+          className="voucher"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          // backgroundColor="#006769"
+          
           p="30px"
           borderRadius="10px"
         >
           <Rewardbox
             title="Amazon Vouchers"
-            price="200 points"
+            price="50% off"
          
             
           />
@@ -58,13 +60,13 @@ const Rewards = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          className="voucher"
           p="30px"
           borderRadius="10px"
         >
           <Rewardbox
             title="Flipkart Vouchers"
-            price="200 points"
+            price="30% off"
          
             
           />
@@ -72,23 +74,23 @@ const Rewards = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          className="voucher"
           p="30px"
           borderRadius="10px"
         >
            <Rewardbox
             title="Amazon Vouchers"
-            price="200 points"   
+            price="40% off"   
           />
         </Box>
        </Box>
        <Box mt="40px">
-        <Typography variant="h2">
-          Earn more rewards by sharing with your friends
+        <Typography variant="h5" color='black'>
+         Want to earn more?<strong> Refer a friend ;)</strong>
         </Typography>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mt="20px">
+        <Box display="flex" justifyContent="space-between" alignItems="center" mt="10px">
           <Box>
-            <Typography variant="h4">
+            <Typography color='#344C64' variant="h6">
               1 Referral = 10 points
             </Typography>
             <Box display="flex" alignItems="center" mt="20px">
@@ -103,7 +105,7 @@ const Rewards = () => {
                   borderRadius: "5px",
                 }}
               />
-              <Button style={{backgroundColor:"#4cceac",color:"black",fontWeight:"600"}}
+              <Button style={{backgroundColor:"#344C64",color:"white",fontWeight:"600"}}
                 onClick={handleCopyClick}
               >
                 Tap to Copy

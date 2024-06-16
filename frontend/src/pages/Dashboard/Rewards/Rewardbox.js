@@ -17,7 +17,7 @@ const Rewardbox = ({ title, price }) => {
           <Typography
             variant="h4"
             fontWeight="bold"
-            sx={{ color: colors.grey[700] ,marginTop:"25px"}}
+            sx={{ color: 'white' ,marginTop:"25px"}}
           >
             {title}
           </Typography>
@@ -25,18 +25,19 @@ const Rewardbox = ({ title, price }) => {
         
       </Box>
       <Box display="flex" justifyContent="space-between" mt="10px">
-        <Typography variant="h5" sx={{ color: colors.grey[500] ,marginTop:"25px"}}>
+        <Typography variant="h4" sx={{ color: 'white' ,marginTop:"25px"}}>
           {price}
         </Typography>
         <Box mt="10px">
+         
         <a
           
           style={{
-            color: 'white',
-            width: '100px',
-            height: '40px',
-            borderRadius: '5px',
-            backgroundColor: '#046789',
+            color: 'blue',
+            width: '80px',
+            height: '30px',
+            borderRadius: '10px',
+            backgroundColor: 'white',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
