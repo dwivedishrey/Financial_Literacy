@@ -144,8 +144,9 @@ export const themeSettings = (mode) => {
               light: colors.grey[100],
             },
             background: {
-              default: '#9AC8CD',
+              default: '#DAD3BE',
             },
+            
           }
         : {
             // palette values for light mode

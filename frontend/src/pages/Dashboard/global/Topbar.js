@@ -40,7 +40,7 @@ const Topbar = () => {
 
         
       </Box>
-      <button style={{backgroundColor:"#1F2A40",fontSize:"20px",padding:"10px",fontWeight:"600"}} onClick={handleLogout}>Logout</button>
+      {/* <button style={{backgroundColor:"#1F2A40",fontSize:"20px",padding:"10px",fontWeight:"600"}} onClick={handleLogout}>Logout</button> */}
       {/* ICONS */}
       {/* <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>

@@ -23,7 +23,7 @@ const Dashboard = () => {
   const { totalBalance ,totalInvestments} = useGlobalContext();
 
   return (
-    <Box m="20px"  >
+    <Box m="2px"  >
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />

@@ -102,15 +102,18 @@ export default function Createpost() {
         <TextField
           value={body}
           onChange={(e) => setBody(e.target.value)}
-          multiline
-          rows={4}
+          // multiline
+          // rows={4}
           placeholder="Ask your question here..."
-          variant="outlined"
+          // variant="outlined"
           fullWidth
           margin="normal"
           className="create-post-textarea"
-          sx={{border:"1px solid black"}}
+          // sx={{border:"1px solid black"}}
+          
         />
+       
+        
         <Button
           variant="contained"
           onClick={postDetails}
@@ -118,17 +121,21 @@ export default function Createpost() {
         >
           Post
         </Button>
+       
       </Box>
 
       {Array.isArray(posts) && posts.map((post) => (
         <Box key={post._id} className="post-preview">
-          <Typography variant="h6">{post.body}</Typography>
-          <Typography variant="subtitle2">Posted by: {post.username}</Typography>
+          <Typography variant="subtitle2" color="#1679AB">{post.username}</Typography>
+          <Typography variant="h4">{post.body}</Typography>
+          <div className="underline"></div>
           <Box className="comment-section">
-            <Typography variant="h6">Comments</Typography>
+            {/* <Typography variant="h6">Comments</Typography> */}
             {(post.comments || []).map((comment) => (
               <Box key={comment._id} className="comment">
-                <Typography variant="body2"><strong>{comment.username}:</strong> {comment.comment}</Typography>
+                {/* <Typography color="black" variant="body" ><strong>{comment.username}:</strong> {comment.comment}</Typography> */}
+                <Typography color="grey" variant="subtitle2">{comment.username}</Typography>
+                <Typography color="black" variant="body">{comment.comment}</Typography>
               </Box>
             ))}
             <form onSubmit={(e) => handleCommentSubmit(e, post._id)}>
@@ -149,6 +156,7 @@ export default function Createpost() {
               >
                 Post Comment
               </Button>
+              
             </form>
           </Box>
         </Box>
