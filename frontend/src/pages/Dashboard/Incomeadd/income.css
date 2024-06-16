@@ -1,6 +1,6 @@
 .background-image {
     height: 100vh; /* Full viewport height */
-    background-image: url('C:\Users\Ujjwal Dwivedi\Financial_literacy\frontend\src\assets\background9.jpeg'); /* Path to your background image */
+    /* background-image: url('background.jpeg'); Path to your background image */
     background-size: cover;
     background-position: center;
      /* Adjust opacity value (0 to 1) */

@@ -24,7 +24,7 @@ const NewsBox = ({ image, title, description, link }) => {
       justifyContent="space-between"
       height="100%"
       
-
+   
       borderRadius="10px"
       
     >
@@ -37,13 +37,13 @@ const NewsBox = ({ image, title, description, link }) => {
         <Typography
           variant="h5"
           fontWeight="bold"
-          sx={{ color: colors.grey[100], marginTop: '10px' }}
+          sx={{ color:"black", marginTop: '10px' }}
         >
           {truncatedTitle}
         </Typography>
         <Typography
           variant="body2"
-          sx={{ color: colors.grey[100], marginTop: '10px' }}
+          sx={{ color: "grey !important", marginTop: '10px' }}
         >
           {truncatedDescription}
         </Typography>

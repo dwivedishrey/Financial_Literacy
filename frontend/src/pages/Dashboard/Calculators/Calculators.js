@@ -1,6 +1,5 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../theme";
-
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
@@ -77,6 +76,7 @@ const Calculators = () => {
           borderRadius="10px"
         >
           <Calculatorbox
+         
             title="Investment Calculator"
             subtitle="An investment calculator is a valuable tool used to estimate the future value of an investment based on various input parameters such as initial investment amount, monthly contributions, investment duration, and expected interest rate or return."
             progress="0.75"
