@@ -57,8 +57,8 @@ function News() {
   return (
     <Box m="20px">
       <Box alignItems="center" mb="20px">
-      <Header  title="Financial News Feed" />
-        <hr />
+      <h2 style={{color:"black",fontWeight:"900"}}>Financial News</h2>
+            <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
       </Box>
       <Box
         display="grid"
@@ -71,7 +71,7 @@ function News() {
             key={index}
             gridColumn="span 4"
             gridRow="span 2"
-            backgroundColor="#1F2A40"
+            backgroundColor="white"
             p="20px"
             borderRadius="10px"
           >

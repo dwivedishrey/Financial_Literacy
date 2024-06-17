@@ -56,8 +56,12 @@ const Quiz = () => {
   };
 
   return (
+    <div>
+    <h2 style={{color:"black",fontWeight:"900"}}>Finance Quiz</h2>
+      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
     <div className="container">
       {/* <h1>Quizz App</h1> */}
+      
       {result ? (
         <></>
       ) : (
@@ -116,6 +120,7 @@ const Quiz = () => {
       ) : (
         <></>
       )}
+    </div>
     </div>
   );
 };

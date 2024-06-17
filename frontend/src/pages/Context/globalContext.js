@@ -155,6 +155,11 @@ export const GlobalProvider = ({ children }) => {
         history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         return history;
     };
+    const RecentHistory = () => {
+        const history = [...incomes, ...expenses];
+        history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        return history.slice(0, 3);
+    };
     const addInvestment = async (investment) => {
         
         if (users==null) {
@@ -275,7 +280,8 @@ export const GlobalProvider = ({ children }) => {
             upcomingPayments,
             setTotalBudget,
             getTotalBudget,
-            totalBudget
+            totalBudget,
+            RecentHistory
             
             
         }}>

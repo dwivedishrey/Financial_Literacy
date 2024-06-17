@@ -4,8 +4,8 @@
 html,
 body,
 #root,
-.app,
-.content {
+.app
+ {
   height: 100%;
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
@@ -14,6 +14,13 @@ body,
 .app {
   display: flex;
   position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+main.content{
+  overflow-y: auto;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -27,7 +34,7 @@ body,
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: black;
 }
 
 /* Handle on hover */

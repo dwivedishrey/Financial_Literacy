@@ -26,8 +26,8 @@ const Advisor = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box  alignItems="center" mb="80px">
-        <Header  title="List of Financial Advisors" />
-        <hr />
+      <h2 style={{color:"black",fontWeight:"900"}}>List of Financial Advisor</h2>
+      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
        
       </Box>
 

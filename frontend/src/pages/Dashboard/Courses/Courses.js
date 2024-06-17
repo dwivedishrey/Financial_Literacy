@@ -14,8 +14,8 @@ const Courses = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box  alignItems="center" mb="80px">
-        <Header  title="Courses" />
-        <hr />
+      <h2 style={{color:"black",fontWeight:"900"}}>Courses</h2>
+      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />s
        
       </Box>
 
@@ -31,9 +31,10 @@ const Courses = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
+          p="20px"
           height="280px"
           borderRadius="10px"
+          borderTop= "20px solid rgba(11, 11, 69, 0.912)"
         >
           <Coursesbox
             image={image1}
@@ -45,9 +46,10 @@ const Courses = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
+          p="20px"
           height="280px"
           borderRadius="10px"
+          borderTop= "20px solid rgba(11, 11, 69, 0.912)"
         >
           <Coursesbox
             image={image2}
@@ -63,9 +65,11 @@ const Courses = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
+          p="20px"
           height="280px"
           borderRadius="10px"
+          borderTop= "20px solid rgba(11, 11, 69, 0.912)"
+          
         >
           <Coursesbox
             image={image3}

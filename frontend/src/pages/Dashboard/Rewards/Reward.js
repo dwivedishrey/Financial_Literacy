@@ -29,6 +29,8 @@ const Rewards = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box  alignItems="center" mb="40px">
+      <h2 style={{color:"black",fontWeight:"900"}}>Reward Store</h2>
+      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
         <Header  title="Unlock Exclusive Rewards as You Learn and Play" subtitle="Dive into the ultimate quiz experience-a blend of excitement,learning and triumph"/>
        {/* <Button style={{backgroundColor:"#4cceac",color:"black",fontWeight:"600"}}>Start to Earn</Button> */}
       </Box>
@@ -83,12 +85,12 @@ const Rewards = () => {
         </Box>
        </Box>
        <Box mt="40px">
-        <Typography variant="h2">
+        <Typography variant="h2" style={{color:"black"}}>
           Earn more rewards by sharing with your friends
         </Typography>
         <Box display="flex" justifyContent="space-between" alignItems="center" mt="20px">
           <Box>
-            <Typography variant="h4">
+            <Typography variant="h4" style={{color:"black"}}>
               1 Referral = 10 points
             </Typography>
             <Box display="flex" alignItems="center" mt="20px">

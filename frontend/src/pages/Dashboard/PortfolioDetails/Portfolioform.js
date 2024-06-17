@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useGlobalContext } from '../../Context/globalContext';
-import { Box, TextField, MenuItem, FormControl, InputLabel, Select, Typography, Button } from '@mui/material';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import AddIcon from '@mui/icons-material/Add';
+import { useGlobalContext } from '../../Context/globalContext';
+import './Portfolioform.css';
 
 function PortfolioForm() {
     const { addInvestment, message, setError } = useGlobalContext();
@@ -24,12 +22,8 @@ function PortfolioForm() {
         setError('');
     };
 
-    
-
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("button clicked")
-        console.log(inputState); 
         addInvestment(inputState);
         setInputState({
             type: '',
@@ -42,173 +36,82 @@ function PortfolioForm() {
     };
 
     return (
-        <FormStyled onSubmit={handleSubmit}>
-            <Box m="20px">
-                {message && <Typography color="error">{message}</Typography>}
-                <FormControl fullWidth margin="normal" className="form-control">
-                    <InputLabel className="text-field-label">Type of Investment</InputLabel>
-                    <Select
+        <form className="form-styled" onSubmit={handleSubmit}>
+            <div className="portfolio-form-container">
+                {message && <p className="error-message">{message}</p>}
+                <h2>Add Investment Details</h2>
+                <div className="form-control">
+                    <label className="text-field-label">Type of Investment</label>
+                    <select
                         value={type}
                         onChange={handleInput('type')}
-                        label="Type of Investment"
-                        className="text-field"
-                        inputProps={{
-                            className: 'text-field-input',
-                        }}
+                        name="type"
+                        className="text-field-input"
                     >
-                        <MenuItem value=""><em>Select Type of Investment</em></MenuItem>
-                        <MenuItem value="stocks">Stocks</MenuItem>
-                        <MenuItem value="bonds">Bonds</MenuItem>
-                        <MenuItem value="mutualFunds">Mutual Funds</MenuItem>
-                        <MenuItem value="realEstate">Real Estate</MenuItem>
-                        <MenuItem value="crypto">Cryptocurrency</MenuItem>
-                        <MenuItem value="other">Other</MenuItem>
-                    </Select>
-                </FormControl>
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Investment Amount"
-                    value={amount}
-                    onChange={handleInput('amount')}
-                    className="text-field"
-                    InputLabelProps={{
-                        className: 'text-field-label',
-                    }}
-                    inputProps={{
-                        className: 'text-field-input',
-                    }}
-                />
-                <FormControl fullWidth margin="normal" className="form-control">
+                        <option value="" disabled>Select Type of Investment</option>
+                        <option value="stocks">Stocks</option>
+                        <option value="bonds">Bonds</option>
+                        <option value="mutualFunds">Mutual Funds</option>
+                        <option value="realEstate">Real Estate</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div className="text-field">
+                    <label className="text-field-label">Investment Amount</label>
+                    <input
+                        type="number"
+                        value={amount}
+                        name="amount"
+                        onChange={handleInput('amount')}
+                        className="text-field-input"
+                    />
+                </div>
+                <div className="form-control">
+                    <label className="text-field-label">Purchase Date</label>
                     <DatePicker
                         selected={purchaseDate}
-                        onChange={(purchaseDate) => setInputState({ ...inputState, purchaseDate })}
+                        onChange={(date) => setInputState({ ...inputState, purchaseDate: date })}
                         dateFormat="dd/MM/yyyy"
-                        customInput={<StyledTextField label="Purchase Date" fullWidth className="text-field"/>}
+                        className="text-field-input"
                     />
-                </FormControl>
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Current Value"
-                    value={currentValue}
-                    onChange={handleInput('currentValue')}
-                    className="text-field"
-                    InputLabelProps={{
-                        className: 'text-field-label',
-                    }}
-                    inputProps={{
-                        className: 'text-field-input',
-                    }}
-                />
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Expected Growth"
-                    value={expectedGrowth}
-                    onChange={handleInput('expectedGrowth')}
-                    className="text-field"
-                    InputLabelProps={{
-                        className: 'text-field-label',
-                    }}
-                    inputProps={{
-                        className: 'text-field-input',
-                    }}
-                />
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Description"
-                    multiline
-                    rows={4}
-                    value={description}
-                    onChange={handleInput('description')}
-                    className="text-field"
-                    InputLabelProps={{
-                        className: 'text-field-label',
-                    }}
-                    inputProps={{
-                        className: 'text-field-input',
-                    }}
-                />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    startIcon={<AddIcon />}
-                    className="submit-button"
-                >
+                </div>
+                <div className="text-field">
+                    <label className="text-field-label">Current Value</label>
+                    <input
+                        type="number"
+                        value={currentValue}
+                        name="currentValue"
+                        onChange={handleInput('currentValue')}
+                        className="text-field-input"
+                    />
+                </div>
+                <div className="text-field">
+                    <label className="text-field-label">Expected Growth</label>
+                    <input
+                        type="number"
+                        value={expectedGrowth}
+                        name="expectedGrowth"
+                        onChange={handleInput('expectedGrowth')}
+                        className="text-field-input"
+                    />
+                </div>
+                <div className="text-field">
+                    <label className="text-field-label">Description</label>
+                    <textarea
+                        value={description}
+                        name="description"
+                        onChange={handleInput('description')}
+                        rows={4}
+                        className="text-field-input"
+                    />
+                </div>
+                <button type="submit" className="submit-button">
                     Add Investment
-                </Button>
-            </Box>
-        </FormStyled>
+                </button>
+            </div>
+        </form>
     );
 }
-
-const StyledTextField = styled(TextField)`
-    background-color: white !important;
-    color: black !important;
-
-    .MuiInputBase-input {
-        color: black !important;
-    }
-
-    .MuiInputLabel-root {
-        color: black !important;
-    }
-
-    .MuiOutlinedInput-notchedOutline {
-        border-color: black !important;
-    }
-`;
-
-const FormStyled = styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 600px;
-    margin: 0 auto;
-    gap: 1rem;
-
-    .form-container {
-        margin: 20px;
-    }
-
-    .text-field {
-        background-color: white;
-        color: black;
-
-        .MuiInputBase-input {
-            color: black !important;
-        }
-
-        .MuiInputLabel-root {
-            color: black !important;
-        }
-
-        .MuiOutlinedInput-notchedOutline {
-            border-color: black !important;
-        }
-    }
-
-    .form-control {
-        background-color: white;
-
-        .MuiInputBase-input {
-            color: black !important;
-        }
-
-        .MuiInputLabel-root {
-            color: black !important;
-        }
-
-        .MuiOutlinedInput-notchedOutline {
-            border-color: black !important;
-        }
-    }
-
-    .submit-button {
-        margin-top: 20px;
-    }
-`;
 
 export default PortfolioForm;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {ProSidebar , Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -30,6 +30,10 @@ import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact
 import CasinoIcon from '@mui/icons-material/Casino';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import auth from "../../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from 'firebase/auth'
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -50,18 +54,32 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
+
+
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
   const { users } = useGlobalContext();
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate(); 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+  
+      console.log('User signed out');
+      navigate('/login');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
   
   return (
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `black !important`,
+          background: `#002147 !important`,
           height:"100%"
         },
         "& .pro-icon-wrapper": {
@@ -200,20 +218,8 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Currency Convertor"
-              to="/calendar"
-              icon={<CurrencyExchangeIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Stock Market Tracker"
-              to="/dashboard/stock"
-              icon={<ShowChartIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+           
+           
              <Item
               title="Financial News"
               to="/dashboard/news"
@@ -272,7 +278,8 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-          
+             <p style={{fontSize:"20px",fontWeight:"600",cursor:"pointer"}} onClick={handleLogout}>Logout</p> 
+           
           
           </Box>
         </Menu>

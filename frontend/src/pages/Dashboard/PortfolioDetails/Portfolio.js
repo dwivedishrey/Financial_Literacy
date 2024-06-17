@@ -34,7 +34,7 @@ function Portfolio() {
           gridColumn="span 8"
           p="30px"
         >
-          <Portfolioform />
+         
         </Box>
 
         {/* Investment Information */}

@@ -1,28 +1,32 @@
 .set-budget-container {
-    margin: 20px;
-    width: 500px;
-  }
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 10px;
+  
+}
   .set-budget-container h4{
     color: black;
-
+ 
   }
   .set-budget-container > .MuiTypography-root {
     font-size: 1.5rem;
-    margin-bottom: 10px;
+   
   }
   
   .budget-input {
-    width: 100%;
+    width: 140px;
     padding: 8px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
+    font-size: 0.8rem;
+    border:1px solid #1565c0 ;
     border-radius: 4px;
-    margin-bottom: 10px;
     color: black;
   }
   
   .set-budget-button {
-    background-color: #1976d2;
+    background-color: #ff6c03;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -32,7 +36,7 @@
   }
   
   .set-budget-button:hover {
-    background-color: #1565c0;
+    background-color: #eeee09fa;
   }
   .budget-status-container {
     margin: 20px;

@@ -20,6 +20,7 @@ import SetBudget from "./SetBudget/Budget";
 import UpcomingPayments from "./PortfolioDetails/InvestmentDate";
 import backgroundImage from '../../../src/assets/background8.jpg'; 
 import LineChart from "./Chart/LineChart";
+import History from "./TransactionHistory/Recent";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -34,12 +35,14 @@ const Dashboard = () => {
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
+     
     }}
     >
       {/* HEADER */}
       <Box ml="10px">
-      <Box display="flex" justifyContent="space-between" marginTop="10px" alignItems="center">
+      <Box display="flex" marginTop="10px" alignItems="center">
         <Header title="DASHBOARD" />
+        <SetBudget />
 
         
       </Box>
@@ -153,10 +156,10 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
             borderRadius="10px"
-            display="flex"
+          
       flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
+  
+    
       textAlign="center"
           >
            
@@ -172,11 +175,7 @@ const Dashboard = () => {
               
            
             <Box>
-              <IconButton>
-                <FeedIcon
-                  sx={{ fontSize: "26px", color: colors.grey[500] }}
-                />
-              </IconButton>
+              
             </Box>
           </Box>
           <Box height="250px" m="2px 2px 2px 2px">
@@ -196,8 +195,9 @@ const Dashboard = () => {
         >
         
             <Typography  style={{color:"black",fontWeight:"600",fontSize:"15px" }}>
-              Sources of Income
-              <Pieincome />
+              Recent Transaction History
+
+             <History/>
             </Typography>
           
          
@@ -216,8 +216,9 @@ const Dashboard = () => {
       textAlign="center"
         >
             <Typography color={colors.grey[700]} variant="h5" fontWeight="600" >
-          
-            <BarChart/>
+            Expenses
+            <PieChart/>
+            
           </Typography>
           
           
@@ -233,8 +234,8 @@ const Dashboard = () => {
       textAlign="center"
         >
           <Typography style={{color:"black",fontWeight:"600",fontSize:"15px",textAlign: "center" }}>
-            Expenses
-            <PieChart/>
+           
+            <BarChart/>
           </Typography>
           
         </Box>

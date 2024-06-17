@@ -38,6 +38,8 @@ import PieChart from './pages/Dashboard/Chart/Pie';
 import BarChart from './pages/Dashboard/Chart/Bar';
 import Portfolio from './pages/Dashboard/PortfolioDetails/Portfolio';
 import Details from './pages/Dashboard/Details';
+import PortfolioForm from './pages/Dashboard/PortfolioDetails/Portfolioform';
+import Portfolioadd from './pages/Dashboard/PortfolioDetails/Portfolioadd';
 
 
 function App() {
@@ -90,7 +92,7 @@ function DashboardRoutes() {
               <Route path="/reward" element={<Rewards />}></Route>
               <Route path="/courses" element={<Courses />}></Route>
               <Route path="/news" element={<News />} />
-              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio" element={<Portfolioadd />} />
               <Route path="/bar" element={<BarChart />} />
               <Route path="/pie" element={<PieChart />} />
               

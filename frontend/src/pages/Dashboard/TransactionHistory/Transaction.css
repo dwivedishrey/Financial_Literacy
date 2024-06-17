@@ -1,0 +1,51 @@
+.history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.history-container hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+.history-item {
+    background: #f9f9f9;
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.history-item:hover {
+    transform: scale(1.02);
+}
+
+.history-item .title {
+    color: #333;
+    font-weight: bold;
+}
+
+.history-item .amount {
+    font-weight: bold;
+}
+
+.history-item .amount.expense {
+    color: red;
+}
+
+.history-item .amount.income {
+    color: green;
+}

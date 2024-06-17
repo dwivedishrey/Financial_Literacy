@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useGlobalContext } from '../../Context/globalContext';
-import './Budget.css'
+import './Budget.css';
 
 function SetBudget() {
   const { setTotalBudget, message } = useGlobalContext();
@@ -13,6 +13,7 @@ function SetBudget() {
 
   const handleSubmit = () => {
     setTotalBudget(budget);
+    setBudget(''); // Clear the budget input field
   };
 
   return (
@@ -28,7 +29,7 @@ function SetBudget() {
       <button className="set-budget-button" onClick={handleSubmit}>
         Set Budget
       </button>
-      {message && <Typography color="error">{message}</Typography>}
+      
     </div>
   );
 }
