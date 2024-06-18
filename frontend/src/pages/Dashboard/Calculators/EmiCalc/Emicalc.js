@@ -1,34 +1,11 @@
 import React, { useState } from "react";
 import { Slider, Typography, Table, TableCell, TableRow } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { Pie } from "react-chartjs-2";
 import "./Emicalc.css";
 import TableDetails from "./TableDetails";
 import SliderMarks from "./SliderMarks";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-// Styled Slider component
-const PrettoSlider = styled(Slider)(({ theme }) => ({
-  color: "MediumVioletRed",
-  height: 10,
-  "& .MuiSlider-thumb": {
-    height: 25,
-    width: 25,
-    backgroundColor: "white",
-    border: "3px solid black",
-    marginTop: -9,
-    marginLeft: -9,
-  },
-  "& .MuiSlider-track": {
-    height: 10,
-    borderRadius: 4,
-  },
-  "& .MuiSlider-rail": {
-    height: 10,
-    borderRadius: 4,
-  },
-}));
 
 function Emicalc() {
   const [pAmount, setpAmount] = useState(2755000);
@@ -49,17 +26,17 @@ function Emicalc() {
   const TotalAmountofInterest = Math.round(totalAmt - TotalAmountCredit);
 
   return (
-    <div className="Calc">
-      <div className="CalApp">
-        <h1 className="CalHeading">
+    <div className="calc">
+      <div className="calApp">
+        <h1 className="calHeading">
           <u>EMI Calculator</u>
         </h1>
 
-        <div>
+        <div className="slider-container">
           <Typography gutterBottom>
             <strong>Loan Amount</strong>
           </Typography>
-          <PrettoSlider
+          <Slider
             value={pAmount}
             marks={SliderMarks.marksAmt}
             onChange={(event, vAmt) => {
@@ -67,13 +44,14 @@ function Emicalc() {
             }}
             defaultValue={pAmount}
             max={maxValue}
+            className="slider"
           />
         </div>
-        <div>
+        <div className="slider-container">
           <Typography gutterBottom>
             <strong>Interest Rate%</strong>
           </Typography>
-          <PrettoSlider
+          <Slider
             value={interest}
             marks={SliderMarks.marksInt}
             onChange={(event, vInt) => {
@@ -81,13 +59,14 @@ function Emicalc() {
             }}
             defaultValue={interest}
             max={intMax}
+            className="slider"
           />
         </div>
-        <div>
+        <div className="slider-container">
           <Typography gutterBottom>
             <strong>Tenure (Months)</strong>
           </Typography>
-          <PrettoSlider
+          <Slider
             value={duration}
             marks={SliderMarks.marksTenure}
             onChange={(event, vDur) => {
@@ -95,13 +74,16 @@ function Emicalc() {
             }}
             defaultValue={duration}
             max={maxDuration}
+            className="slider"
           />
         </div>
-        <div>
-          <Table style={{ width: "100%" }}>
+        <div className="table-container">
+        
+          <Table style={{ width: "100%",color:"black" }}>
             <TableRow>
-              <TableCell style={{ width: "50%" }}>
-                <TableDetails
+            <div className="table-con">
+              <TableCell style={{ width: "50%",color:"black" }}>
+                <TableDetails style={{color:"black"}}
                   pAmount={pAmount}
                   interest={interest}
                   duration={duration}
@@ -109,6 +91,7 @@ function Emicalc() {
                   TotalAmountofInterest={TotalAmountofInterest}
                 />
               </TableCell>
+              </div>
               <TableCell style={{ width: "50%" }}>
                 <Pie
                   data={{
@@ -116,7 +99,7 @@ function Emicalc() {
                     datasets: [
                       {
                         data: [TotalAmountofInterest, pAmount],
-                        backgroundColor: ["#EE4E4E", "#3AA6B9"],
+                        backgroundColor: ["#3F51B5", "#2196F3"],
                       },
                     ],
                   }}

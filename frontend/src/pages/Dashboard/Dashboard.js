@@ -40,13 +40,19 @@ const Dashboard = () => {
     >
       {/* HEADER */}
       <Box ml="10px">
-      <Box display="flex" marginTop="10px" alignItems="center">
-        <Header title="DASHBOARD" />
-        <SetBudget />
-
-        
-      </Box>
-      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
+      <div className="header-container">
+      <div className="header-content">
+        <div className="header-text">
+          <h1 className="header-title">Financial Overview</h1>
+          <p style={{color:"black"}} className="header-subtitle">Get a comprehensive overview of your financial health</p>
+        </div>
+        <div className="header-set-budget">
+          <SetBudget />
+        </div>
+      </div>
+    </div>
+     
+    
       {/* GRID & CHARTS */}
       <Box
         display="grid"
@@ -64,7 +70,7 @@ const Dashboard = () => {
           borderRadius="10px"
           width="290px"
           sx={{
-            background: 'linear-gradient(to right, #ff6600 0%, #ff99cc 100%)',color:"black"
+           backgroundColor:' #002147',color:"white"
           }}
         >
           <Typography
@@ -72,7 +78,7 @@ const Dashboard = () => {
           fontWeight="900"
           color="red"
           fontSize="1.2rem"
-          style={{color:"black"}}
+          style={{color:"white"}}
         >
           Total Balance: Rs {totalBalance()}
         </Typography>
@@ -86,8 +92,8 @@ const Dashboard = () => {
           borderRadius="10px"
           width="290px"
           sx={{
-            background: 'linear-gradient(to right, #ff0000 0%, #ff6666 100%)',
-          }}
+            backgroundColor:' #002147',color:"white"
+           }}
 
         >
             <Typography
@@ -95,7 +101,7 @@ const Dashboard = () => {
           fontWeight="600"
           color="black"
           fontSize="1.2rem"
-          style={{color:"black"}}
+          style={{color:"white"}}
         >
           Total Investments: Rs {totalInvestments()}
         </Typography>
@@ -109,14 +115,14 @@ const Dashboard = () => {
           borderRadius="10px"
           width="290px"
           sx={{
-            background: 'linear-gradient(to right, #00ff99 0%, #99ff99 100%)',
-          }}
+            backgroundColor:' #002147',color:"white"
+           }}
         >
           <Typography
           variant="h4"
           fontWeight="600"
           color="black"
-          style={{color:"black"}}
+          style={{color:"white"}}
         >
            <BudgetStatus />
         </Typography>
@@ -130,14 +136,14 @@ const Dashboard = () => {
           borderRadius="10px"
           width="290px"
           sx={{
-            background: 'linear-gradient(to right, #00ccff 0%, #66ffff 100%)',
-          }}
+            backgroundColor:' #002147',color:"white"
+           }}
         >
            <Typography
           variant="h4"
           fontWeight="600"
           color="white"
-          style={{color:"black"}}
+          style={{color:"white"}}
         >
            <UpcomingPayments/>
         </Typography>

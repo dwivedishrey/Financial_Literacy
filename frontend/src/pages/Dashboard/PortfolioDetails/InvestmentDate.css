@@ -10,23 +10,23 @@
   }
   .upcoming-payments h2 {
     font-size: 15px;
-    color: black;
+    color: white;
     margin-top: 20px;
    
   }
 
   .payment-item h3 {
-    color: black;
+    color: white;
     font-size: 20px;
   }
   
   .payment-item p {
-    color: black;
+    color: white;
     font-size: 15px;
     
   }
   .upcoming-payments p{
-    color: black;
+    color: white;
     font-size: 15px;
   }
   

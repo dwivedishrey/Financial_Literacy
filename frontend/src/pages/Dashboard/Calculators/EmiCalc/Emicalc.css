@@ -1,65 +1,98 @@
-  .Calc{
-    margin-left: 40px;
-   
+/* Container for the entire calculator */
+.calc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for the calculator application */
+.calApp {
+  width: 100%;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+/* Heading for the calculator */
+.calHeading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3F51B5;
+  margin-bottom: 20px;
+}
+
+/* Container for each slider */
+.slider-container {
+  margin-bottom: 20px;
+}
+
+/* Styling for the sliders */
+.slider {
+  color: #3F51B5;
+  height: 10px;
+}
+
+.slider .MuiSlider-thumb {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: 3px solid #3F51B5;
+}
+
+.slider .MuiSlider-track {
+  height: 10px;
+  border-radius: 4px;
+}
+
+.slider .MuiSlider-rail {
+  height: 10px;
+  border-radius: 4px;
+}
+
+/* Container for the table */
+.table-container {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
+}
+.table-con{
+  background-color: #002147;
+}
+/* Table details */
+.table-details {
+  width: 100%;
+  
+}
+
+/* Pie chart styling */
+.pie-chart {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .calApp {
+    padding: 10px;
   }
   
-  .ETableCellText {
-    background-color: #006769;
-    color: white !important;
-    font-size: 16px !important;
+  .calHeading {
+    font-size: 20px;
   }
-  
-  .ETableCellVal {
-    text-align: right !important;
-    font-size: 18px !important;
+
+  .slider-container {
+    margin-bottom: 15px;
   }
-  
-  .CalApp {
-    width: 96%;
-    border: 2px solid black;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 10px;
-    background-color: #2f2d32;
+
+  .table-container {
+    margin-top: 15px;
   }
-  
-  .CalHeading {
-    text-align: center;
-    color: #686d76;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #000000;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+}

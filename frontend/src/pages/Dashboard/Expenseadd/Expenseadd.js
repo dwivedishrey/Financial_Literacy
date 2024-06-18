@@ -16,6 +16,7 @@ function Expenseadd() {
     <div className="expense-container"> 
 
           <div className="expense-content">
+            
             <div className="form-container">
               <Expenseform />
             </div>

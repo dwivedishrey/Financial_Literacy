@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./CreatePost.css";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Typography, TextField } from "@mui/material";
 import { useGlobalContext } from "../../Context/globalContext";
 
-export default function Createpost() {
+export default function CreatePost() {
   const [body, setBody] = useState("");
   const [posts, setPosts] = useState([]); // Ensure initial state is an empty array
   const [commentInputs, setCommentInputs] = useState({}); // Track comments for each post
@@ -94,65 +93,46 @@ export default function Createpost() {
   };
 
   return (
-    <Box className="create-post-container">
-      <Box className="create-post-box">
-        <Typography variant="h4" className="create-post-header">
-          Ask Your Question
-        </Typography>
-        <TextField
+    <div className="create-post-container">
+      <div className="create-post-box">
+        <h4 className="create-post-header">Ask Your Question</h4>
+        <textarea
           value={body}
           onChange={(e) => setBody(e.target.value)}
-          multiline
-          rows={4}
+          rows="4"
           placeholder="Ask your question here..."
-          variant="outlined"
-          fullWidth
-          margin="normal"
           className="create-post-textarea"
-          sx={{border:"1px solid black"}}
         />
-        <Button
-          variant="contained"
-          onClick={postDetails}
-          className="create-post-button"
-        >
+        <button onClick={postDetails} className="create-post-button">
           Post
-        </Button>
-      </Box>
+        </button>
+      </div>
 
       {Array.isArray(posts) && posts.map((post) => (
-        <Box key={post._id} className="post-preview">
-          <Typography variant="h6">{post.body}</Typography>
-          <Typography variant="subtitle2">Posted by: {post.username}</Typography>
-          <Box className="comment-section">
-            <Typography variant="h6">Comments</Typography>
+        <div key={post._id} className="post-preview">
+          <h4>{post.body}</h4>
+          <p>Posted by: {post.username}</p>
+          <div className="comment-section">
+            <h6>Comments</h6>
             {(post.comments || []).map((comment) => (
-              <Box key={comment._id} className="comment">
-                <Typography variant="body2"><strong>{comment.username}:</strong> {comment.comment}</Typography>
-              </Box>
+              <div key={comment._id} className="comment">
+                <p><strong>{comment.username}:</strong> {comment.comment}</p>
+              </div>
             ))}
             <form onSubmit={(e) => handleCommentSubmit(e, post._id)}>
-              <TextField
+              <textarea
                 value={commentInputs[post._id] || ""}
                 onChange={(e) => handleCommentChange(e, post._id)}
                 placeholder="Add a comment..."
-                variant="outlined"
-                fullWidth
-                margin="normal"
                 className="comment-textarea"
-                sx={{border:"1px solid black"}}
               />
-              <Button
-                variant="contained"
-                type="submit"
-                className="comment-button"
-              >
+              <button type="submit" className="comment-button">
                 Post Comment
-              </Button>
+              </button>
             </form>
-          </Box>
-        </Box>
+          </div>
+        </div>
       ))}
-    </Box>
+    </div>
   );
 }

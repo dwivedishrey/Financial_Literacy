@@ -4,17 +4,15 @@
   flex-direction: column;
   align-items: center;
   margin-left: auto;
-  margin-right: 10px;
+
+  
   
 }
   .set-budget-container h4{
     color: black;
  
   }
-  .set-budget-container > .MuiTypography-root {
-    font-size: 1.5rem;
-   
-  }
+  
   
   .budget-input {
     width: 140px;
@@ -26,7 +24,7 @@
   }
   
   .set-budget-button {
-    background-color: #ff6c03;
+    background-color: #002147;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -36,7 +34,7 @@
   }
   
   .set-budget-button:hover {
-    background-color: #eeee09fa;
+    background-color: #1f09c2fa;
   }
   .budget-status-container {
     margin: 20px;
@@ -50,7 +48,7 @@
   
   .budget-status-details p {
     margin-bottom: 10px;
-    color: black;
+    color: white;
   }
   
   .total-budget {

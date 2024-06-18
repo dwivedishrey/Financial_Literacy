@@ -57,7 +57,7 @@ const HistoryStyled = styled.div`
     }
 
     .history {
-        background-color: white;
+        background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
         width:90%;
         padding: 30px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);

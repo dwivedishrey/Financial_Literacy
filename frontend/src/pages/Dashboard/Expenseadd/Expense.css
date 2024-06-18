@@ -17,7 +17,7 @@
     width: 500px;
     background-color: white;
     border-radius: 8px; /* Rounded corners */
-    
+    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
     border-top: 40px solid rgba(11, 11, 69, 0.912);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better visualization */
   }

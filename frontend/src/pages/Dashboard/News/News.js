@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, CircularProgress } from '@mui/material';
-import NewsBox from './Newsbox'; // Adjust the path as necessary
 import './News.css';
 import Header from '../components/Header';
+import NewsBox from './Newsbox';
 
 function News() {
   const [articles, setArticles] = useState([]);
@@ -40,53 +39,41 @@ function News() {
 
   if (loading) {
     return (
-      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-        <CircularProgress />
-      </Box>
+      <div className="loading-container">
+        <div className="loader"></div>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-        <Typography variant="h5" color="error">{error}</Typography>
-      </Box>
+      <div className="error-container">
+        <h5 className="error-message">{error}</h5>
+      </div>
     );
   }
 
   return (
-    <Box m="20px">
-      <Box alignItems="center" mb="20px">
-      <h2 style={{color:"black",fontWeight:"900"}}>Financial News</h2>
-            <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
-      </Box>
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
-        gap="20px"
-      >
+    <div className="news-container">
+      <div className="news-header">
+        <h2 style={{color:"black"}} className="news-title">Financial News</h2>
+        <hr className="header-line" />
+      </div>
+      <div className="news-grid">
         {articles.length > 0 ? articles.map((article, index) => (
-          <Box
-            key={index}
-            gridColumn="span 4"
-            gridRow="span 2"
-            backgroundColor="white"
-            p="20px"
-            borderRadius="10px"
-          >
+          <div key={index} className="news-item">
             <NewsBox
               image={article.urlToImage}
               title={article.title}
               description={article.description}
               link={article.url}
             />
-          </Box>
+          </div>
         )) : (
-          <Typography variant="h5">No articles found</Typography>
+          <h5 className="no-articles">No articles found</h5>
         )}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
 

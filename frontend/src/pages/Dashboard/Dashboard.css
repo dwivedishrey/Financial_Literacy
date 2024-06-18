@@ -23,6 +23,7 @@ main.content{
   margin-bottom: 10px;
 }
 
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -41,3 +42,59 @@ main.content{
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.header-container {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+  margin-right: 10px;
+ 
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-text {
+  flex-grow: 1;
+}
+
+.header-title {
+  color: #1a237e;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.header-subtitle {
+  color: #3949ab;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.header-set-budget {
+  margin-left: auto;
+}
+
+.set-budget-button {
+  color: white;
+  
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.set-budget-button:hover {
+  background-color: #1a237e;
+}
+

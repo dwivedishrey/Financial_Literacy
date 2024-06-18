@@ -1,0 +1,62 @@
+/* Funbox Styles */
+.funbox-container {
+    background-color: #ececec;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
+  }
+  
+  .funbox-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-container {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .funbox-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  .funbox-details {
+    text-align: center;
+  }
+  
+  .funbox-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .play-button-container {
+    text-align: center;
+    margin-top: 10px;
+    
+  }
+  
+  .play-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgba(11, 11, 69, 0.912);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .play-button:hover {
+    background-color: #024d5a;
+  }
+  
