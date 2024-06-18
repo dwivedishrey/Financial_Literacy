@@ -23,8 +23,8 @@ const Calculators = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box  alignItems="center" mb="80px">
-        <Header  title="Calculators" />
-        <hr />
+      <h2 style={{color:"black",fontWeight:"900"}}>Transaction History</h2>
+      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
 
         <p style={{marginTop:"15px",fontSize:"15px",color:"#1679AB"}}>Financial calculators are indispensable tools for anyone looking to make informed financial decisions. Whether you are planning to take out a loan, save for a future goal, or manage your daily expenses, financial calculators provide clarity and direction. They transform complex financial concepts into easily understandable numbers, helping users to visualize their financial future and make well-informed decisions.</p>
 

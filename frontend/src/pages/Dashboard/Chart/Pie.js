@@ -2,12 +2,12 @@ import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext';
+import { Chart as ChartJs, ArcElement, Tooltip, Legend, CategoryScale ,LinearScale,BarElement} from 'chart.js'; 
 
+// Register necessary components
+ChartJs.register(ArcElement, Tooltip, Legend, CategoryScale,LinearScale,BarElement);
 function PieChart() {
   const {  expenses } = useGlobalContext();
-
-  
-
   const expenseCategories = expenses.reduce((acc, expense) => {
     acc[expense.category] = (acc[expense.category] || 0) + expense.amount;
     return acc;
@@ -32,10 +32,26 @@ function PieChart() {
       },
     ],
   };
+  const options = {
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem) {
+            const category = tooltipItem.label;
+            const value = tooltipItem.raw;
+            return `${category}: Rs ${value}`;
+          },
+        },
+      },
+    },
+  };
 
   return (
     <PieChartStyled>
-      <Pie data={data} />
+      <Pie data={data} options={options} />
     </PieChartStyled>
   );
 }
@@ -46,10 +62,9 @@ const PieChartStyled = styled.div`
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
   padding: 1rem;
   border-radius: 20px;
-  width:350px;
-  height: 250px;
-  margin-left:20px;
-  margin-top:10px;
+  width: 200px;
+  height: 200px;
+ 
 `;
 
 export default PieChart;

@@ -76,15 +76,7 @@ const Login = () => {
       }
     };
   
-  if (user || googleuser) {
-    console.log(user)
-    const userId =user.id
-    console.log('Setting user globally:', userId);
-    
-    
-    navigate("/dashboard");
-    console.log(googleuser);
-  }
+
   
 
   return (

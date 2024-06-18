@@ -144,7 +144,8 @@ export const themeSettings = (mode) => {
               light: colors.grey[100],
             },
             background: {
-              default: '#9AC8CD',
+              default: '#c5cae9', // Background color
+              paper: '#cdc1ff',   // Paper component background color if needed
             },
           }
         : {

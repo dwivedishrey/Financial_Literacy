@@ -13,14 +13,7 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext';
 import { dateFormat } from '../../Utils/dateFormat';
 
-ChartJs.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+
 
 function Chart() {
   const { incomes, expenses } = useGlobalContext();

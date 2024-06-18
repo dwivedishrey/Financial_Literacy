@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../Context/globalContext';
 import Expenseform from './Expenseform';
 
-
+import './Expense.css';
 function Expenseadd() {
   const { incomes, getIncomes, deleteIncome, users ,getExpenses} = useGlobalContext();
 
@@ -13,15 +13,13 @@ function Expenseadd() {
   }, []);
   
   return (
-    <div>
-      
-          <h1>Expenses</h1>
-         
-          <div className="income-content">
+    <div className="expense-container"> 
+
+          <div className="expense-content">
             <div className="form-container">
               <Expenseform />
             </div>
-           
+  
           </div>
        
     </div>

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useGlobalContext } from '../Context/globalContext';
-import { Box, TextField, MenuItem, FormControl, InputLabel, Select, Typography, Button } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import 'react-datepicker/dist/react-datepicker.css'; 
+import './Form.css'
 
 function Form() {
     const { addIncome, getIncomes, error, setError, users, message } = useGlobalContext();
@@ -26,7 +25,9 @@ function Form() {
 
     const handleSubmit = e => {
         e.preventDefault();
+        console.log(inputState);
         addIncome(inputState);
+
         setInputState({
             title: '',
             amount: '',
@@ -37,150 +38,76 @@ function Form() {
     };
 
     return (
-        <FormStyled onSubmit={handleSubmit}>
-            <Box m="20px">
-                {message && <Typography color="error">{message}</Typography>}
-                <TextField
-            fullWidth
-            margin="normal"
-            label="Salary Title"
-            value={title}
-            name="title"
-           
-            onChange={handleInput('title')}
-            InputLabelProps={{
-                sx: { color: 'black' }, // Set your desired label color here
-            }}
-            sx={{
-                backgroundColor:'white',
-                '& label.Mui-focused': {
-                    color: 'black', // Set focused label color here if needed
-                },
-                '& .MuiInput-underline:after': {
-                    borderBottomColor: 'black', // Set underline color when focused
-                },
-            }}
-        />
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Salary Amount"
-                    type="number"
-                    value={amount}
-                    name="amount"
-                    onChange={handleInput('amount')}
-                    InputLabelProps={{
-                        sx: { color: 'black' }, // Set your desired label color here
-                    }}
-                    sx={{
-                        '& label.Mui-focused': {
-                            color: 'black', // Set focused label color here if needed
-                        },
-                        '& .MuiInput-underline:after': {
-                            borderBottomColor: 'black', // Set underline color when focused
-                        },
-                    }}
-                />
-                <FormControl fullWidth margin="normal">
-                <DatePicker
-            selected={inputState.date}
-           
-            dateFormat="dd/MM/yyyy"
-            customInput={<TextField label="Enter A Date"  InputLabelProps={{
-                sx: { color: 'black' }, // Set label color
-            }}
-            sx={{
-                '& .react-datepicker-wrapper .react-datepicker__input-container .react-datepicker__input-container input': {
-                    color: 'black', // Set input text color
-                },
-                '& .react-datepicker-wrapper .react-datepicker__input-container .react-datepicker__input-container input:focus': {
-                    borderBottomColor: 'black', // Set input underline color when focused
-                },
-            }} fullWidth />}
-            InputLabelProps={{
-                sx: { color: 'black' }, // Set label color
-            }}
-            sx={{
-                '& .react-datepicker-wrapper .react-datepicker__input-container .react-datepicker__input-container input': {
-                    color: 'black', // Set input text color
-                },
-                '& .react-datepicker-wrapper .react-datepicker__input-container .react-datepicker__input-container input:focus': {
-                    borderBottomColor: 'black', // Set input underline color when focused
-                },
-            }}
-        />
-                </FormControl>
-                <FormControl fullWidth margin="normal">
-                    <InputLabel>Select Option</InputLabel>
-                    <Select
+        <form className="form-styled" onSubmit={handleSubmit}>
+            
+            <div className="form-container">
+                
+                <h2>Add Income Details</h2>
+                {message && <p className="income-message">{message}</p>}
+                <div className="text-field">
+                    <label className="text-field-label">Salary Title</label>
+                    <input
+                        type="text"
+                        value={title}
+                        name="title"
+                        onChange={handleInput('title')}
+                        className="text-field-input"
+                    />
+                </div>
+                <div className="text-field">
+                    <label className="text-field-label">Salary Amount</label>
+                    <input
+                        type="number"
+                        value={amount}
+                        name="amount"
+                        onChange={handleInput('amount')}
+                        className="text-field-input"
+                    />
+                </div>
+                <div className="form-control">
+                    <label className="text-field-label">Enter A Date</label>
+                    <DatePicker
+                        selected={date}
+                        onChange={(date) => setInputState({ ...inputState, date })}
+                        dateFormat="dd/MM/yyyy"
+                        className="text-field-input"
+                    />
+                </div>
+                <div className="form-control">
+                    <label className="text-field-label">Select Option</label>
+                    <select
                         value={category}
                         onChange={handleInput('category')}
-                        label="Select Option"
                         name="category"
-                        InputLabelProps={{
-                            sx: { color: 'black' }, // Set your desired label color here
-                        }}
-                        sx={{
-                            '& label.Mui-focused': {
-                                color: 'black', // Set focused label color here if needed
-                            },
-                            '& .MuiInput-underline:after': {
-                                borderBottomColor: 'black', // Set underline color when focused
-                            },
-                        }}
+                        className="text-field-input"
                     >
-                        <MenuItem value="" disabled>Select Option</MenuItem>
-                        <MenuItem value="salary">Salary</MenuItem>
-                        <MenuItem value="freelancing">Freelancing</MenuItem>
-                        <MenuItem value="investments">Investments</MenuItem>
-                        <MenuItem value="stocks">Stocks</MenuItem>
-                        <MenuItem value="bitcoin">Bitcoin</MenuItem>
-                        <MenuItem value="bank">Bank Transfer</MenuItem>
-                        <MenuItem value="youtube">YouTube</MenuItem>
-                        <MenuItem value="other">Other</MenuItem>
-                    </Select>
-                </FormControl>
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Add A Reference"
-                    multiline
-                    rows={4}
-                    value={description}
-                    name="description"
-                    onChange={handleInput('description')}
-                    InputLabelProps={{
-                        sx: { color: 'black' }, // Set your desired label color here
-                    }}
-                    sx={{
-                        '& label.Mui-focused': {
-                            color: 'black', // Set focused label color here if needed
-                        },
-                        '& .MuiInput-underline:after': {
-                            borderBottomColor: 'black', // Set underline color when focused
-                        },
-                    }}
-                />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    startIcon={<AddIcon />}
-                    sx={{ mt: 2 }}
-                >
+                        <option value="" disabled>Select Option</option>
+                        <option value="salary">Salary</option>
+                        <option value="freelancing">Freelancing</option>
+                        <option value="investments">Investments</option>
+                        <option value="stocks">Stocks</option>
+                        <option value="bitcoin">Bitcoin</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div className="text-field">
+                    <label className="text-field-label">Add A Reference</label>
+                    <textarea
+                        value={description}
+                        name="description"
+                        onChange={handleInput('description')}
+                        rows={4}
+                        className="text-field-input"
+                    />
+                </div>
+                <button type="submit" className="income-submit-button">
                     Add Income
-                </Button>
-            </Box>
-        </FormStyled>
+                </button>
+            </div>
+        </form>
     );
 }
-
-const FormStyled = styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 600px;
-    margin: 0 auto;
-    gap: 1rem;
-`;
 
 export default Form;

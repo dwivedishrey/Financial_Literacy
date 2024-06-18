@@ -17,8 +17,8 @@ const Funzone = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box  alignItems="center" mb="80px">
-        <Header  title="FunZone" />
-        <hr />
+      <h2 style={{color:"black",fontWeight:"900"}}>Finance FunZone</h2>
+      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
        
       </Box>
 
