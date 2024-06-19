@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
-import { tokens } from '../theme';
+import './Newsbox.css';
 
 function truncateText(text, wordLimit) {
   const words = text.split(' ');
@@ -11,62 +10,24 @@ function truncateText(text, wordLimit) {
 }
 
 const NewsBox = ({ image, title, description, link }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-
-  const truncatedDescription = truncateText(description, 20); // Adjusted word limit for a more realistic truncation
-  const truncatedTitle = truncateText(title, 10);
+  const truncatedDescription = truncateText(description, 15); // Adjusted word limit for a more realistic truncation
+  const truncatedTitle = truncateText(title, 5);
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="space-between"
-      height="100%"
-      
-
-      borderRadius="10px"
-      
-    >
-      <Box flex="1">
+    <div className="news-box">
+      <div className="news-content">
         <img
           src={image}
           alt={title}
-          style={{ width: '100%', height: '120px', borderRadius: '5px' }}
+          className="news-image"
         />
-        <Typography
-          variant="h5"
-          fontWeight="bold"
-          sx={{ color: '#000000', marginTop: '10px' }}
-        >
-          {truncatedTitle}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ color: '#000000', marginTop: '10px' }}
-        >
-          {truncatedDescription}
-        </Typography>
-      </Box>
-      <Box mt="10px">
-        <a
-          href={link}
-          style={{
-            color: 'white',
-            width: '100px',
-            height: '40px',
-            borderRadius: '5px',
-            backgroundColor: '#046789',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textDecoration: 'none',
-          }}
-        >
-          <div style={{ textAlign: 'center' }}>Read More</div>
-        </a>
-      </Box>
-    </Box>
+        <h5 className="news-title">{truncatedTitle}</h5>
+        <p style={{color:"black"}} className="news-description">{truncatedDescription}</p>
+      </div>
+      <div className="news-link">
+        <a href={link} className="read-more">Read More</a>
+      </div>
+    </div>
   );
 };
 

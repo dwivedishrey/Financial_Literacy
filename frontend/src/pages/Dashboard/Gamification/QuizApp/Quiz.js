@@ -3,25 +3,36 @@ import "./Quiz.css";
 import { data } from "./assets/data";
 
 const Quiz = () => {
-  let [index, setIndex] = useState(0);
-  let [question, setQuestion] = useState(data[index]);
-  let [lock, setLock] = useState(false);
-  let [score, setScore] = useState(0);
-  let [result, setResult] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [question, setQuestion] = useState(data[index]);
+  const [lock, setLock] = useState(false);
+  const [score, setScore] = useState(0);
+  const [result, setResult] = useState(false);
+  const [pointsEarned, setPointsEarned] = useState(0);
 
-  let Option1 = useRef(null);
-  let Option2 = useRef(null);
-  let Option3 = useRef(null);
-  let Option4 = useRef(null);
+  const Option1 = useRef(null);
+  const Option2 = useRef(null);
+  const Option3 = useRef(null);
+  const Option4 = useRef(null);
 
-  let option_array = [Option1, Option2, Option3, Option4];
+  const option_array = [Option1, Option2, Option3, Option4];
 
   const check = (e, ans) => {
-    if (lock === false) {
+    if (!lock) {
       if (question.ans === ans) {
         e.target.classList.add("correct");
         setLock(true);
         setScore((prev) => prev + 1);
+        if (score + 1 === data.length) {
+          setResult(true);
+          if (score === data.length) {
+            setPointsEarned(1);
+          } else if (score > 6) {
+            setPointsEarned(2);
+          } else {
+            setPointsEarned(3);
+          }
+        }
       } else {
         e.target.classList.add("wrong");
         setLock(true);
@@ -31,18 +42,17 @@ const Quiz = () => {
   };
 
   const next = () => {
-    if (lock === true) {
+    if (lock) {
       if (index === data.length - 1) {
         setResult(true);
-        return 0;
+        return;
       }
-      setIndex(++index);
-      setQuestion(data[index]);
+      setIndex(index + 1);
+      setQuestion(data[index + 1]);
       setLock(false);
-      option_array.map((option) => {
+      option_array.forEach((option) => {
         option.current.classList.remove("wrong");
         option.current.classList.remove("correct");
-        return null;
       });
     }
   };
@@ -53,74 +63,89 @@ const Quiz = () => {
     setScore(0);
     setLock(false);
     setResult(false);
+    setPointsEarned(0);
   };
 
   return (
-    <div>
-    <h2 style={{color:"black",fontWeight:"900"}}>Finance Quiz</h2>
+    <div className="quiz-page">
+      <h2 style={{ color: "black", fontWeight: "900" }}>Finance Quiz</h2>
       <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
-    <div className="container">
-      {/* <h1>Quizz App</h1> */}
-      
-      {result ? (
-        <></>
-      ) : (
-        <>
-          <h2>
-            {index + 1}.{question.question}{" "}
-          </h2>
-          <ul>
-            <li
-              ref={Option1}
-              onClick={(e) => {
-                check(e, 1);
-              }}
-            >
-              {question.option1}
-            </li>
-            <li
-              ref={Option2}
-              onClick={(e) => {
-                check(e, 2);
-              }}
-            >
-              {question.option2}
-            </li>
-            <li
-              ref={Option3}
-              onClick={(e) => {
-                check(e, 3);
-              }}
-            >
-              {question.option3}
-            </li>
-            <li
-              ref={Option4}
-              onClick={(e) => {
-                check(e, 4);
-              }}
-            >
-              {question.option4}
-            </li>
-          </ul>
-          <button onClick={next}>Next</button>
-          <div className="index">
-            {index + 1} of {data.length} questions
-          </div>
-        </>
-      )}
-      {result ? (
-        <>
-          {" "}
-          <h2>
-            You Scored {score} out of {data.length}
-          </h2>
-          <button onClick={reset}>Reset</button>
-        </>
-      ) : (
-        <></>
-      )}
-    </div>
+      <div className="container">
+        <div className="score-container">
+          <h2 style={{ fontSize: "20px", fontWeight: "900" }}>Score: {score}</h2>
+        </div>
+        {result ? (
+          <>
+            <h2>
+              You Scored {score} out of {data.length}
+            </h2>
+            {score === data.length && (
+              <div className="reward-message">
+                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "18px", fontWeight: "bold" }}>Congratulations! You scored perfectly!</p>
+                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>You have earned a free consultation with our financial advisor!</p>
+              </div>
+            )}
+            {score > 6 && score < data.length && (
+              <div className="reward-message">
+                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "18px", fontWeight: "bold" }}>Great job!</p>
+                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>You have earned {pointsEarned} points which can be used for reward vouchers!</p>
+              </div>
+            )}
+            <button style={{ marginTop: "5px" }} onClick={reset}>Reset</button>
+          </>
+        ) : (
+          <>
+            <h2>
+              {index + 1}.{question.question}{" "}
+            </h2>
+            <ul>
+              <li
+                ref={Option1}
+                onClick={(e) => {
+                  check(e, 1);
+                }}
+              >
+                {question.option1}
+              </li>
+              <li
+                ref={Option2}
+                onClick={(e) => {
+                  check(e, 2);
+                }}
+              >
+                {question.option2}
+              </li>
+              <li
+                ref={Option3}
+                onClick={(e) => {
+                  check(e, 3);
+                }}
+              >
+                {question.option3}
+              </li>
+              <li
+                ref={Option4}
+                onClick={(e) => {
+                  check(e, 4);
+                }}
+              >
+                {question.option4}
+              </li>
+            </ul>
+            <button onClick={next}>Next</button>
+            <div className="index">
+              {index + 1} of {data.length} questions
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="reward-info">
+        <div className="reward-icon">🏆</div>
+        <div className="reward-text">
+          <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>Winning one set of quiz will reward you with a free session with a financial advisor!</p>
+        </div>
+      </div>
     </div>
   );
 };

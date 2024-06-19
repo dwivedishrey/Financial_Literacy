@@ -1,72 +1,130 @@
+.container {
+  width: 500px;
+  margin: auto;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 10px solid rgba(11, 11, 69, 0.912);
+  padding: 0px 50px;
+  background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
+}
 
-  
-  .container {
-    width: 500px;
-    margin: auto;
-    background: white;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    padding: 20px 50px ;
-    margin-top: 20px;
-  }
+.container h1 {
+  color: #1679ab;
+  font-size: 30px;
+  font-weight: 900;
+  margin: 0;
+  align-self: center;
+}
 
-  .container h1 {
-    color: #1679AB;
-    font-size: 30px;
-    font-weight: 900;
-    margin: 0;
-    align-self: center;
-  }
-  .container h2 {
-    font-size: 18px;
-    font-weight: 500;
-    color: black;
-    align-self: center;
-  }
-  .container ul{
-    position: relative;
-    right: 17px;
-  }
-  .container ul li {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    padding-left: 15px;
-    border: 1px solid black;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 15px;
-    cursor: pointer;
-    color: black;
-  }
-  
-  .container button {
-    margin: auto;
-    width: 200px;
-    height: 50px;
-    background: #1679AB;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .container .index {
-    margin: auto;
-    margin-top: 10px;
-    font-size: 15px;
-  }
-  
-  .container .correct {
-    background: #dffff2;
-    border-color: #00d397;
-  }
-  
-  .container .wrong {
-    background: #e1b2b2;
-    border-color: #ef0e0e;
-  }
-  
+.container h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+  align-self: center;
+}
+
+.container ul {
+  position: relative;
+  right: 17px;
+}
+
+.container ul li {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-left: 15px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  color: black;
+}
+
+.container button {
+  margin: auto;
+  width: 200px;
+  height: 50px;
+  background: rgba(11, 11, 69, 0.912);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.container .index {
+  margin: auto;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.container .correct {
+  background: #dffff2;
+  border-color: #00d397;
+}
+
+.container .wrong {
+  background: #e1b2b2;
+  border-color: #ef0e0e;
+}
+
+.score-container {
+  align-self: flex-end;
+  font-size: 20px;
+  font-weight: 900;
+  color: #3f51b5;
+  margin-bottom: 2px;
+}
+
+.reward-message {
+  background: linear-gradient(135deg, #e6e6e6 0%, #ffffff 100%);
+  border: 1px solid #3c763d;
+  color: black;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+
+.reward-message:before {
+  content: "🎉";
+  font-size: 30px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reward-message p {
+  margin: 5px 0;
+}
+
+.reward-info {
+  margin-top:2px;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #3f51b5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reward-icon {
+  font-size: 24px;
+}
+
+.reward-text {
+  font-size: 16px;
+  color: #3f51b5;
+}

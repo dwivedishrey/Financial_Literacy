@@ -7,8 +7,7 @@ function BudgetStatus() {
 
   useEffect(() => {
     getTotalBudget();
-  }, []);
-
+  }, [getTotalBudget]);
   return (
     <div className="budget-status-container">
       <div className="budget-status-details">

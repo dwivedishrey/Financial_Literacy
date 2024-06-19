@@ -1,0 +1,82 @@
+/* Rewardbox Styles */
+.rewardbox-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
+   
+  }
+  
+  .rewardbox-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .rewardbox-container::before {
+    content: '';
+    position: absolute;
+    top: -75px;
+    left: -75px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    border-radius: 50%;
+    z-index: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .rewardbox-container:hover::before {
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .rewardbox-content {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .rewardbox-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .rewardbox-price {
+    font-size: 18px;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .get-button-container {
+    text-align: center;
+    margin-top: 10px;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .get-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(11, 11, 69, 0.912);;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .get-button:hover {
+    background-color: #024d5a;
+  }
+  

@@ -4,17 +4,20 @@
     margin: 50px auto;
     padding: 20px;
     border-radius: 8px;
-    background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #333333;
+    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
+    
   }
   
+  /* Post Creation Section */
   .create-post-box {
     margin-bottom: 30px;
     padding: 20px;
-    background-color: #fafafa;
+    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
   }
   
   .create-post-header {
@@ -22,87 +25,153 @@
     margin-bottom: 20px;
     font-size: 24px;
     font-weight: 600;
-    color: #333333;
+    color: #1e3a8a;
+    position: relative;
+  }
+  
+  .create-post-header::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #1e3a8a;
+    margin: 10px auto 0;
+    border-radius: 2px;
   }
   
   .create-post-textarea {
     background-color: #ffffff;
-    border: 1px solid #cccccc;
+    border: 1px solid #a0aec0;
+    color: black;
     border-radius: 4px;
     padding: 10px;
     font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+  }
+  
+  .create-post-textarea:focus {
+    border: 1px solid #1e3a8a;
   }
   
   .create-post-button {
     display: block;
     margin: 10px auto;
-    background-color: #4cceac;
+    background-color: #1e3a8a;
     color: #ffffff;
     font-weight: 600;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .create-post-button:hover {
-    background-color: #45b598;
+    background-color: #334155;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
+  /* Post Preview Section */
   .post-preview {
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid #cccccc;
+    border: 1px solid #a0aec0;
     border-radius: 8px;
-    background-color: #ffffff;
+    background-color: #f7fafc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
   
+  .post-preview:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .post-preview p {
+    color: #1a202c;
+  }
+  
+  /* Comment Section */
   .comment-section {
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid #cccccc;
+    border: 1px solid #a0aec0;
     border-radius: 8px;
-    background-color: #fafafa;
+    background-color: #edf2f7;
+    color: black;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .comment-section:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
   }
   
   .comment {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 4px;
-    background-color: #f0f0f0;
+    background-color: #e2e8f0;
+    color: black;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comment:hover {
+    background-color: #cbd5e0;
+  }
+  
+  .comment hr {
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #cbd5e0;
   }
   
   .comment-textarea {
     background-color: #ffffff;
-    border: 1px solid #cccccc;
+    border: 1px solid #a0aec0;
     border-radius: 4px;
     padding: 10px;
     font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    color: black;
+    transition: border 0.3s ease;
+  }
+  
+  .comment-textarea:focus {
+    border: 1px solid #1e3a8a;
+  }
+  
+  .comment p {
+    color: black;
   }
   
   .comment-button {
     display: block;
     margin: 10px auto;
-    background-color: #4cceac;
+    background-color: #1e3a8a;
     color: #ffffff;
     font-weight: 600;
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .comment-button:hover {
-    background-color: #45b598;
+    background-color: #334155;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .comment-section h6 {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #333333;
+    color: black;
   }
   

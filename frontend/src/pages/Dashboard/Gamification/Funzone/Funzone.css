@@ -1,0 +1,44 @@
+/* General Styles */
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  .funzone-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .funzone-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .funzone-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .header-line {
+    margin: 10px auto;
+    width: 50%;
+    height: 2px;
+    background-color: black;
+    border: none;
+  }
+  
+  .funzone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  

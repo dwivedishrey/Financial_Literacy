@@ -18,7 +18,7 @@ function SetBudget() {
 
   return (
     <div className="set-budget-container">
-      <h4>Set Your Total Budget</h4>
+      <p style={{fontSize:"15px",color:"black",fontWeight:"900"}} >Set Your Total Budget</p>
       <input
         type="number"
         className="budget-input"
