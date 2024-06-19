@@ -16,11 +16,10 @@ const About = () => {
         
       };
   return (
-    <div className='about-container' style={style}>
+    <div id="about" className='about-container' style={style}>
       <div className='about-text'>
-      <h1>YOUR FINANCIAL HELPER</h1>
-      <p>If you want to be financially free, you need to become a different person than you are today and let go of whatever has held you back in the past.” Robert Kiyosaki 
-      “Formal education will make you a living; self-education will make you a fortune.” – Jim Rohn</p>
+      <h1> Your Guide to the Basics</h1>
+      <p>Starting your financial journey can be overwhelming, but with the right knowledge, you can confidently manage your finances and achieve your financial goals. ArthaMarga aims to equip you with the fundamental principles of personal finance.</p>
       <a href='http://localhost:3000/login' className='about-btn'>Get Started</a>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./Quiz.css";
 import { data } from "./assets/data";
-
+import bg from '../../../../assets/que1.png'
 const Quiz = () => {
   const [index, setIndex] = useState(0);
   const [question, setQuestion] = useState(data[index]);
@@ -16,7 +16,15 @@ const Quiz = () => {
   const Option4 = useRef(null);
 
   const option_array = [Option1, Option2, Option3, Option4];
-
+  const style = {
+    backgroundImage: `url(${bg})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+   backgroundSize:'cover',
+   backgroundAttachment: 'fixed',
+   zIndex: "1", 
+   height:"100vh"
+  };
   const check = (e, ans) => {
     if (!lock) {
       if (question.ans === ans) {
@@ -67,9 +75,18 @@ const Quiz = () => {
   };
 
   return (
-    <div className="quiz-page">
+    <div style={style} className="quiz-page">
+      <div style={{ position: "relative", zIndex: "2", padding: "20px" }}>
       <h2 style={{ color: "black", fontWeight: "900" }}>Finance Quiz</h2>
       <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
+      </div>
+      <div className="reward-info">
+        <div className="reward-icon">🏆</div>
+        <div className="reward-text">
+          <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "25px", width:'500px', fontWeight:'600' }}>Winning one set of quiz will reward you with a free session with a financial advisor!</p>
+        </div>
+      </div>
+    
       <div className="container">
         <div className="score-container">
           <h2 style={{ fontSize: "20px", fontWeight: "900" }}>Score: {score}</h2>
@@ -140,12 +157,12 @@ const Quiz = () => {
         )}
       </div>
 
-      <div className="reward-info">
+      {/* <div className="reward-info">
         <div className="reward-icon">🏆</div>
         <div className="reward-text">
-          <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>Winning one set of quiz will reward you with a free session with a financial advisor!</p>
+          <p style={{ color: "#b5b9d4", fontSize: "16px" }}>Winning one set of quiz will reward you with a free session with a financial advisor!</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

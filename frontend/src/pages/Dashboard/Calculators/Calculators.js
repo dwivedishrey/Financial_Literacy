@@ -6,10 +6,17 @@ import HomeIcon from '@mui/icons-material/Home';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import "./Calculators.css";
 import CalculatorBox from './Calculatorbox';
+import bg from '../../../assets/cal1.png'
 
-
+const style = {
+  backgroundImage: `url(${bg})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+ backgroundSize:'cover',
+};
 const Calculators = () => {
   return (
+    <div className='cal-contain' style={style}>
     <div className="calculators-container">
       {/* HEADER */}
       <div className="calculators-header">
@@ -44,6 +51,7 @@ const Calculators = () => {
           />
         </div>
       </div>
+    </div>
     </div>
   );
 };

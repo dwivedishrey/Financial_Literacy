@@ -39,7 +39,7 @@ function PortfolioForm() {
         <form className="form-styled" onSubmit={handleSubmit}>
             <div className="portfolio-form-container">
                 {message && <p className="error-message">{message}</p>}
-                <h2>Add Investment Details 💸</h2>
+                <h2>Add Investment Details 💸a</h2>
                 <div className="form-control">
                     <label className="text-field-label">Type of Investment:</label>
                     <select
