@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,8 +10,9 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 
-const pages = ['About','Services', 'FAQ', 'Contact', 'Login'];
+const pages = ['About', 'Services', 'FAQ', 'Contact', 'Login'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -78,8 +79,28 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} component={Link} to={`/${page.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <Typography textAlign="center" style={{ marginLeft: "20px" }}>{page}</Typography>
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  {page === 'Login' ? (
+                    <Typography
+                      textAlign="center"
+                      component={Link}
+                      to={`/${page.toLowerCase()}`}
+                      style={{ marginLeft: "20px", textDecoration: 'none', color: 'inherit' }}
+                    >
+                      {page}
+                    </Typography>
+                  ) : (
+                    <Typography
+                      textAlign="center"
+                      component={ScrollLink}
+                      to={page.toLowerCase()}
+                      smooth={true}
+                      duration={500}
+                      style={{ marginLeft: "20px", cursor: 'pointer' }}
+                    >
+                      {page}
+                    </Typography>
+                  )}
                 </MenuItem>
               ))}
             </Menu>
@@ -109,10 +130,24 @@ function Navbar() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block'}}
-                component={Link}
-                to={`/${page.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                {page}
+                {page === 'Login' ? (
+                  <Link
+                    to={`/${page.toLowerCase()}`}
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    {page}
+                  </Link>
+                ) : (
+                  <ScrollLink
+                    to={page.toLowerCase()}
+                    smooth={true}
+                    duration={500}
+                    style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}
+                  >
+                    {page}
+                  </ScrollLink>
+                )}
               </Button>
             ))}
           </Box>

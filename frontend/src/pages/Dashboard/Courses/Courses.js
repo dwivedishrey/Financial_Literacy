@@ -2,7 +2,13 @@ import React from 'react';
 import './Courses.css';
 import Header from '../components/Header';
 import CoursesBox from './Coursesbox';
-
+import bg from '../../../assets/e1.png'
+const style = {
+  backgroundImage: `url(${bg})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+ backgroundSize:'cover',
+};
 
 const Courses = () => {
   // Array of course data
@@ -35,6 +41,7 @@ const Courses = () => {
   ];
 
   return (
+    <div className='course-contain' style={style}>
     <div className="courses-container">
       {/* HEADER */}
       <div className="courses-header">
@@ -57,6 +64,7 @@ const Courses = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

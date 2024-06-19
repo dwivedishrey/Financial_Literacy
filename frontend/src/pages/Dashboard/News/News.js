@@ -54,6 +54,7 @@ function News() {
   }
 
   return (
+    <div>
     <div className="news-container">
       <div className="news-header">
         <h2 style={{color:"black"}} className="news-title">Financial News</h2>
@@ -73,6 +74,7 @@ function News() {
           <h5 className="no-articles">No articles found</h5>
         )}
       </div>
+    </div>
     </div>
   );
 }

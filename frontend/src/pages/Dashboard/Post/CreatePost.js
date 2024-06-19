@@ -94,7 +94,7 @@ export default function CreatePost() {
 
   return (
     <div className="create-post-container">
-      <div className="create-post-box">
+      <div  className="create-post-box">
         <h4 className="create-post-header">Ask Your Question</h4>
         <textarea
           value={body}

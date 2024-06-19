@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../Context/globalContext';
 import Expenseform from './Expenseform';
-import girl from '../../../assets/in3.png'
+import girl from '../../../assets/t1.png'
 import './Expense.css';
 function Expenseadd() {
   const { incomes, getIncomes, deleteIncome, users ,getExpenses} = useGlobalContext();
