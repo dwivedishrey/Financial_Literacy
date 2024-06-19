@@ -37,9 +37,9 @@ function ExpenseForm() {
         <form className="form-styled" onSubmit={handleSubmit}>
             <div className="form-container">
                 {message && <p className="error-message">{message}</p>}
-                <h2>Add Expense Details</h2>
+                <h2>Add Expense Details 💸</h2>
                 <div className="text-field">
-                    <label className="text-field-label">Expense Title</label>
+                    <label className="text-field-label">Expense Title:</label>
                     <input
                         type="text"
                         value={title}
@@ -49,7 +49,7 @@ function ExpenseForm() {
                     />
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Expense Amount</label>
+                    <label className="text-field-label">Expense Amount:</label>
                     <input
                         type="number"
                         value={amount}
@@ -59,23 +59,23 @@ function ExpenseForm() {
                     />
                 </div>
                 <div className="form-control">
-                    <label className="text-field-label">Enter A Date</label>
+                    <label className="text-field-label">Enter A Date:</label>
                     <DatePicker
                         selected={date}
                         onChange={(date) => setInputState({ ...inputState, date })}
                         dateFormat="dd/MM/yyyy"
-                        className="text-field-input"
+                        className="text-field-input date-input"
                     />
                 </div>
                 <div className="form-control">
-                    <label className="text-field-label">Select Option</label>
+                    <label className="text-field-label">Select Option:</label>
                     <select
                         value={category}
                         onChange={handleInput('category')}
                         name="category"
                         className="text-field-input"
                     >
-                        <option value="" disabled>Select Option</option>
+                        <option value="" disabled>Select Option:</option>
                         <option value="education">Education</option>
                         <option value="groceries">Groceries</option>
                         <option value="health">Health</option>
@@ -87,7 +87,7 @@ function ExpenseForm() {
                     </select>
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Add A Reference</label>
+                    <label className="text-field-label">Add A Reference:</label>
                     <textarea
                         value={description}
                         name="description"

@@ -42,10 +42,10 @@ function Form() {
             
             <div className="form-container">
                 
-                <h2>Add Income Details</h2>
+                <h2>Add Income Details 💸</h2>
                 {message && <p className="income-message">{message}</p>}
                 <div className="text-field">
-                    <label className="text-field-label">Salary Title</label>
+                    <label className="text-field-label">Salary Title:</label>
                     <input
                         type="text"
                         value={title}
@@ -55,7 +55,7 @@ function Form() {
                     />
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Salary Amount</label>
+                    <label className="text-field-label">Salary Amount:</label>
                     <input
                         type="number"
                         value={amount}
@@ -65,23 +65,23 @@ function Form() {
                     />
                 </div>
                 <div className="form-control">
-                    <label className="text-field-label">Enter A Date</label>
+                    <label className="text-field-label">Enter A Date:</label>
                     <DatePicker
                         selected={date}
                         onChange={(date) => setInputState({ ...inputState, date })}
                         dateFormat="dd/MM/yyyy"
-                        className="text-field-input"
+                        className="text-field-input date-input"
                     />
                 </div>
                 <div className="form-control">
-                    <label className="text-field-label">Select Option</label>
+                    <label className="text-field-label">Select Option:</label>
                     <select
                         value={category}
                         onChange={handleInput('category')}
                         name="category"
                         className="text-field-input"
                     >
-                        <option value="" disabled>Select Option</option>
+                        <option value="" disabled>Select Option:</option>
                         <option value="salary">Salary</option>
                         <option value="freelancing">Freelancing</option>
                         <option value="investments">Investments</option>
@@ -93,7 +93,7 @@ function Form() {
                     </select>
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Add A Reference</label>
+                    <label className="text-field-label">Add A Reference:</label>
                     <textarea
                         value={description}
                         name="description"

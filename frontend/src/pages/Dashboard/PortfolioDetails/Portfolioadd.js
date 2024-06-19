@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react';
-
+import girl from '../../../assets/in3.png'
 
 import './Portfolioadd.css';
 import PortfolioForm from './Portfolioform';
+const style = {
+  backgroundImage: `url(${girl})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+ backgroundSize:'cover',
+};
 function Portfolioadd() {
   
   return (
-    <div className="portfolio-container"> 
+    <div style={style} className="portfolio-container"> 
 
           <div className="portfolio-content">
             <div className="form-container">

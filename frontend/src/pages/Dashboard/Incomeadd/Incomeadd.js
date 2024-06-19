@@ -3,7 +3,7 @@ import Form from '../../Form/Form';
 import { useGlobalContext } from '../../Context/globalContext';
 import Header from '../components/Header';
 import './income.css';
-import girl from '../../../assets/income1.png'
+import girl from '../../../assets/in3.png'
 function Incomeadd() {
   const { getIncomes, users } = useGlobalContext();
 
@@ -12,12 +12,17 @@ function Incomeadd() {
       getIncomes(); // Fetch incomes when the component mounts
     }
   }, []);
-
+  const style = {
+    backgroundImage: `url(${girl})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+   backgroundSize:'cover',
+  };
   return (
-    <div className="income-container">
+    <div style={style} className="income-container">
       <div className="income-content">
         <div className="image-container">
-          <img src={girl} alt="Girl pointing towards form" className="pointing-girl-image" />
+          {/* <img src={girl} alt="Girl pointing towards form" className="pointing-girl-image" /> */}
         </div>
         <div className="form-container">
           <Form />
