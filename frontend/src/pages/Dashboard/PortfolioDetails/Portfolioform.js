@@ -39,16 +39,16 @@ function PortfolioForm() {
         <form className="form-styled" onSubmit={handleSubmit}>
             <div className="portfolio-form-container">
                 {message && <p className="error-message">{message}</p>}
-                <h2>Add Investment Details</h2>
+                <h2>Add Investment Details 💸</h2>
                 <div className="form-control">
-                    <label className="text-field-label">Type of Investment</label>
+                    <label className="text-field-label">Type of Investment:</label>
                     <select
                         value={type}
                         onChange={handleInput('type')}
                         name="type"
                         className="text-field-input"
                     >
-                        <option value="" disabled>Select Type of Investment</option>
+                        <option value="" disabled>Select Type of Investment:</option>
                         <option value="stocks">Stocks</option>
                         <option value="bonds">Bonds</option>
                         <option value="mutualFunds">Mutual Funds</option>
@@ -58,7 +58,7 @@ function PortfolioForm() {
                     </select>
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Investment Amount</label>
+                    <label className="text-field-label">Investment Amount:</label>
                     <input
                         type="number"
                         value={amount}
@@ -68,16 +68,16 @@ function PortfolioForm() {
                     />
                 </div>
                 <div className="form-control">
-                    <label className="text-field-label">Purchase Date</label>
+                    <label className="text-field-label">Purchase Date:</label>
                     <DatePicker
                         selected={purchaseDate}
                         onChange={(date) => setInputState({ ...inputState, purchaseDate: date })}
                         dateFormat="dd/MM/yyyy"
-                        className="text-field-input"
+                        className="text-field-input date-input"
                     />
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Current Value</label>
+                    <label className="text-field-label">Current Value:</label>
                     <input
                         type="number"
                         value={currentValue}
@@ -87,7 +87,7 @@ function PortfolioForm() {
                     />
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Expected Growth</label>
+                    <label className="text-field-label">Expected Growth:</label>
                     <input
                         type="number"
                         value={expectedGrowth}
@@ -97,7 +97,7 @@ function PortfolioForm() {
                     />
                 </div>
                 <div className="text-field">
-                    <label className="text-field-label">Description</label>
+                    <label className="text-field-label">Description:</label>
                     <textarea
                         value={description}
                         name="description"
