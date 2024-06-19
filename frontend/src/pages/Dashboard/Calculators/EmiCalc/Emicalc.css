@@ -32,13 +32,18 @@
 
 /* Container for each slider */
 .slider-container {
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Increased margin for better spacing */
+  padding: 10px; /* Added padding for inner spacing */
+  border: 1px solid #ddd; /* Optional: border to distinguish each section */
+  border-radius: 8px; /* Optional: rounded corners for a smoother look */
+  background-color: #f9f9f9; /* Optional: background color to distinguish sections */
 }
 
 /* Styling for the sliders */
 .slider {
   color: #3F51B5;
   height: 10px;
+  margin-top: 10px; /* Adjusted margin for better spacing */
 }
 
 .slider .MuiSlider-thumb {
@@ -46,16 +51,24 @@
   width: 25px;
   background-color: white;
   border: 3px solid #3F51B5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.slider .MuiSlider-thumb:hover {
+  transform: scale(1.2);
 }
 
 .slider .MuiSlider-track {
   height: 10px;
   border-radius: 4px;
+  background: linear-gradient(135deg, #3F51B5, #2196F3);
 }
 
 .slider .MuiSlider-rail {
   height: 10px;
   border-radius: 4px;
+  background-color: #e0e0e0;
 }
 
 /* Container for the table */
@@ -63,13 +76,14 @@
   margin-top: 20px;
   background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
 }
-.table-con{
+
+.table-con {
   background-color: #002147;
 }
+
 /* Table details */
 .table-details {
   width: 100%;
-  
 }
 
 /* Pie chart styling */

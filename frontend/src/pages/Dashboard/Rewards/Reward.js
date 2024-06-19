@@ -30,13 +30,13 @@ const Rewards = () => {
         <div className="grid-item">
           <Rewardbox
             title="Flipkart Vouchers"
-            price="200 points"
+            price="180 points"
           />
         </div>
         <div className="grid-item">
           <Rewardbox
-            title="Amazon Vouchers"
-            price="200 points"
+            title="Myntra Vouchers"
+            price="150 points"
           />
         </div>
       </div>

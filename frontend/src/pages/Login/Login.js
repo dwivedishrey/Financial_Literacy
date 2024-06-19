@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useSignInWithGoogle,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import GoogleButton from "react-google-button";
-import loginimg from '../../assets/business-concept-with-graphic-holography.jpg'
+import loginimg from '../../assets/login.jpg'
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import "./Login.css";
@@ -20,7 +20,10 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleuser, googleloading, googleerror] =
     useSignInWithGoogle(auth);
-
+    useEffect(() => {
+      setEmail("");
+      setPassword("");
+    }, []);
     const handleGoogleSignIn = async () => {
       try {
         await signInWithGoogle();
@@ -75,10 +78,6 @@ const Login = () => {
         console.error('Error signing in:', err);
       }
     };
-  
-
-  
-
   return (
     <div className="login-container">
     <div className="login-image-container">

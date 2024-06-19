@@ -10,8 +10,8 @@ function truncateText(text, wordLimit) {
 }
 
 const NewsBox = ({ image, title, description, link }) => {
-  const truncatedDescription = truncateText(description, 20); // Adjusted word limit for a more realistic truncation
-  const truncatedTitle = truncateText(title, 10);
+  const truncatedDescription = truncateText(description, 15); // Adjusted word limit for a more realistic truncation
+  const truncatedTitle = truncateText(title, 5);
 
   return (
     <div className="news-box">

@@ -252,6 +252,7 @@ export const GlobalProvider = ({ children }) => {
         }
     };
 
+
     return (
         <GlobalContext.Provider value={{
             addIncome,

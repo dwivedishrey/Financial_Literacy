@@ -27,7 +27,7 @@ const Dashboard = () => {
   const colors = tokens(theme.palette.mode);
   const { users } = useGlobalContext();
   const { totalBalance ,totalInvestments} = useGlobalContext();
-
+  
   return (
     <Box
     sx={{
