@@ -69,10 +69,30 @@ const Quiz = () => {
   return (
     <div className="quiz-page">
       <h2 style={{ color: "black", fontWeight: "900" }}>Finance Quiz</h2>
-      <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
+      <div className="reward-info">
+        <div className="reward-icon">🏆</div>
+        <div className="reward-text">
+          <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>
+            <h3>
+              Winning one set of quiz will reward you with a free session with a
+              financial advisor!!
+            </h3>
+          </p>
+        </div>
+      </div>
+      <hr
+        style={{
+          color: "black",
+          backgroundColor: "black",
+          height: "2px",
+          border: "none",
+        }}
+      />
       <div className="container">
         <div className="score-container">
-          <h2 style={{ fontSize: "20px", fontWeight: "900" }}>Score: {score}</h2>
+          <h2 style={{ fontSize: "20px", fontWeight: "900" }}>
+            Score: {score}
+          </h2>
         </div>
         {result ? (
           <>
@@ -81,17 +101,45 @@ const Quiz = () => {
             </h2>
             {score === data.length && (
               <div className="reward-message">
-                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "18px", fontWeight: "bold" }}>Congratulations! You scored perfectly!</p>
-                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>You have earned a free consultation with our financial advisor!</p>
+                <p
+                  style={{
+                    color: "rgba(11, 11, 69, 0.912)",
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Congratulations! You scored perfectly!
+                </p>
+                <p
+                  style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}
+                >
+                  You have earned a free consultation with our financial
+                  advisor!
+                </p>
               </div>
             )}
             {score > 6 && score < data.length && (
               <div className="reward-message">
-                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "18px", fontWeight: "bold" }}>Great job!</p>
-                <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>You have earned {pointsEarned} points which can be used for reward vouchers!</p>
+                <p
+                  style={{
+                    color: "rgba(11, 11, 69, 0.912)",
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Great job!
+                </p>
+                <p
+                  style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}
+                >
+                  You have earned {pointsEarned} points which can be used for
+                  reward vouchers!
+                </p>
               </div>
             )}
-            <button style={{ marginTop: "5px" }} onClick={reset}>Reset</button>
+            <button style={{ marginTop: "5px" }} onClick={reset}>
+              Reset
+            </button>
           </>
         ) : (
           <>
@@ -138,13 +186,6 @@ const Quiz = () => {
             </div>
           </>
         )}
-      </div>
-
-      <div className="reward-info">
-        <div className="reward-icon">🏆</div>
-        <div className="reward-text">
-          <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "16px" }}>Winning one set of quiz will reward you with a free session with a financial advisor!</p>
-        </div>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import React from "react";
 import { Table, TableCell, TableHead, TableRow } from "@mui/material";
 
-
 export default function TableDetails(props) {
   return (
     <Table
