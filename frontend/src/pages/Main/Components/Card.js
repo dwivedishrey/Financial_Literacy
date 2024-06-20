@@ -6,7 +6,7 @@ function Card(props) {
       <img height='100px' src={props.image}/>
       <h3>{props.name}</h3>
       <p>{props.des}</p>
-      <a href='#' className='btn'>
+      <a href={props.link} className='btn'>
         Read More
       </a>
     </div>
