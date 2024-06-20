@@ -9,6 +9,7 @@ const Services = () => {
         image={item.img}
         name={item.name}
         des={item.des} 
+        link={item.link}
        />
      ))
      
