@@ -17,6 +17,7 @@ function Incomeadd() {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
    backgroundSize:'cover',
+  
   };
   return (
     <div style={style} className="income-container">

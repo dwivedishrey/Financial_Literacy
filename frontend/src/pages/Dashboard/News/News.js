@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './News.css';
 import Header from '../components/Header';
 import NewsBox from './Newsbox';
-
+import quora from '../../../assets/news1.jpg'
 function News() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -52,12 +52,23 @@ function News() {
       </div>
     );
   }
+  const style = {
+    paddingTop: '30px',
+    backgroundImage: `url(${quora})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize:'cover',
+    backgroundAttachment:'fixed'
+ 
+  };
 
   return (
+    <div style={style} className="news-main-container">
     <div className="news-container">
       <div className="news-header">
-        <h2 style={{color:"black"}} className="news-title">Financial News</h2>
-        <hr className="header-line" />
+      <h2 style={{color: "white", backgroundColor: "#1e3a8a", padding: "10px 20px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", fontSize: "24px", fontWeight: "bold"}} className="news-title">Financial News</h2>
+
+       
       </div>
       <div className="news-grid">
         {articles.length > 0 ? articles.map((article, index) => (
@@ -73,6 +84,7 @@ function News() {
           <h5 className="no-articles">No articles found</h5>
         )}
       </div>
+    </div>
     </div>
   );
 }

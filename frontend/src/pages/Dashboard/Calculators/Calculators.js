@@ -13,8 +13,10 @@ const Calculators = () => {
     <div className="calculators-container">
       {/* HEADER */}
       <div className="calculators-header">
-        <h2 className="calculators-title">Calculators</h2>
-        <hr className="header-line" />
+      <h2 style={{color: "white", backgroundColor: "#1e3a8a", padding: "10px 20px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", fontSize: "24px", fontWeight: "bold"}} className="news-title">Calculators</h2>
+
+
+        
         <p style={{color:"black"}} className="calculators-description">
           Financial calculators are indispensable tools for anyone looking to make informed financial decisions. Whether you are planning to take out a loan, save for a future goal, or manage your daily expenses, financial calculators provide clarity and direction. They transform complex financial concepts into easily understandable numbers, helping users to visualize their financial future and make well-informed decisions.
         </p>

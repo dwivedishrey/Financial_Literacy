@@ -27,10 +27,19 @@
   }
   
   /* News Container */
+  .news-main-container{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+
+  }
   .news-container {
     width: 90%;
     max-width: 1200px;
     margin: 20px;
+    margin-left: 60px;
+    
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;

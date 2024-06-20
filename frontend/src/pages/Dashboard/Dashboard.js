@@ -13,7 +13,6 @@ import { useGlobalContext } from "../Context/globalContext";
 
 import PieChart from "./Chart/Pie";
 import BarChart from "./Chart/Bar";
-import Pieincome from "./Chart/Pieincome";
 import InvestmentPieChart from "./Chart/investmentchart";
 import BudgetStatus from "./SetBudget/BudgetStatus";
 import SetBudget from "./SetBudget/Budget";
@@ -21,12 +20,13 @@ import UpcomingPayments from "./PortfolioDetails/InvestmentDate";
 import backgroundImage from '../../../src/assets/background8.jpg'; 
 import LineChart from "./Chart/LineChart";
 import History from "./TransactionHistory/Recent";
+import Chatbot from "../Main/Chatbot";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const { users } = useGlobalContext();
-  const { totalBalance ,totalInvestments} = useGlobalContext();
+  const { totalBalance ,totalInvestments,budgetMessage} = useGlobalContext();
   
   return (
     <Box
@@ -45,6 +45,7 @@ const Dashboard = () => {
         <div className="header-text">
           <h1 className="header-title">Financial Overview</h1>
           <p style={{color:"black"}} className="header-subtitle">Get a comprehensive overview of your financial health</p>
+          <p style={{color:"red",fontSize:"15px",fontWeight:"900"}}>{budgetMessage}</p>
         </div>
         <div className="header-set-budget">
           <SetBudget />
@@ -266,7 +267,9 @@ const Dashboard = () => {
           
         </Box>
       </Box>
+      
       </Box>
+      
     </Box>
 
   );

@@ -5,6 +5,7 @@ import FAQ from './Components/Faq.js'
 import ContactUS from './Components/ContactUS'
 import Footer from './Components/footer.js'
 import Service from './Components/Services.js'
+import Chatbot from './Chatbot.js'
 
 
 const Main = () => {
@@ -16,7 +17,9 @@ const Main = () => {
     <FAQ/>
     <ContactUS/>
     <Footer/>
+
     </>
+   
   )
 }
 

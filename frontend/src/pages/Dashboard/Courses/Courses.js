@@ -38,8 +38,7 @@ const Courses = () => {
     <div className="courses-container">
       {/* HEADER */}
       <div className="courses-header">
-        <h2 style={{color:"black"}} className="courses-title">Courses</h2>
-        <hr className="header-line" />
+      <h2 style={{color: "white", backgroundColor: "#1e3a8a", padding: "10px 20px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", fontSize: "24px", fontWeight: "bold"}} className="news-title">Courses</h2>
       </div>
 
       {/* GRID & CHARTS */}

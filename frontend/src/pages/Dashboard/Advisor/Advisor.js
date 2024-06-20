@@ -11,8 +11,8 @@ const Advisor = () => {
     <div className="advisor-container">
       {/* HEADER */}
       <div className="advisor-header">
-        <h2>List of Financial Advisors</h2>
-        <hr className="header-line" />
+      <h2 style={{color: "white", backgroundColor: "#1e3a8a", padding: "10px 20px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", fontSize: "24px", fontWeight: "bold"}} className="news-title">List of Financial Advisors</h2>
+
       </div>
 
       {/* GRID */}

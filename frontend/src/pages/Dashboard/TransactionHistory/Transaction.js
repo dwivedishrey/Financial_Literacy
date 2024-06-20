@@ -12,8 +12,8 @@ function Transaction() {
       };
     return (
         <HistoryStyled>
-            <h2 style={{color:"black",fontWeight:"900"}}>Transaction History</h2>
-            <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
+             <h2 style={{color: "white", backgroundColor: "#1e3a8a",marginTop:"20px", padding: "10px 50px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", fontSize: "24px", fontWeight: "bold"}} className="news-title">Transaction History</h2>
+           
             <div className="history">
                 <table>
                     <thead>

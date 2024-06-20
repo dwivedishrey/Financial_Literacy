@@ -3,7 +3,7 @@ import "./CreatePost.css";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../Context/globalContext";
-
+import quora from '../../../assets/quora1.jpg'
 export default function CreatePost() {
   const [body, setBody] = useState("");
   const [posts, setPosts] = useState([]); // Ensure initial state is an empty array
@@ -91,8 +91,18 @@ export default function CreatePost() {
       notifyA("Please enter a comment");
     }
   };
+  const style = {
+    paddingTop: '30px',
+    backgroundImage: `url(${quora})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize:'cover',
+    backgroundAttachment:'fixed'
+  
+  };
 
   return (
+    <div style={style} className="main-container">
     <div className="create-post-container">
       <div className="create-post-box">
         <h4 className="create-post-header">Ask Your Question</h4>
@@ -133,6 +143,7 @@ export default function CreatePost() {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }
