@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import girl from '../../../assets/in3.png'
+import girl from '../../../assets/t1.png'
 
 import './Portfolioadd.css';
 import PortfolioForm from './Portfolioform';

@@ -20,7 +20,7 @@ import UpcomingPayments from "./PortfolioDetails/InvestmentDate";
 import backgroundImage from '../../../src/assets/background8.jpg'; 
 import LineChart from "./Chart/LineChart";
 import History from "./TransactionHistory/Recent";
-import Chatbot from "../Main/Chatbot";
+
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -267,7 +267,7 @@ const Dashboard = () => {
           
         </Box>
       </Box>
-      
+   
       </Box>
       
     </Box>

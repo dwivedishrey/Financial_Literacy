@@ -1,5 +1,4 @@
-
-  .courses-container {
+.courses-container {
     width: 90%;
     max-width: 1200px;
     margin: 100px auto;
@@ -7,7 +6,6 @@
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
   }
   
   .courses-header {
@@ -31,7 +29,7 @@
   
   .courses-description {
     font-size: 16px;
-    color: #1679AB;
+    color: #1679ab;
     margin: 20px 0;
   }
   
@@ -52,7 +50,7 @@
   
   .read-more-link {
     font-size: 16px;
-    color:white;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
   }
@@ -61,3 +59,4 @@
     color: #c0cddb;
     text-decoration: none;
   }
+ 

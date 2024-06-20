@@ -5,7 +5,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333333;
+    color: black;
     background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
     
   }
@@ -89,7 +89,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
   }
-  
+  .post-preview h4{
+    font-size: 20px;
+    font-weight: 400;
+  }
   .post-preview p {
     color: #1a202c;
   }

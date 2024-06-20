@@ -13,7 +13,7 @@
 /* Container for the calculator application */
 .calApp {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
@@ -26,7 +26,7 @@
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  color: #3F51B5;
+  color: #3f51b5;
   margin-bottom: 20px;
 }
 
@@ -36,12 +36,12 @@
   padding: 10px; /* Added padding for inner spacing */
   border: 1px solid #ddd; /* Optional: border to distinguish each section */
   border-radius: 8px; /* Optional: rounded corners for a smoother look */
-  background-color: #f9f9f9; /* Optional: background color to distinguish sections */
+  background-color: black; /* Optional: background color to distinguish sections */
 }
 
 /* Styling for the sliders */
 .slider {
-  color: #3F51B5;
+  color: #3f51b5;
   height: 10px;
   margin-top: 10px; /* Adjusted margin for better spacing */
 }
@@ -50,7 +50,7 @@
   height: 25px;
   width: 25px;
   background-color: white;
-  border: 3px solid #3F51B5;
+  border: 3px solid #3f51b5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -62,7 +62,7 @@
 .slider .MuiSlider-track {
   height: 10px;
   border-radius: 4px;
-  background: linear-gradient(135deg, #3F51B5, #2196F3);
+  background: linear-gradient(135deg, #3f51b5, #2196f3);
 }
 
 .slider .MuiSlider-rail {
@@ -88,7 +88,7 @@
 
 /* Pie chart styling */
 .pie-chart {
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 
@@ -97,7 +97,7 @@
   .calApp {
     padding: 10px;
   }
-  
+
   .calHeading {
     font-size: 20px;
   }

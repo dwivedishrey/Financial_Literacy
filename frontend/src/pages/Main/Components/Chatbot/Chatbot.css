@@ -1,0 +1,199 @@
+/* Container for the buttons */
+.start-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+/* Styling for the buttons */
+.start-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+    background-color: #0056b3;
+}
+
+/* General chatbot container styling */
+.chatbot-container {
+    width: 280px;
+    height: 500px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Chat header styling */
+.chatbot-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Chat messages styling */
+.chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message-bot {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-start;
+}
+
+.message-user {
+    background-color: #e0e0e0;
+    color: black;
+    align-self: flex-end;
+}
+
+/* Chat input styling */
+.chatbot-input {
+    display: flex;
+    padding: 8px;
+    background-color: #f1f1f1;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.chatbot-input button {
+    padding: 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chatbot-input button:hover {
+    background-color: #0056b3;
+}
+
+/* Option buttons styling */
+.option-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option-button:hover {
+    background-color: #0056b3;
+}
+
+/* Container for the toggle button and chatbot */
+.chatbot-toggle-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Styling for the toggle button */
+.chatbot-toggle-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-toggle-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the dots */
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 2px 0;
+}
+
+/* Styling for the cross */
+.cross {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.react-chatbot-kit-chat-btn-send {
+    background-color: #2898ec;
+    width: 100px;
+    border: none;
+    color: #fff;
+    border-bottom-right-radius: 5px;
+    margin-top: 10px;
+}
+.advisor-link-container {
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Styling for the advisor link */
+.advisor-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.advisor-link:hover {
+    background-color: #0056b3;
+}
+

@@ -1,6 +1,4 @@
-
-  
-  .calculators-container {
+.calculators-container {
     width: 100%;
     max-width: 1200px;
     margin: 100px auto;
@@ -8,7 +6,6 @@
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
   }
   
   .calculators-header {
@@ -16,9 +13,11 @@
     margin-bottom: 50px;
     color: black;
   }
-  .calculators-header h2{
+  
+  .calculators-header h2 {
     color: black;
   }
+  
   .calculators-title {
     font-size: 32px;
     font-weight: bold;
@@ -33,8 +32,6 @@
     border: none;
   }
   
-  
-  
   /* Grid Styles */
   .calculators-grid {
     display: grid;
@@ -44,7 +41,12 @@
   
   /* Calculator Box Styles */
   .calculator-box {
-    background-color: #ececec;
+    position: relative;
+    background: linear-gradient(
+      to right,
+      transparent 50%,
+      rgba(236, 236, 236, 0.9) 50%
+    );
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
@@ -53,7 +55,8 @@
     justify-content: space-between;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
+    background-size: 200%;
+    background-position: right;
   }
   
   .calculator-box:hover {
@@ -63,12 +66,14 @@
   
   .calculator-header {
     margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
   }
   
   .calculator-title {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: rgb(12, 11, 11);
   }
   
   .calculator-content {
@@ -84,7 +89,7 @@
   
   .calculator-arrow {
     font-size: 24px;
-    color: #1679AB;
+    color: #1679ab;
     text-decoration: none;
   }
   
@@ -92,3 +97,33 @@
     color: #0056b3;
   }
   
+  .calculator-icon {
+    font-size: 40px;
+    color: #333;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.2
+    ); /* Adjust opacity for better readability */
+    z-index: 1;
+    pointer-events: none; /* Ensure the overlay does not interfere with clicks */
+  }
+  .cal-contain{
+ 
+    display: flex; /* Ensure flex container to center content */
+    flex-direction: column; /* Vertical stacking */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
+    
+  
+}

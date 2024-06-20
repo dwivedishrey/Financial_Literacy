@@ -69,7 +69,7 @@
 .submit-button {
     
     margin-top: 20px;
-    background-color: rgba(6, 15, 11, 0.6);
+    background-color: rgb(17, 26, 84);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -82,5 +82,5 @@
 }
 
 .submit-button:hover {
-    background-color: rgba(12, 22, 18, 0.9);
+    background-color:  rgb(51, 56, 87);
 }

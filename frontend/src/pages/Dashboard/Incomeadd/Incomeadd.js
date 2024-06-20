@@ -3,7 +3,7 @@ import Form from '../../Form/Form';
 import { useGlobalContext } from '../../Context/globalContext';
 import Header from '../components/Header';
 import './income.css';
-import girl from '../../../assets/in3.png'
+import girl from '../../../assets/t1.png'
 function Incomeadd() {
   const { getIncomes, users } = useGlobalContext();
 

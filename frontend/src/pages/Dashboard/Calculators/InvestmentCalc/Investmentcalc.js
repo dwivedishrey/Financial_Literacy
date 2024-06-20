@@ -116,3 +116,4 @@ function InvestmentCalculator() {
 }
 
 export default InvestmentCalculator;
+

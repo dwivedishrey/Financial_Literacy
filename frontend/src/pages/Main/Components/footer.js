@@ -21,7 +21,7 @@ const Footers = () => {
                 </div>
                 <div className="footer-section">
                     <h3>Contact Us</h3>
-                    <p>Email: info@company.com</p>
+                    <p>Email: Connect@Arthamarga.in</p>
                     <p>Phone: (123) 456-7890</p>
                 </div>
             </div>

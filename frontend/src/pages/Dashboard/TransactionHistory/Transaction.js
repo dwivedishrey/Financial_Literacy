@@ -2,7 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext';
 import Header from '../components/Header';
-
+import bg from '../../../assets/t4.png'
+import { background } from '@chakra-ui/react';
+const style = {
+    backgroundImage: `url(${bg})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+   backgroundSize:'cover',
+   backgroundAttachment:'fixed'
+  };
 function Transaction() {
     const { transactionHistory } = useGlobalContext();
 
@@ -11,9 +19,11 @@ function Transaction() {
         return str.replace(/\b\w/g, char => char.toUpperCase());
       };
     return (
-        <HistoryStyled>
-             <h2 style={{color: "white", backgroundColor: "#1e3a8a",marginTop:"20px", padding: "10px 50px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", fontSize: "24px", fontWeight: "bold"}} className="news-title">Transaction History</h2>
-           
+        <div className='main-contain' style={style}>
+        <HistoryStyled >
+        <h2 style={{color: "white", backgroundColor: "#1e3a8a",fontSize: "24px", padding: "10px 20px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",  fontWeight: "bold"}} className="news-title">Transactions History</h2>
+
+            
             <div className="history">
                 <table>
                     <thead>
@@ -40,6 +50,7 @@ function Transaction() {
                 </table>
             </div>
         </HistoryStyled>
+        </div>
     );
 }
 
