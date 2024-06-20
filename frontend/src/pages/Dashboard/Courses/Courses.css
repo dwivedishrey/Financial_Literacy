@@ -1,4 +1,12 @@
-.courses-container {
+.course-contain {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .courses-container {
     width: 90%;
     max-width: 1200px;
     margin: 100px auto;
@@ -59,4 +67,4 @@
     color: #c0cddb;
     text-decoration: none;
   }
- 
+  

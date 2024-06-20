@@ -12,7 +12,6 @@ function History() {
         <HistoryStyled>
             {history.map((item) => {
                 const { _id, title, amount, type } = item;
-                // Determine text and color based on transaction type
                 const textColor = type === 'expense' ? 'red' : 'green';
                 const transactionText = type === 'expense' ? `-${amount <= 0 ? 0 : amount}` : `+${amount <= 0 ? 0 : amount}`;
 
@@ -25,7 +24,6 @@ function History() {
                             {transactionText}
                         </p>
                     </div>
-                    
                 );
             })}
         </HistoryStyled>
@@ -35,17 +33,35 @@ function History() {
 const HistoryStyled = styled.div`
     display: flex;
     flex-direction: column;
-    
+    width: 100%;
+
     .history-item {
         background: transparent;
-        width:350px;
+        width: 100%;
         background-color: white;
         border-bottom: 2px solid black;
-        margin-left: 20px;
+        padding: 10px;
         font-size: 15px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+        .history-item {
+            font-size: 20px;
+            padding: 8px;
+            justify-content: space-between;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .history-item {
+            font-size: 20px;
+            padding: 16px;
+            justify-content: space-between;
+        }
     }
 `;
 

@@ -12,7 +12,7 @@ function News() {
     async function fetchNews() {
       try {
         let response = await fetch(
-          'https://newsapi.org/v2/everything?q=financial&pageSize=30&apiKey=f73ced8d863347dc9f4dfc6deef5f863'
+          `https://newsapi.org/v2/everything?q=financial&pageSize=30&apiKey=${process.env.REACT_APP_KEY_NEWS}`
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');

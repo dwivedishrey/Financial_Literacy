@@ -11,10 +11,14 @@ import image6 from "../../../assets/as6.png";
 import bg from '../../../assets/e1.png'
 const Courses = () => {
     const style = {
+        paddingTop: '30px',
         backgroundImage: `url(${bg})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-       backgroundSize:'cover'
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+        minHeight: '100vh', // Ensure the container covers the full viewport height
+        width: '100%', // Ensure the container covers the full viewport width
       };
   // Array of course data
   const courses = [

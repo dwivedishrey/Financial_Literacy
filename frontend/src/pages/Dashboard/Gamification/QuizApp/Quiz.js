@@ -77,6 +77,7 @@ const Quiz = () => {
   return (
     <div style={style} className="quiz-page">
       <div style={{ position: "relative", zIndex: "2", padding: "20px" }}>
+    
       <h2 style={{ color: "black", fontWeight: "900" }}>Finance Quiz</h2>
       <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
       </div>

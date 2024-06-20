@@ -10,6 +10,7 @@ import auth from "../../firebase.init";
 import "./Login.css";
 import { useGlobalContext } from "../Context/globalContext";
 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const Login = () => {
   const {users}=useGlobalContext()
   const navigate = useNavigate();
@@ -80,12 +81,17 @@ const Login = () => {
     };
   return (
     <div className="login-container">
+       
     <div className="login-image-container">
         <img className=" image" src={loginimg} alt="loginimg" />
     </div>
-
+   
     <div className="login-form-container">
         <div className="login-form-box" >
+        <button className="homepage-btn" onClick={() => navigate("/")}>
+          <ArrowBackIcon style={{ marginRight: '5px' }} /> {/* Add the icon here */}
+          Go to Homepage
+        </button>
             <h1>LogIn Now </h1>
            
 
@@ -139,6 +145,7 @@ const Login = () => {
                 Sign up
             </Link>
         </div>
+       
         {error && <p className="error">{error.message}</p>}
           {googleerror && <p className="error">{googleerror.message}</p>}
           {loading || googleloading ? <div>Loading...</div> : null}

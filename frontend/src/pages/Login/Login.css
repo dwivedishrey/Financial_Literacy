@@ -8,8 +8,9 @@
 .login-form-container {
   flex: 1;
   padding: 50px;
-  margin: 10px;
+  margin: 0px;
   align-content: center;
+  position: relative;
 }
 
 .login-form-box {
@@ -74,7 +75,7 @@ input {
 }
 
 .login-btn {
-  background-color: black;
+  background-color: #002147;
   width: 75%;
   margin-right: 20px;
   padding: 14px;
@@ -140,3 +141,23 @@ input {
     display: none;
   }
 }
+.homepage-btn {
+  position: absolute; /* Add this line */
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  padding: 10px 20px;
+  background-color: #002147;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.homepage-btn:hover {
+  background-color: #0d0774;
+}
+

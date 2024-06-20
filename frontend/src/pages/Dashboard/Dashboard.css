@@ -1,11 +1,11 @@
+/* Dashboard.css */
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 
 html,
 body,
 #root,
-.app
- {
+.app {
   height: 100%;
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
@@ -17,12 +17,12 @@ body,
   height: 100vh;
   overflow: hidden;
 }
-main.content{
+
+main.content {
   overflow-y: auto;
   width: 100%;
   margin-bottom: 10px;
 }
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -42,6 +42,7 @@ main.content{
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 .header-container {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -52,7 +53,6 @@ main.content{
   width: 100%;
   margin-top: 5px;
   margin-right: 10px;
- 
 }
 
 .header-content {
@@ -86,7 +86,6 @@ main.content{
 
 .set-budget-button {
   color: white;
-  
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -98,3 +97,75 @@ main.content{
   background-color: #1a237e;
 }
 
+/* Responsive design */
+@media screen and (max-width: 1200px) {
+  .header-title {
+    font-size: 1.5rem;
+  }
+  
+  .header-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-set-budget {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .header-title {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-title {
+    font-size: 1.2rem;
+  }
+  
+  .header-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .header-set-budget {
+    width: 100%;
+  }
+
+  .header-container {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header-title {
+    font-size: 1rem;
+  }
+  
+  .header-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .header-set-budget {
+    width: 100%;
+  }
+
+  .header-container {
+    padding: 10px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

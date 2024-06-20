@@ -15,7 +15,7 @@ export const GlobalProvider = ({ children }) => {
     const [investments, setInvestments] = useState([]);
     const [totalBudget, setTotalBudgetState] = useState(0);
     const [upcomingPayments, setUpcomingPayments] = useState([]);
-    const [budgetMessage, setBudgetMessage] = useState("");
+    
 
     const setUserGlobally = (userData) => {
         if (userData) {
@@ -254,17 +254,7 @@ export const GlobalProvider = ({ children }) => {
         }
     };
     
-    useEffect(() => {
-        if (totalBudget > 0) {
-            if (totalExpenses > totalBudget) {
-                setBudgetMessage("Uh-oh! You've exceeded your budget. Time to rein in the spending!");
-            } else {
-                setBudgetMessage("Great job! You're within your budget. Keep up the good work!");
-            }
-        } else {
-            setBudgetMessage("Set your budget to receive personalized financial tips and stay on track!");
-        }
-    }, [totalExpenses, totalBudget]);
+    
 
     return (
         <GlobalContext.Provider value={{
@@ -296,7 +286,7 @@ export const GlobalProvider = ({ children }) => {
             getTotalBudget,
             totalBudget,
             RecentHistory,
-            budgetMessage
+            
             
             
         }}>
