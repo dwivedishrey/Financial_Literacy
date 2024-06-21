@@ -3,11 +3,13 @@ import { useGlobalContext } from '../../Context/globalContext';
 import './Budget.css';
 
 function BudgetStatus() {
-  const { totalBudget, totalExpenses, getTotalBudget } = useGlobalContext();
-
+  const { totalBudget, totalExpenses, getTotalBudget,users } = useGlobalContext();
   useEffect(() => {
-    getTotalBudget();
-  }, [getTotalBudget]);
+    if (users) {
+        getTotalBudget(); // Fetch i=budget when the component mounts
+    }
+}, []);
+ 
   return (
     <div className="budget-status-container">
       <div className="budget-status-details">

@@ -37,6 +37,7 @@ export const GlobalProvider = ({ children }) => {
             setUser(JSON.parse(storedUser));
         }
     }, []);
+ 
     
     useEffect(() => {
         console.log("Current user:", users);
@@ -44,6 +45,7 @@ export const GlobalProvider = ({ children }) => {
     const logout = () => {
         setUser(null);
         localStorage.removeItem('user');
+     
     };
 
     const addIncome = async (income) => {
@@ -247,14 +249,12 @@ export const GlobalProvider = ({ children }) => {
             const payload = getUserPayload();
             const response = await axios.get(`${BASE_URL}get-total-budget`, { params: payload });
             console.log("Fetched Total Budget: ", response.data);
-            setTotalBudgetState(response.data.totalBudget);
+            setTotalBudgetState(response.data.totalBudget || 0); // Set to default value if not present
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
             console.error("Error fetching total budget:", err);
         }
     };
-    
-    
 
     return (
         <GlobalContext.Provider value={{
