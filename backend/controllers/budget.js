@@ -45,16 +45,17 @@ exports.getTotalBudget = async (req, res) => {
     }
 
     try {
-        const budget = await Budget.findOne({ user: userId });
-        if (!budget) {
-            // If no budget is found, return a default budget
-            console.log('No budget found for user:', userId);
-            return res.status(200).json({ totalBudget: 0 });
+        if (!user_id) {
+            return res.status(400).json({ message: 'User ID is required' });
         }
-        
+
+        const budget = await Budget.findOne({ user: user_id });
+        if (!budget) {
+            return res.status(200).json({ totalBudget: 0 }); // Return default budget
+        }
+
         res.status(200).json({ totalBudget: budget.totalBudget });
     } catch (error) {
-        console.error('Error fetching total budget:', error);
-        res.status(500).json({ message: 'Server Error' });
+        res.status(400).json({ message: error.message });
     }
 };

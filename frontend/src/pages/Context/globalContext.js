@@ -2,7 +2,7 @@ import React, { useContext, useState,useEffect } from "react";
 import axios from 'axios';
 import auth from "../../firebase.init";
 
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "https://financial-literacy-be3z.onrender.com/";
 
 const GlobalContext = React.createContext();
 
@@ -239,7 +239,6 @@ export const GlobalProvider = ({ children }) => {
             setError(err.response?.data?.message || "An unexpected error occurred");
         }
     };
-
     const getTotalBudget = async () => {
         if (!users) {
             setError("User not authenticated");
@@ -249,12 +248,13 @@ export const GlobalProvider = ({ children }) => {
             const payload = getUserPayload();
             const response = await axios.get(`${BASE_URL}get-total-budget`, { params: payload });
             console.log("Fetched Total Budget: ", response.data);
-            setTotalBudgetState(response.data.totalBudget || 0); // Set to default value if not present
+            setTotalBudgetState(response.data.totalBudget !== undefined ? response.data.totalBudget : 0); // Set to default value if not present
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
             console.error("Error fetching total budget:", err);
         }
     };
+    
 
     return (
         <GlobalContext.Provider value={{

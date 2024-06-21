@@ -55,7 +55,7 @@ const Signup = () => {
       await createUserWithEmailAndPassword(email, password);
       const newUser = { username, email, password, uid: auth.currentUser.uid };
       console.log(newUser);
-      const response = await fetch(`http://localhost:5000/register`, {
+      const response = await fetch(`https://financial-literacy-be3z.onrender.com/register`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(newUser),
@@ -99,7 +99,7 @@ const Signup = () => {
         firebaseUid: auth.currentUser.uid,
       };
       console.log(user);
-      const response = await fetch(`http://localhost:5000/register`, {
+      const response = await fetch(`https://financial-literacy-be3z.onrender.com/register`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(user),
