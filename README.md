@@ -37,6 +37,7 @@
 #### Get user UID
 
 ```http
+
  GET /api/getUserIdByUid/${uid}
 
 ```
@@ -48,7 +49,9 @@
 #### Post income details
 
 ```http
+
   POST /api/add-income
+
 ```
 
 | Parameter | Type     | Description                       |
@@ -59,6 +62,7 @@
 
 ### Get Incomes
 ```http
+
 GET /api/get-income
 
 ```
@@ -70,7 +74,9 @@ GET /api/get-income
 #### Post expense details
 
 ```http
+
   POST /api/add-expense
+
 ```
 
 | Parameter | Type     | Description                       |
@@ -81,6 +87,7 @@ GET /api/get-income
 
 ### Get Expenses
 ```http
+
 GET /api/get-expense
 
 ```
@@ -177,8 +184,6 @@ Refer to the respective directories (frontend and backend) for more specific det
 
 
 
-
-
 ## Support
 
 For support, email support@arthamarga.com or join our Slack channel.
@@ -186,7 +191,7 @@ For support, email support@arthamarga.com or join our Slack channel.
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot 2024-06-20 170912](https://github.com/dwivedishrey/Financial_Literacy/assets/97790062/16f7bbbe-32ba-415e-bdde-98acc6be31e0)
 
 
 ## Running Tests
@@ -196,15 +201,6 @@ To run tests, run the following command
 ```bash
   npm run 
 ```
-
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
 
 
 ## FAQ
