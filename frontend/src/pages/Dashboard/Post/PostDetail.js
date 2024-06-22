@@ -12,7 +12,7 @@ export default function PostDetail({ item, toggleDetails }) {
 
   const removePost = (postId) => {
     if (window.confirm("Do you really want to delete this post ?")) {
-      fetch(`http://localhost:5000/deletePost/${postId}`, {
+      fetch(`https://financial-literacy-be3z.onrender.com/deletePost/${postId}`, {
         method: "delete",
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwt"),

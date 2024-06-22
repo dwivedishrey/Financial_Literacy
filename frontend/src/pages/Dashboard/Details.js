@@ -1,11 +1,26 @@
 import React from 'react';
 import "./Details.css";
+import credit from '../../assets/credit3.jpg';
+import credit1 from '../../assets/credit5.jpg';
 
 const Details = () => {
+    const style = {
+        paddingTop: '30px',
+        backgroundImage: `url(${credit})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize:'cover',
+        backgroundAttachment:'fixed'
+     
+      };
   return (
-    <div className='detail-body'>
+    <div  style={style} className='detail-body'>
+        
       <div className="detail-container">
         <h2>User Details</h2>
+        <div style={{ display: 'flex', justifyContent: 'center' }} className="form-top-image">
+    <img style={{ maxWidth: '300px' }} src={credit1} alt="Credit Card Image" />
+</div>
         <form>
           <div className="form-row">
             <div className="form-group">

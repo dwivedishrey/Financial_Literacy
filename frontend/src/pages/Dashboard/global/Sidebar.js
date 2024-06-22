@@ -27,7 +27,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from 'firebase/auth'
-import SchoolIcon from '@mui/icons-material/School';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -176,7 +176,6 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Update Your Profile"
-              
               to=" /dashboard/profile"
               icon={<PersonOutlineIcon />}
               selected={selected}
@@ -197,7 +196,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Add Portfolio"
+              title="Add Investment"
               to="/dashboard/portfolio"
               icon={<PermIdentityIcon />}
               selected={selected}
@@ -214,7 +213,7 @@ const Sidebar = () => {
 <Item
               title="Courses"
               to="/dashboard/courses"
-              icon={< SchoolIcon/>}
+              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

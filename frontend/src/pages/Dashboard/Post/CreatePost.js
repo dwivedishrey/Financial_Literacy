@@ -15,7 +15,7 @@ export default function CreatePost() {
   const notifyB = (msg) => toast.success(msg);
 
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch("https://financial-literacy-be3z.onrender.com/posts")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -29,7 +29,7 @@ export default function CreatePost() {
   }, []);
 
   const postDetails = () => {
-    fetch("http://localhost:5000/createpost", {
+    fetch("https://financial-literacy-be3z.onrender.com/createpost", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function CreatePost() {
   };
 
   const postComment = (postId, comment) => {
-    fetch("http://localhost:5000/addComment", {
+    fetch("https://financial-literacy-be3z.onrender.com/addComment", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

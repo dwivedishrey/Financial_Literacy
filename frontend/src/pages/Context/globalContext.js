@@ -2,7 +2,7 @@ import React, { useContext, useState,useEffect } from "react";
 import axios from 'axios';
 import auth from "../../firebase.init";
 
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "https://financial-literacy-be3z.onrender.com/";
 
 const GlobalContext = React.createContext();
 
