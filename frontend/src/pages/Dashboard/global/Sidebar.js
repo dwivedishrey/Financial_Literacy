@@ -28,7 +28,8 @@ import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from 'firebase/auth'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-
+import SchoolIcon from '@mui/icons-material/School';
+import CalculateIcon from '@mui/icons-material/Calculate';
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -213,7 +214,7 @@ const Sidebar = () => {
 <Item
               title="Courses"
               to="/dashboard/courses"
-              icon={<ReceiptOutlinedIcon />}
+              icon={<SchoolIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -228,7 +229,7 @@ const Sidebar = () => {
             <Item
               title="Calculators"
               to="/dashboard/calculators"
-              icon={<PersonOutlinedIcon />}
+              icon={<CalculateIcon />}
               selected={selected}
               setSelected={setSelected}
             />
