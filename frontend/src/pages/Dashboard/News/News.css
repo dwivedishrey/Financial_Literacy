@@ -27,10 +27,12 @@
   
   /* News Container */
   .news-main-container{
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    justify-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 
   }
   .news-container {

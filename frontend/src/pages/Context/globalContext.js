@@ -2,7 +2,7 @@ import React, { useContext, useState,useEffect } from "react";
 import axios from 'axios';
 import auth from "../../firebase.init";
 
-const BASE_URL = "https://financial-literacy-be3z.onrender.com/";
+const BASE_URL = "http://localhost:5000/";
 
 const GlobalContext = React.createContext();
 
@@ -21,7 +21,7 @@ export const GlobalProvider = ({ children }) => {
         if (userData) {
             setUser(userData);
             localStorage.setItem('user', JSON.stringify(userData));
-            console.log("User set globally:", userData);
+            
         } else {
             console.error("Trying to set user globally with null or undefined value");
         }
@@ -39,9 +39,9 @@ export const GlobalProvider = ({ children }) => {
     }, []);
  
     
-    useEffect(() => {
-        console.log("Current user:", users);
-    }, [users]);
+    // useEffect(() => {
+    //     console.log("Current user:", users);
+    // }, [users]);
     const logout = () => {
         setUser(null);
         localStorage.removeItem('user');
@@ -56,7 +56,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             const payload = { ...income, ...getUserPayload() };
             const response = await axios.post(`${BASE_URL}add-income`, payload);
-            console.log(response.data);
+           
             setMessage("Income Added")
             setTimeout(() => setMessage(null), 3000);
             getIncomes();
@@ -73,11 +73,11 @@ export const GlobalProvider = ({ children }) => {
         try {
              const payload = getUserPayload();
             const response = await axios.get(`${BASE_URL}get-income`, { params: payload });
-            console.log("Fetched Incomes: ", response.data);
+           
             setIncomes(response.data);
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
-            console.error("Error fetching incomes:", err);
+            // console.error("Error fetching incomes:", err);
         }
     };
 
@@ -106,7 +106,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             const payload = { ...expense, ...getUserPayload() };
             const response = await axios.post(`${BASE_URL}add-expense`, payload);
-            console.log(response.data);
+           
             setMessage("Expense Added")
             setTimeout(() => setMessage(null), 3000);
             getExpenses();
@@ -124,7 +124,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             const payload = getUserPayload();
             const response = await axios.get(`${BASE_URL}get-expense`, { params: payload });
-            console.log("Fetched Expense: ", response.data);
+            
             setExpenses(response.data);
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");
@@ -167,15 +167,15 @@ export const GlobalProvider = ({ children }) => {
     const addInvestment = async (investment) => {
         
         if (users==null) {
-            console.log("ser not authenticated")
+         
             setError("User not authenticated");
             return;
         }
         try {
-            console.log(investment)
+            
             const payload = { ...investment, ...getUserPayload() };
             const response = await axios.post(`${BASE_URL}add-investment`, payload);
-            console.log(response.data);
+          
             setMessage("Investment Added");
             setTimeout(() => setMessage(null), 3000);
             getInvestments();
@@ -192,7 +192,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             const payload = getUserPayload();
             const response = await axios.get(`${BASE_URL}get-investment`, { params: payload });
-            console.log("Fetched Investments: ", response.data);
+         
             setInvestments(response.data);
             const today = new Date();
             const upcoming = response.data.filter(investment => {
@@ -231,7 +231,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             const payload = { totalBudget: budget, ...getUserPayload() };
             const response = await axios.post(`${BASE_URL}set-total-budget`, payload);
-            console.log(response.data);
+            
             setMessage("Total Budget Set");
             setTimeout(() => setMessage(null), 3000);
             getTotalBudget();
@@ -247,7 +247,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             const payload = getUserPayload();
             const response = await axios.get(`${BASE_URL}get-total-budget`, { params: payload });
-            console.log("Fetched Total Budget: ", response.data);
+          
             setTotalBudgetState(response.data.totalBudget !== undefined ? response.data.totalBudget : 0); // Set to default value if not present
         } catch (err) {
             setError(err.response?.data?.message || "An unexpected error occurred");

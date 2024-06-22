@@ -34,7 +34,7 @@ const Login = () => {
       if (auth.currentUser) {
         const uid = auth.currentUser.uid;
         // Fetch user_id from the backend using the uid
-        const response = await fetch(`https://financial-literacy-be3z.onrender.com/getUserIdByUid/${uid}`);
+        const response = await fetch(`http://localhost:5000/getUserIdByUid/${uid}`);
         const data = await response.json();
         console.log(data);
         if (data.user_id) {
@@ -63,7 +63,7 @@ const Login = () => {
       await signInWithEmailAndPassword(email, password);
       if (auth.currentUser) {
         const uid = auth.currentUser.uid;
-        const response = await fetch(`https://financial-literacy-be3z.onrender.com/getUserIdByUid/${uid}`);
+        const response = await fetch(`http://localhost:5000/getUserIdByUid/${uid}`);
         const data = await response.json();
         if (data.user_id) {
           const loggedInUser = {

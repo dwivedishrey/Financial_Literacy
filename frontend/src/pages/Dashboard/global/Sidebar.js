@@ -27,6 +27,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from 'firebase/auth'
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -173,6 +174,13 @@ const Sidebar = () => {
             >
               Data
             </Typography>
+            <Item
+              title="Update Your Profile"
+              to=" /dashboard/profile"
+              icon={<PersonOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Item
               title="Add Incomes"
               to=" /dashboard/incomeadd"

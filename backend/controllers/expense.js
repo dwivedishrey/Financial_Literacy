@@ -29,7 +29,7 @@ exports.addExpense=async(req,res) => {
         await expense.save();
         res.status(200).json({ message: 'Expenses added', expense });
     } catch (error) {
-        console.error(error);
+        
         res.status(500).json({ message: 'Server Error' });
     }
     
@@ -38,7 +38,7 @@ exports.addExpense=async(req,res) => {
 
 exports.getExpense = async (req, res) => {
     const { user_id } = req.query;
-    console.log('Received user_id:', user_id);
+   
 
     // Convert the user_id to ObjectId
     let userId;
@@ -48,8 +48,7 @@ exports.getExpense = async (req, res) => {
         return res.status(400).json({ message: 'Invalid user_id format' });
     }
 
-    // Log the converted userId for debugging
-    console.log('Converted userId:', userId);
+
 
     if (!userId) {
         return res.status(401).json({ message: 'User is not authenticated' });
@@ -59,7 +58,7 @@ exports.getExpense = async (req, res) => {
         const incomes = await Expense.find({ user: userId }).sort({ createdAt: -1 });
         res.status(200).json(incomes);
     } catch (error) {
-        console.error(error);
+       
         res.status(500).json({ message: 'Server Error' });
     }
 }

@@ -12,16 +12,19 @@ function News() {
     async function fetchNews() {
       try {
         let response = await fetch(
-          `https://newsapi.org/v2/everything?q=financial&pageSize=30&apiKey=${process.env.REACT_APP_KEY_NEWS}`
+          `https://api.currentsapi.services/v1/latest-news?language=en&category=finance&apiKey=${process.env.REACT_APP_KEY_NEWS}`
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         let result = await response.json();
-        if (result.articles) {
+        if (result.news) {
           // Filter out articles without necessary data
-          const validArticles = result.articles.filter(article => 
-            article.urlToImage && article.title && article.description
+          const validArticles = result.news.filter(article => 
+            article.image !== 'None' && 
+            article.image !== '/next-assets/images/schema-image-default.png' && 
+            article.title && 
+            article.description
           );
           setArticles(validArticles);
         } else {
@@ -74,7 +77,7 @@ function News() {
         {articles.length > 0 ? articles.map((article, index) => (
           <div key={index} className="news-item">
             <NewsBox
-              image={article.urlToImage}
+              image={article.image}
               title={article.title}
               description={article.description}
               link={article.url}

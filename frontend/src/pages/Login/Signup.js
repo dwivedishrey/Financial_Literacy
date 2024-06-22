@@ -54,15 +54,15 @@ const Signup = () => {
     try {
       await createUserWithEmailAndPassword(email, password);
       const newUser = { username, email, password, uid: auth.currentUser.uid };
-      console.log(newUser);
-      const response = await fetch(`https://financial-literacy-be3z.onrender.com/register`, {
+      console.log(newUser)
+      const response = await fetch(`http://localhost:5000/register`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(newUser),
       });
       const data = await response.json();
 
-      console.log(data);
+    
 
       if (data.acknowledged) {
         const user = {
@@ -70,7 +70,7 @@ const Signup = () => {
           username,
           email
         };
-        console.log(user);
+        
        
 
         navigate("/dashboard");
@@ -98,8 +98,8 @@ const Signup = () => {
         updatedAt: new Date(),
         firebaseUid: auth.currentUser.uid,
       };
-      console.log(user);
-      const response = await fetch(`https://financial-literacy-be3z.onrender.com/register`, {
+      
+      const response = await fetch(`http://localhost:5000/register`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(user),
@@ -116,7 +116,7 @@ const Signup = () => {
         
         navigate("/dashboard");
         setUserGlobally(user);
-        console.log(data);
+      
         
       } else {
         setError("User already exists");

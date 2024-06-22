@@ -26,19 +26,19 @@ exports.setTotalBudget = async (req, res) => {
 
 exports.getTotalBudget = async (req, res) => {
     const { user_id } = req.query;
-    console.log('Received user_id:', user_id);
+    
 
     // Convert the user_id to ObjectId
     let userId;
     try {
         userId = user_id ? new mongoose.Types.ObjectId(user_id) : null;
     } catch (error) {
-        console.error('Invalid user_id format:', error);
+       
         return res.status(400).json({ message: 'Invalid user_id format' });
     }
 
     // Log the converted userId for debugging
-    console.log('Converted userId:', userId);
+    
 
     if (!userId) {
         return res.status(401).json({ message: 'User is not authenticated' });

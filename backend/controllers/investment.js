@@ -31,14 +31,14 @@ exports.addInvestment = async (req, res) => {
         await investment.save();
         res.status(200).json({ message: 'Investment added', investment });
     } catch (error) {
-        console.error(error);
+        
         res.status(500).json({ message: 'Server Error' });
     }
 };
 
 exports.getInvestments = async (req, res) => {
     const { user_id } = req.query;
-    console.log('Received user_id:', user_id);
+   
 
     let userId;
     try {
@@ -47,7 +47,6 @@ exports.getInvestments = async (req, res) => {
         return res.status(400).json({ message: 'Invalid user_id format' });
     }
 
-    console.log('Converted userId:', userId);
 
     if (!userId) {
         return res.status(401).json({ message: 'User is not authenticated' });
@@ -57,7 +56,7 @@ exports.getInvestments = async (req, res) => {
         const investments = await Investment.find({ user: userId }).sort({ createdAt: -1 });
         res.status(200).json(investments);
     } catch (error) {
-        console.error(error);
+       
         res.status(500).json({ message: 'Server Error' });
     }
 };

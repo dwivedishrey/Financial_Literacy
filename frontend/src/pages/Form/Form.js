@@ -25,7 +25,7 @@ function Form() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(inputState);
+       
         addIncome(inputState);
 
         setInputState({

@@ -6,8 +6,7 @@ import IncomeItem from '../IncomeItem/IncomeItem';
 
 function Viewincome() {
   const { incomes, getIncomes, deleteIncome, user } = useGlobalContext();
-  console.log('Incomes:', incomes); // Add this log
-  console.log('User:', user); // Add this log
+ 
  
   useEffect(() => {
     if (user) {
