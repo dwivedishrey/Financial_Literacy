@@ -34,13 +34,13 @@ exports.addIncome = async (req, res) => {
         await income.save();
         res.status(200).json({ message: 'Income added', income });
     } catch (error) {
-        console.error(error);
+       
         res.status(500).json({ message: 'Server Error' });
     }
 };
 exports.getIncome = async (req, res) => {
     const { user_id } = req.query;
-    console.log('Received user_id:', user_id);
+    
 
     // Convert the user_id to ObjectId
     let userId;
@@ -51,7 +51,7 @@ exports.getIncome = async (req, res) => {
     }
 
     // Log the converted userId for debugging
-    console.log('Converted userId:', userId);
+   
 
     if (!userId) {
         return res.status(401).json({ message: 'User is not authenticated' });
@@ -61,7 +61,7 @@ exports.getIncome = async (req, res) => {
         const incomes = await Income.find({ user: userId }).sort({ createdAt: -1 });
         res.status(200).json(incomes);
     } catch (error) {
-        console.error(error);
+      
         res.status(500).json({ message: 'Server Error' });
     }
 }
@@ -86,7 +86,7 @@ exports.deleteIncome = async (req, res) => {
 
         res.status(200).json({ message: "Income deleted successfully" });
     } catch (error) {
-        console.error(error);
+        
         res.status(500).json({ message: 'Server Error' });
     }
 };

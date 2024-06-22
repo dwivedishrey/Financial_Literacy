@@ -1,72 +1,75 @@
+/* income.css */
+
+/* General styles */
 .form-styled {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    
+    width: 90%; /* Adjusted width for responsiveness */
+    max-width: 400px; /* Added max-width to prevent form from stretching too much on larger screens */
+    margin: auto; /* Center the form horizontally */
     gap: 1rem;
-    
+    padding: 20px; /* Added padding for spacing */
 }
 
-
-.form-container p{
-  color: red;
-     
- 
- }
-.form-container h2{
-    color: black;
-    font-size: 20px;
-    
-
-}
-.income-message {
-    color: red !important;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-.text-field {
-    display: flex;
-    flex-direction: row; /* Changed from column to row */
-    align-items: center; /* Vertically center the label and input */
-    margin-bottom: 0.5rem;
+.form-container h2 {
+    margin-bottom: 20px; /* Reduced margin-bottom for better spacing */
+    color: white !important;
+    font-size: 1.5rem !important; /* Adjusted font-size for responsiveness */
+    font-weight: 900;
 }
 
 .text-field-label {
-    color: black;
-    margin-right: 1rem; /* Add some space between the label and input */
+    color: white !important;
+    font-size: 0.9rem; /* Adjusted font-size for labels */
+    margin-right: 1rem;
     font-weight: bold;
-    min-width: 120px; /* Ensure labels have a minimum width */
-    text-align: right; /* Align text to the right for better spacing */
+    min-width: 100px; /* Reduced min-width for smaller screens */
+    text-align: right;
 }
 
 .text-field-input {
-    flex: 1; /* Allow the input to take up remaining space */
+    flex: 1;
     background-color: white;
     color: black;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 40px !important;
+    font-size: 0.9rem; /* Adjusted font-size for inputs */
 }
 
 .form-control {
-    display: flex;
-    flex-direction: row; /* Changed from column to row */
-    align-items: center; /* Vertically center the label and input */
     margin-bottom: 1rem;
 }
 
 .income-submit-button {
-    margin-top: 30px;
-    background-color: rgba(11, 11, 69, 0.912);
+    margin-top: 20px;
+    background-color: rgb(17, 26, 84) !important;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    border-radius: 50pc; /* Removed unnecessary border-radius */
+    width: 50%; /* Adjusted width for button */
 }
 
-.submit-button:hover {
-    background-color: rgba(11, 11, 69, 0.912);
+.income-submit-button:hover {
+    background-color: rgba(12, 22, 18, 0.9);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .form-styled {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .text-field-label {
+        min-width: auto; /* Remove min-width for labels on smaller screens */
+    }
+
+    .income-submit-button {
+        width: 100%; /* Full width button on smaller screens */
+    }
 }

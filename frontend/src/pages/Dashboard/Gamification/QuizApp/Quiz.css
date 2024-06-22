@@ -1,6 +1,18 @@
+.quiz-page{
+  display: flex; /* Ensure flex container to center content */
+  flex-direction: column; /* Vertical stacking */
+  justify-content: center;
+  /* align-items: center;  */
+  height: 100vh !important; 
+  /* justify-content: center;  */
+  /* align-items: center;  */
+  background-size: cover !important;
+}
 .container {
   width: 500px;
   margin: auto;
+  position: relative;
+  bottom: 60px;
   background: white;
   color: black;
   display: flex;
@@ -104,6 +116,7 @@
 }
 
 .reward-message p {
+  
   margin: 5px 0;
 }
 
@@ -121,10 +134,14 @@
 }
 
 .reward-icon {
-  font-size: 24px;
+  font-size: 40px;
+  position: relative;
+  bottom: 50px;
 }
 
 .reward-text {
-  font-size: 16px;
-  color: #3f51b5;
+  position: relative;
+  bottom: 50px;
+  font-size: 16px !important;
+  color: #b5b9d4;
 }

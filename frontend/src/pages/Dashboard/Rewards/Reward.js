@@ -14,9 +14,10 @@ const Rewards = () => {
     <div className="rewards-container">
       {/* HEADER */}
       <div className="rewards-header">
-        <h2 style={{color:"black"}} className="rewards-title">Reward Store</h2>
-        <hr className="header-line" />
-        <p className="rewards-subtitle">Unlock Exclusive Rewards as You Learn and Play</p>
+      <h2 style={{color: "white", backgroundColor: "#1e3a8a", padding: "10px 20px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", fontSize: "24px", fontWeight: "bold"}} className="news-title">Reward Store</h2>
+
+    
+        <p style={{color:"black"}} className="rewards-subtitle">Unlock Exclusive Rewards as You Learn and Play</p>
       </div>
       
       {/* GRID & REWARDS */}

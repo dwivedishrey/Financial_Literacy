@@ -95,6 +95,7 @@ function DashboardRoutes() {
               <Route path="/portfolio" element={<Portfolioadd />} />
               <Route path="/bar" element={<BarChart />} />
               <Route path="/pie" element={<PieChart />} />
+              <Route path="/profile" element={<Details />} />
               
               <Route path="/line" element={<Line />} />
               <Route path="/faq" element={<FAQ />} />

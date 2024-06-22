@@ -1,61 +1,70 @@
-.courses-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 100px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.courses-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.courses-title {
-  font-size: 32px;
-  font-weight: bold;
-  color: black;
-}
-
-.header-line {
-  margin: 10px auto;
-  width: 50%;
-  height: 2px;
-  background-color: black;
-  border: none;
-}
-
-.courses-description {
-  font-size: 16px;
-  color: #1679ab;
-  margin: 20px 0;
-}
-
-/* Grid Styles */
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.read-more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin: auto;
-}
-
-.read-more-link {
-  font-size: 16px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-.read-more-link:hover {
-  color: #c0cddb;
-  text-decoration: none;
-}
+.course-contain {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .courses-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .courses-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .courses-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .header-line {
+    margin: 10px auto;
+    width: 50%;
+    height: 2px;
+    background-color: black;
+    border: none;
+  }
+  
+  .courses-description {
+    font-size: 16px;
+    color: #1679ab;
+    margin: 20px 0;
+  }
+  
+  /* Grid Styles */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .read-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: auto;
+  }
+  
+  .read-more-link {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .read-more-link:hover {
+    color: #c0cddb;
+    text-decoration: none;
+  }
+  

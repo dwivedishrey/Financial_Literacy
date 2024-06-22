@@ -8,8 +8,22 @@ import image3 from "../../../assets/as3.png";
 import image4 from "../../../assets/as4.png";
 import image5 from "../../../assets/as5.png";
 import image6 from "../../../assets/as6.png";
+<<<<<<< HEAD
 
+=======
+import bg from '../../../assets/e1.png'
+>>>>>>> homepage
 const Courses = () => {
+    const style = {
+        paddingTop: '30px',
+        backgroundImage: `url(${bg})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+        minHeight: '100vh', // Ensure the container covers the full viewport height
+        width: '100%', // Ensure the container covers the full viewport width
+      };
   // Array of course data
   const courses = [
     {
@@ -46,14 +60,23 @@ const Courses = () => {
   ];
 
   return (
+    <div style={style} className="course-contain">
     <div className="courses-container">
       {/* HEADER */}
       <div className="courses-header">
+<<<<<<< HEAD
         <h2 style={{ color: "black" }} className="courses-title">
           Courses
           <h3>Basic Courses are FREE for womens!!</h3>
         </h2>
         <hr className="header-line" />
+=======
+      <h2 style={{color: "white", backgroundColor: "#1e3a8a", padding: "10px 20px",fontSize: "24px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",  fontWeight: "bold"}} className="news-title">Courses</h2>
+
+          
+          <h3 style={{fontSize: "24px"}}>Basic Courses are FREE for womens!!</h3>
+        
+>>>>>>> homepage
       </div>
 
       {/* GRID & CHARTS */}
@@ -77,6 +100,7 @@ const Courses = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

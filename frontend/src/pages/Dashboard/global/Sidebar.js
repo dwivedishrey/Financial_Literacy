@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {ProSidebar , Menu, MenuItem } from "react-pro-sidebar";
+import { useState, useEffect } from "react";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
@@ -10,7 +10,6 @@ import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -28,7 +27,9 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from 'firebase/auth'
-
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import SchoolIcon from '@mui/icons-material/School';
+import CalculateIcon from '@mui/icons-material/Calculate';
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -49,16 +50,28 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-
-
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(window.innerWidth < 768);
   const [selected, setSelected] = useState("Dashboard");
   const { users } = useGlobalContext();
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate(); 
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsCollapsed(true);
+      } else {
+        setIsCollapsed(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -69,7 +82,7 @@ const Sidebar = () => {
       console.error('Error signing out:', error);
     }
   };
-  
+
   return (
     <Box
       sx={{
@@ -148,7 +161,7 @@ const Sidebar = () => {
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
-              title="My investment Suit"
+              title="My investment Suite"
               to="/dashboard"
               icon={<HomeOutlinedIcon />}
               selected={selected}
@@ -160,8 +173,15 @@ const Sidebar = () => {
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              Data
+              My Data
             </Typography>
+            <Item
+              title="Update Your Profile"
+              to=" /dashboard/profile"
+              icon={<PersonOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Item
               title="Add Incomes"
               to=" /dashboard/incomeadd"
@@ -177,7 +197,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Add Portfolio"
+              title="Add Investment"
               to="/dashboard/portfolio"
               icon={<PermIdentityIcon />}
               selected={selected}
@@ -194,7 +214,7 @@ const Sidebar = () => {
 <Item
               title="Courses"
               to="/dashboard/courses"
-              icon={<ReceiptOutlinedIcon />}
+              icon={<SchoolIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -209,7 +229,7 @@ const Sidebar = () => {
             <Item
               title="Calculators"
               to="/dashboard/calculators"
-              icon={<PersonOutlinedIcon />}
+              icon={<CalculateIcon />}
               selected={selected}
               setSelected={setSelected}
             />

@@ -3,7 +3,7 @@ import "./CreatePost.css";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../Context/globalContext";
-
+import quora from '../../../assets/quora1.jpg'
 export default function CreatePost() {
   const [body, setBody] = useState("");
   const [posts, setPosts] = useState([]); // Ensure initial state is an empty array
@@ -15,13 +15,13 @@ export default function CreatePost() {
   const notifyB = (msg) => toast.success(msg);
 
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch("https://financial-literacy-be3z.onrender.com/posts")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
           setPosts(data);
         } else {
-          console.error("Fetched data is not an array:", data);
+          
           setPosts([]); // Set posts to an empty array if data is not an array
         }
       })
@@ -29,7 +29,7 @@ export default function CreatePost() {
   }, []);
 
   const postDetails = () => {
-    fetch("http://localhost:5000/createpost", {
+    fetch("https://financial-literacy-be3z.onrender.com/createpost", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function CreatePost() {
   };
 
   const postComment = (postId, comment) => {
-    fetch("http://localhost:5000/addComment", {
+    fetch("https://financial-literacy-be3z.onrender.com/addComment", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -91,10 +91,21 @@ export default function CreatePost() {
       notifyA("Please enter a comment");
     }
   };
+  const style = {
+    paddingTop: '30px',
+    backgroundImage: `url(${quora})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize:'cover',
+    backgroundAttachment:'fixed',
+    minHeight: '100vh'
+  
+  };
 
   return (
+    <div style={style} className="main-container">
     <div className="create-post-container">
-      <div className="create-post-box">
+      <div  className="create-post-box">
         <h4 className="create-post-header">Ask Your Question</h4>
         <textarea
           value={body}
@@ -133,6 +144,7 @@ export default function CreatePost() {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }

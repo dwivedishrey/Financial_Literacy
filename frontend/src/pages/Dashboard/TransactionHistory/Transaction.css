@@ -1,3 +1,11 @@
+.main-contain{
+    display: flex; /* Ensure flex container to center content */
+    flex-direction: column; /* Vertical stacking */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
+    
+}
 .history-container {
     display: flex;
     flex-direction: column;

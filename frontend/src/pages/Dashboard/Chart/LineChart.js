@@ -3,10 +3,11 @@ import { Line } from 'react-chartjs-2';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext';
 import { format } from 'date-fns';
-import { Chart as ChartJs, ArcElement, Tooltip, Legend, CategoryScale,LineElement,PointElement } from 'chart.js'; 
+import { Chart as ChartJs, ArcElement, Tooltip, Legend, CategoryScale, LineElement, PointElement } from 'chart.js'; 
 
 // Register necessary components
-ChartJs.register(ArcElement, Tooltip, Legend, CategoryScale,LineElement,PointElement);//
+ChartJs.register(ArcElement, Tooltip, Legend, CategoryScale, LineElement, PointElement);
+
 function LineChart() {
   const { incomes, expenses } = useGlobalContext();
 
@@ -47,7 +48,6 @@ function LineChart() {
   };
 
   // Chart options
-  
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -80,12 +80,9 @@ const LineChartStyled = styled.div`
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
   padding: 1rem;
   border-radius: 20px;
-  width: 500px;
-  margin-top:5px;
-  height: 200px;
-  margin-left:20px;
- 
- 
+  width: 100%; /* Adjust width to take full width of its container */
+  height: 200px; /* Fixed height, adjust as necessary */
+  margin-top: 20px; /* Adjust spacing */
 `;
 
 export default LineChart;

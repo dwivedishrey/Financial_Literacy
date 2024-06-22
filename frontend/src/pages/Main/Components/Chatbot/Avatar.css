@@ -1,0 +1,20 @@
+/* Avatar.css */
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 2px;
+
+}
+
+.avatar-icon {
+    font-size: 24px;
+    color: white;
+
+}

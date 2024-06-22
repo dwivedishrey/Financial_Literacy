@@ -15,16 +15,18 @@
     text-align: center;
     height: 650px;
     width: 500px;
-    background-color: white;
-    border-radius: 8px; /* Rounded corners */
-    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
-    border-top: 40px solid rgba(11, 11, 69, 0.912);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better visualization */
-  }
+    /* background-color: white; */
+    background: rgba(19, 39, 83, 0.75);
+     /* Rounded corners */
+    /* background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%); */
+    /* border-top: 40px solid rgba(11, 11, 69, 0.912);  */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+  } 
   
   .form-container {
-    width: 100%; /* Full width of the income-content box */
-  
-    /* Margin for spacing */
+    width: 100%; 
   }
   

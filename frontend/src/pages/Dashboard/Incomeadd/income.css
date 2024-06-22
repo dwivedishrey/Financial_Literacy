@@ -11,11 +11,15 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%);
+    /* background: linear-gradient(135deg, #ffffff 0%, #9aa8eb 100%); */
+    background: rgba(19, 39, 83, 0.75);
     height: 650px;
-    width: 700px; /* Adjust width to accommodate the image */
-    border-radius: 8px;
-    border-top: 40px solid rgba(11, 11, 69, 0.912);
+    width: 500px; /* Adjust width to accommodate the image */
+   
+    /* border-top: 40px solid rgba(11, 11, 69, 0.912); */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
   }
   
   .image-container {

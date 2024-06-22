@@ -20,7 +20,7 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [createUserWithEmailAndPassword, user, loading, createUserError] =
     useCreateUserWithEmailAndPassword(auth);
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+  const [signInWithGoogle, googleUser,googleloading, googleerror] =
     useSignInWithGoogle(auth);
     useEffect(() => {
       setEmail("");
@@ -54,15 +54,15 @@ const Signup = () => {
     try {
       await createUserWithEmailAndPassword(email, password);
       const newUser = { username, email, password, uid: auth.currentUser.uid };
-      console.log(newUser);
-      const response = await fetch(`http://localhost:5000/register`, {
+      console.log(newUser)
+      const response = await fetch(`https://financial-literacy-be3z.onrender.com/register`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(newUser),
       });
       const data = await response.json();
 
-      console.log(data);
+    
 
       if (data.acknowledged) {
         const user = {
@@ -70,16 +70,17 @@ const Signup = () => {
           username,
           email
         };
-        console.log(user);
-        setUserGlobally(user);
+        
+       
 
         navigate("/dashboard");
+        setUserGlobally(user);
       } else {
-        setError("Failed to register user.");
+        setError("User already exists");
       }
     } catch (err) {
       setError(err.message);
-      window.alert(err.message);
+      
     }
   };
 
@@ -97,8 +98,8 @@ const Signup = () => {
         updatedAt: new Date(),
         firebaseUid: auth.currentUser.uid,
       };
-      console.log(user);
-      const response = await fetch(`http://localhost:5000/register`, {
+      
+      const response = await fetch(`https://financial-literacy-be3z.onrender.com/register`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(user),
@@ -112,16 +113,17 @@ const Signup = () => {
           email: auth.currentUser.email,
           uid: auth.currentUser.uid
         };
-        setUserGlobally(user);
+        
         navigate("/dashboard");
-        console.log(data);
+        setUserGlobally(user);
+      
         
       } else {
-        setError("Failed to register user.");
+        setError("User already exists");
       }
     } catch (err) {
       setError(err.message);
-      window.alert(err.message);
+      
     }
   };
 
@@ -135,10 +137,12 @@ const Signup = () => {
         <div className="">
           <div className="d-flex align-items-sm-center">
             <h3 className="heading1"> Signup </h3>
+            {error && <p style={{color:"red"}} className="error">{error}</p>}
+            {googleerror && <p style={{color:"red"}} className="error">{googleerror}</p>}
           </div>
 
-          {error && <p className="error-message">{error}</p>} {/* Display error message */}
-
+        
+          
           <form onSubmit={handleSubmit}>
             <input
               className="display-name"
@@ -190,6 +194,8 @@ const Signup = () => {
               Log In
             </Link>
           </div>
+        
+          {loading || googleloading ? <div>Loading...</div> : null}
         </div>
       </div>
     </div>
