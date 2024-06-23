@@ -32,7 +32,7 @@ const ContactUS = () => {
   return (
       <section style={style} className='contact'>
       <div className='content'>  
-        <h2>Contact US</h2>
+        <h2>Contact us</h2>
         <p>Connect with us through email and give your feedback for services provided by us, let us connect, lets earn together and grow together.
         </p>
         </div>
