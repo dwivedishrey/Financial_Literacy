@@ -86,7 +86,7 @@ const Quiz = () => {
       <div className="reward-info">
         <div className="reward-icon">🏆</div>
         <div className="reward-text">
-          <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "25px", width:'500px', fontWeight:'600' }}>Winning one set of quiz will reward you with a free session with a financial advisor!</p>
+          <p style={{ color: "rgba(11, 11, 69, 0.912)", fontSize: "25px", width:'500px', fontWeight:'600' }}>Winning one set of quiz will reward you with a free session with our financial advisor!</p>
         </div>
       </div>
     

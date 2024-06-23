@@ -49,4 +49,16 @@ export default[
         des:"Learn how to support yourself after you finish your career. Planning early is key.",
         link:"https://handsonbanking.org/topics/retirement/"
     },
+    {
+        img: "insurance.jpg",
+        name: "Insurance Planning",
+        des: "Protect yourself and your family. Understand different types of insurance and how they can provide financial security.",
+        link: "https://handsonbanking.org/topics/insurance-planning/"
+    },
+    {
+        img: "debt.jpg",
+        name: "Debt Management",
+        des: "Struggling with debt? Learn strategies for managing and reducing debt, and find out how to stay out of debt.",
+        link: "https://handsonbanking.org/topics/debt-management/"
+    },
 ]

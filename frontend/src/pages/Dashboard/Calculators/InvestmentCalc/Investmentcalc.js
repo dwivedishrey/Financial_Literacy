@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Slider, Typography, Table, TableCell, TableRow } from "@mui/material";
 import { Pie } from "react-chartjs-2";
+import { useNavigate } from 'react-router-dom';
 import "../EmiCalc/Emicalc.css";
 import TableDetails from "./TableDetails";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SliderMarks from "./SliderMarks";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
@@ -11,6 +13,10 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 function InvestmentCalculator() {
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate('/dashboard/calculators');
+  };
   const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
   const [expectedReturnRate, setExpectedReturnRate] = useState(7);
   const [timePeriod, setTimePeriod] = useState(10);
@@ -31,6 +37,10 @@ function InvestmentCalculator() {
   return (
     <div className="calc">
       <div className="calApp">
+      <button className="go-back-button" onClick={handleGoBack}>
+          <ArrowBackIcon className="go-back-button-icon" />
+         Back 
+        </button>
         <h1 className="calHeading">
           <u>Investment Calculator</u>
         </h1>

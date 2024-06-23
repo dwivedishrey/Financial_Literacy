@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import { Slider, Typography, Table, TableCell, TableRow } from "@mui/material";
 import { Pie } from "react-chartjs-2";
 import "../EmiCalc/Emicalc.css";
+import { useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import TableDetails from "./TableDetails";
 import SliderMarks from "./SliderMarks";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Mortagecalc() {
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate('/dashboard/calculators');
+  };
   const [pAmount, setpAmount] = useState(2755000);
   const [interest, setInterest] = useState(7);
   const [duration, setDuration] = useState(147);
@@ -28,8 +34,12 @@ function Mortagecalc() {
   return (
     <div className="calc">
       <div className="calApp">
+      <button className="go-back-button" onClick={handleGoBack}>
+          <ArrowBackIcon className="go-back-button-icon" />
+         Back 
+        </button>
         <h1 className="calHeading">
-          <u>Mortage Calculator</u>
+          <u>Mortgage Calculator</u>
         </h1>
 
         <div className="slider-container">
