@@ -78,7 +78,9 @@ const Quiz = () => {
     <div style={style} className="quiz-page">
       <div style={{ position: "relative", zIndex: "2", padding: "20px" }}>
     
-      <h2 style={{ color: "black", fontWeight: "900" }}>Finance Quiz</h2>
+      <div className="quiz-header">
+      <h2 style={{color: "black", textAlign: "center", fontWeight: "bold",marginTop:"2px"}} className="news-title">Cash Crunch Quiz</h2>
+      </div>
       <hr style={{ color: "black", backgroundColor: "black", height: "2px", border: "none" }} />
       </div>
       <div className="reward-info">
@@ -114,7 +116,7 @@ const Quiz = () => {
         ) : (
           <>
             <h2>
-              {index + 1}.{question.question}{" "}
+            <span style={{ marginRight: '5px' }}>{index + 1}.</span> {question.question}
             </h2>
             <ul>
               <li

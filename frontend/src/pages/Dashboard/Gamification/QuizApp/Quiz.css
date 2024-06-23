@@ -37,7 +37,11 @@
   color: black;
   align-self: center;
 }
-
+.quiz-header {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
 .container ul {
   position: relative;
   right: 17px;
