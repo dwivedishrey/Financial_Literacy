@@ -8,22 +8,18 @@ import image3 from "../../../assets/as3.png";
 import image4 from "../../../assets/as4.png";
 import image5 from "../../../assets/as5.png";
 import image6 from "../../../assets/as6.png";
-<<<<<<< HEAD
-
-=======
-import bg from '../../../assets/e1.png'
->>>>>>> homepage
+import bg from "../../../assets/e1.png";
 const Courses = () => {
-    const style = {
-        paddingTop: '30px',
-        backgroundImage: `url(${bg})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundAttachment: 'fixed',
-        minHeight: '100vh', // Ensure the container covers the full viewport height
-        width: '100%', // Ensure the container covers the full viewport width
-      };
+  const style = {
+    paddingTop: "30px",
+    backgroundImage: `url(${bg})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    minHeight: "100vh", // Ensure the container covers the full viewport height
+    width: "100%", // Ensure the container covers the full viewport width
+  };
   // Array of course data
   const courses = [
     {
@@ -61,46 +57,58 @@ const Courses = () => {
 
   return (
     <div style={style} className="course-contain">
-    <div className="courses-container">
-      {/* HEADER */}
-      <div className="courses-header">
-<<<<<<< HEAD
-        <h2 style={{ color: "black" }} className="courses-title">
-          Courses
-          <h3>Basic Courses are FREE for womens!!</h3>
-        </h2>
-        <hr className="header-line" />
-=======
-      <h2 style={{color: "white", backgroundColor: "#1e3a8a", padding: "10px 20px",fontSize: "24px", borderRadius: "8px", textAlign: "center", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",  fontWeight: "bold"}} className="news-title">Courses</h2>
+      <div className="courses-container">
+        {/* HEADER */}
+        <div className="courses-header">
+          <h2 style={{ color: "black" }} className="courses-title">
+            Courses
+            <h3>Basic Courses are FREE for womens!!</h3>
+          </h2>
+          <hr className="header-line" />
 
-          
-          <h3 style={{fontSize: "24px"}}>Basic Courses are FREE for womens!!</h3>
-        
->>>>>>> homepage
-      </div>
+          <h2
+            style={{
+              color: "white",
+              backgroundColor: "#1e3a8a",
+              padding: "10px 20px",
+              fontSize: "24px",
+              borderRadius: "8px",
+              textAlign: "center",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              fontWeight: "bold",
+            }}
+            className="news-title"
+          >
+            Courses
+          </h2>
 
-      {/* GRID & CHARTS */}
-      <div className="courses-grid">
-        {courses.map((course, index) => (
-          <div key={index} className="grid-item">
-            <CoursesBox
-              image={course.image}
-              title={course.title}
-              link={course.link}
-            />
-          </div>
-        ))}
+          <h3 style={{ fontSize: "24px" }}>
+            Basic Courses are FREE for womens!!
+          </h3>
+        </div>
 
-        {/* Example of a "Read More" or "Explore More" link */}
-        <div className="grid-item">
-          <div className="read-more">
-            <a href="/explore" className="read-more-link">
-              Explore More Courses
-            </a>
+        {/* GRID & CHARTS */}
+        <div className="courses-grid">
+          {courses.map((course, index) => (
+            <div key={index} className="grid-item">
+              <CoursesBox
+                image={course.image}
+                title={course.title}
+                link={course.link}
+              />
+            </div>
+          ))}
+
+          {/* Example of a "Read More" or "Explore More" link */}
+          <div className="grid-item">
+            <div className="read-more">
+              <a href="/explore" className="read-more-link">
+                Explore More Courses
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
